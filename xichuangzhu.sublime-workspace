@@ -1,0 +1,872 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"f",
+				"fontsize"
+			],
+			[
+				"stat",
+				"static"
+			],
+			[
+				"base",
+				"base_url"
+			],
+			[
+				"re",
+				"result"
+			],
+			[
+				"mar",
+				"margin-left"
+			],
+			[
+				"goal",
+				"goal-content-placeholder"
+			],
+			[
+				"is",
+				"isFirstClick"
+			],
+			[
+				"inde",
+				"indexArray"
+			],
+			[
+				"go",
+				"goalTitle"
+			],
+			[
+				"IS",
+				"isPublic"
+			],
+			[
+				"or",
+				"originalPwd"
+			],
+			[
+				"set",
+				"set_message"
+			],
+			[
+				"vali",
+				"valid_user_id"
+			],
+			[
+				"_se",
+				"_SESSION"
+			],
+			[
+				"user",
+				"userID"
+			],
+			[
+				"_sho",
+				"_show_page_change_pwd"
+			],
+			[
+				"us",
+				"userID"
+			],
+			[
+				"bas",
+				"base64_decode"
+			],
+			[
+				"matc",
+				"matches"
+			],
+			[
+				"valid",
+				"valid_email"
+			],
+			[
+				"for",
+				"form_validation"
+			],
+			[
+				"A",
+				"AND"
+			],
+			[
+				"pos",
+				"post"
+			],
+			[
+				"res",
+				"reset_pwd_code"
+			],
+			[
+				"and",
+				"AND"
+			],
+			[
+				"E",
+				"email"
+			],
+			[
+				"set_",
+				"set_rules"
+			],
+			[
+				"show",
+				"show_page_forgot_pwd"
+			],
+			[
+				"CA",
+				"case"
+			],
+			[
+				"form",
+				"form-forgot-pwd"
+			],
+			[
+				"else",
+				"elseif	elseif …"
+			],
+			[
+				"ac",
+				"active"
+			],
+			[
+				"em",
+				"email"
+			],
+			[
+				"sh",
+				"show_page_register"
+			],
+			[
+				"setr",
+				"set_rules"
+			],
+			[
+				"b",
+				"border-radius"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"sho",
+				"show_page_login"
+			],
+			[
+				"inpu",
+				"input"
+			],
+			[
+				"check",
+				"check_email_repeat"
+			],
+			[
+				"req",
+				"required"
+			],
+			[
+				"pass",
+				"password"
+			],
+			[
+				"va",
+				"valid_email"
+			],
+			[
+				"_",
+				"_SERVER"
+			],
+			[
+				"en",
+				"encode"
+			],
+			[
+				"csr",
+				"csrf_key"
+			],
+			[
+				"_csrf_set",
+				"_csrf_set_key"
+			],
+			[
+				"conet",
+				"context"
+			],
+			[
+				"strea",
+				"stream_context_create"
+			],
+			[
+				"http_bu",
+				"http_build_query"
+			],
+			[
+				"t",
+				"title"
+			],
+			[
+				"con",
+				"content"
+			],
+			[
+				"qu",
+				"query"
+			],
+			[
+				"l",
+				"loginFailed"
+			],
+			[
+				"input",
+				"input-email"
+			],
+			[
+				"login",
+				"login_failed"
+			],
+			[
+				"iss",
+				"isset"
+			],
+			[
+				"LOG",
+				"login_failed"
+			],
+			[
+				"end",
+				"endif"
+			],
+			[
+				"de",
+				"define"
+			],
+			[
+				"fe",
+				"feedback-content"
+			],
+			[
+				"c",
+				"click"
+			],
+			[
+				"ri",
+				"rightLen"
+			],
+			[
+				"r",
+				"rightLen"
+			],
+			[
+				"fb",
+				"fbContent"
+			],
+			[
+				"redire",
+				"redirect_back"
+			],
+			[
+				"User",
+				"UserID"
+			],
+			[
+				"Go",
+				"Goal_model"
+			],
+			[
+				"valid_user",
+				"valid_user_id"
+			],
+			[
+				"dis",
+				"discover"
+			],
+			[
+				"ho",
+				"hook"
+			],
+			[
+				"prin",
+				"print_r"
+			],
+			[
+				"ex",
+				"exit"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"usr",
+				"userID"
+			],
+			[
+				"goa",
+				"goalID"
+			],
+			[
+				"g",
+				"goalContent"
+			],
+			[
+				"T",
+				"TRUE"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "static/style/page.less",
+			"settings":
+			{
+				"buffer_size": 28,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "xichuangzhu.py",
+			"settings":
+			{
+				"buffer_size": 513,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/layout.html",
+			"settings":
+			{
+				"buffer_size": 726,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/index.html",
+			"settings":
+			{
+				"buffer_size": 75,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 285.0,
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Enable Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/var/www/xichuangzhu/static/style/bootstrap.css",
+		"/var/www/xichuangzhu/static/style/bs/bootstrap.less",
+		"/var/www/xichuangzhu/static/style/bs/bootstrap.css",
+		"/var/www/beforeidie/application/views/account/reset_pwd_feedback.php",
+		"/var/www/beforeidie/application/views/footer.php",
+		"/var/www/beforeidie/system/libraries/Form_validation.php",
+		"/var/www/beforeidie/application/views/goal/details.php",
+		"/var/www/beforeidie/application/hooks/browser_check.php",
+		"/var/www/beforeidie/system/core/CodeIgniter.php",
+		"/var/www/beforeidie/application/config/hooks.php",
+		"/var/www/beforeidie/system/core/Loader.php",
+		"/var/www/beforeidie/static/browser_warning.html",
+		"/var/www/beforeidie/application/controllers/goal.php",
+		"/var/www/beforeidie/application/views/goal/add.php",
+		"/var/www/beforeidie/application/views/home/about.php",
+		"/var/www/beforeidie/application/controllers/person.php",
+		"/var/www/beforeidie/README.md",
+		"/var/www/beforeidie/application/config/config.php",
+		"/var/www/beforeidie/static/js/goal-feedback.js",
+		"/var/www/beforeidie/application/views/account/info.php",
+		"/var/www/beforeidie/static/browser_warning.php",
+		"/var/www/beforeidie/application/controllers/home.php",
+		"/var/www/beforeidie/application/views/person/person.php",
+		"/var/www/beforeidie/application/controllers/account.php",
+		"/var/www/beforeidie/application/controllers/discover.php",
+		"/var/www/beforeidie/application/controllers/common.php",
+		"/var/www/beforeidie/application/config/smtp.php",
+		"/var/www/beforeidie/application/views/account/register.php",
+		"/var/www/beforeidie/application/views/header.php",
+		"/var/www/beforeidie/application/views/account/header.php",
+		"/var/www/beforeidie/application/views/account/change_pwd.php",
+		"/var/www/beforeidie/application/models/account_model.php",
+		"/var/www/beforeidie/application/views/account/login.php",
+		"/var/www/beforeidie/static/style/components.less",
+		"/var/www/beforeidie/application/views/account/reset_pwd.php",
+		"/var/www/beforeidie/static/style/basecss.less",
+		"/var/www/beforeidie/application/config/autoload.php",
+		"/var/www/beforeidie/application/views/account/forgot_pwd.php",
+		"/var/www/beforeidie/application/views/account/active.php",
+		"/var/www/beforeidie/system/core/Benchmark.php",
+		"/var/www/beforeidie/application/language/cn/form_validation_lang.php",
+		"/var/www/beforeidie/system/language/english/form_validation_lang.php",
+		"/var/www/beforeidie/system/core/Input.php",
+		"/var/www/beforeidie/system/core/Security.php",
+		"/var/www/beforeidie/system/helpers/form_helper.php",
+		"/var/www/csrf.php",
+		"/var/www/beforeidie/application/models/goal_model.php",
+		"/var/www/beforeidie/system/libraries/Encrypt.php",
+		"/var/www/beforeidie/application/config/database.php",
+		"/var/www/beforeidie/system/helpers/security_helper.php",
+		"/var/www/beforeidie/application/helpers/auth_helper.php",
+		"/var/www/beforeidie/system/database/DB_driver.php",
+		"/var/www/beforeidie/system/database/DB.php",
+		"/var/www/beforeidie/system/helpers/url_helper.php",
+		"/var/www/beforeidie/index.php",
+		"/home/hustlzp/.config/sublime-text-2/Packages/User/less2css.sublime-settings",
+		"/home/hustlzp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/hustlzp/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/hustlzp/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+		"/var/www/beforeidie/application/controllers/like.php",
+		"/var/www/beforeidie/application/hooks/auth_check.php",
+		"/var/www/beforeidie/system/core/Hooks.php",
+		"/var/www/beforeidie/system/core/Controller.php",
+		"/var/www/beforeidie/system/core/URI.php",
+		"/var/www/beforeidie/system/core/Config.php",
+		"/var/www/beforeidie/system/core/Router.php",
+		"/var/www/beforeidie/application/models/like_model.php",
+		"/var/www/beforeidie/static/style/style.css",
+		"/var/www/beforeidie/.htaccess",
+		"/var/www/beforeidie/beforeidie.sublime-project"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"navbar",
+			"  ",
+			"OR",
+			"AND",
+			"POST",
+			"b94a48",
+			"fbeed5",
+			"Password",
+			"password",
+			"ajax",
+			"_csrf_set_hash",
+			"_sanitize_globals",
+			"function xss_clean",
+			"xss_clean",
+			"_sanitize_globals",
+			"_csrf_set_hash",
+			"escape_str",
+			"escape",
+			"compile_binds",
+			"query",
+			"_csrf_set_hash",
+			"_enable_csrf",
+			"error",
+			"_get_validation_object",
+			"form_error",
+			"value",
+			"ctrl+backspace",
+			"exit",
+			"post"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "static/style/page.less",
+					"settings":
+					{
+						"buffer_size": 28,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5,
+								5
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "xichuangzhu.py",
+					"settings":
+					{
+						"buffer_size": 513,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								388,
+								388
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "templates/layout.html",
+					"settings":
+					{
+						"buffer_size": 726,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								670,
+								670
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "templates/index.html",
+					"settings":
+					{
+						"buffer_size": 75,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								60,
+								60
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"for",
+				"application/views/account/forgot_pwd.php"
+			],
+			[
+				"active",
+				"application/views/account/active.php"
+			],
+			[
+				"foo",
+				"application/views/footer.php"
+			],
+			[
+				"deta",
+				"application/views/goal/details.php"
+			],
+			[
+				"add",
+				"application/views/goal/add.php"
+			],
+			[
+				"br",
+				"application/hooks/browser_check.php"
+			],
+			[
+				"acc",
+				"application/controllers/account.php"
+			],
+			[
+				"code",
+				"system/core/CodeIgniter.php"
+			],
+			[
+				"de",
+				"application/views/goal/details.php"
+			],
+			[
+				"goal",
+				"application/controllers/goal.php"
+			],
+			[
+				"con",
+				"application/config/config.php"
+			],
+			[
+				"ab",
+				"application/views/home/about.php"
+			],
+			[
+				"info",
+				"application/views/account/info.php"
+			],
+			[
+				"per",
+				"application/controllers/person.php"
+			],
+			[
+				"sm",
+				"application/config/smtp.php"
+			],
+			[
+				"head",
+				"application/views/account/header.php"
+			],
+			[
+				"re",
+				"application/views/account/register.php"
+			],
+			[
+				"person",
+				"application/controllers/person.php"
+			],
+			[
+				"bas",
+				"static/style/basecss.less"
+			],
+			[
+				"cha",
+				"application/views/account/change_pwd.php"
+			],
+			[
+				"au",
+				"application/config/autoload.php"
+			],
+			[
+				"lo",
+				"application/views/account/login.php"
+			],
+			[
+				"",
+				"application/views/account/forgot_pwd.php"
+			],
+			[
+				"res",
+				"application/views/account/reset_pwd.php"
+			],
+			[
+				"l",
+				"application/views/account/login.php"
+			],
+			[
+				"ac",
+				"application/views/account/active.php"
+			],
+			[
+				"auto",
+				"application/config/autoload.php"
+			],
+			[
+				"inut",
+				"system/core/Input.php"
+			],
+			[
+				"sec",
+				"system/core/Security.php"
+			],
+			[
+				"login",
+				"application/views/account/login.php"
+			],
+			[
+				"se",
+				"system/core/Security.php"
+			],
+			[
+				"smtp",
+				"application/config/smtp.php"
+			],
+			[
+				"codeig",
+				"system/core/CodeIgniter.php"
+			],
+			[
+				"db",
+				"system/database/DB_driver.php"
+			],
+			[
+				"co",
+				"application/controllers/common.php"
+			],
+			[
+				"hea",
+				"application/views/header.php"
+			],
+			[
+				"log",
+				"application/views/account/login.php"
+			],
+			[
+				"a",
+				"application/views/home/about.php"
+			],
+			[
+				"goal-fe",
+				"static/js/goal-feedback.js"
+			],
+			[
+				"comm",
+				"application/controllers/common.php"
+			],
+			[
+				"auth",
+				"application/helpers/auth_helper.php"
+			],
+			[
+				"com",
+				"application/controllers/common.php"
+			],
+			[
+				"data",
+				"application/config/database.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 276.0,
+	"status_bar_visible": true
+}

@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+	<head>
+		<title>西窗烛</title>
+		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/bootstrap.min.css') }}">
+		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/page.css') }}">
+	</head>
+
+	<body>
+	
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="brand" href="{{ url_for('index') }}">西窗烛</a>
+
+					<ul class="nav">
+						<li class="active"><a href="{{ url_for('index') }}">首页</a></li>
+						<li><a href="#">朝代</a></li>
+						<li><a href="#">链接</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+		{% block body %}{% endblock %}
+		</div>
+	</body>
+</html>

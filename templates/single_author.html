@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block page_title %}{{ author.Author }}{% endblock %}
+{% block page_id%}page-single-author{% endblock %}
+
+{% block body %}
+
+	<div class='author'>{{ author.Author }}</div>
+	<div class='author-introduction'>{{ author.Introduction }}</div>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block page_title %}添加作者{% endblock %}
+
+{% block page_id%}page-add-author{% endblock %}
+
+{% block body %}
+
+<form method="post" action="{{ url_for('add_author') }}">
+	<fieldset>
+		<legend>添加作者</legend>
+
+		<div>
+			<label>作者</label>
+			<input type="text" name="author"/>
+		</div>
+
+		<div>
+			<label>简介</label>
+			<input type="text" name="introduction" />
+		</div>
+
+		<input type="submit" value="提交" class="btn btn-primary" />
+	</fieldset>
+</form>
+
+{% endblock %}

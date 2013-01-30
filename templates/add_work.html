@@ -7,28 +7,31 @@
 {% block body %}
 
 <form method="post" action="{{ url_for('add_work') }}">
+	<fieldset>
+		<legend>添加作品</legend>
 
-	<div>
-		<label>类别</label>
-		<input type="text" name="type"/>
-	</div>
+		<div>
+			<label>类别</label>
+			<input type="text" name="type"/>
+		</div>
 
-	<div>
-		<label>标题</label>
-		<input type="text" name="title" />
-	</div>
+		<div>
+			<label>标题</label>
+			<input type="text" name="title" />
+		</div>
 
-	<div>
-		<label>作者</label>
-		<input type="text" name="author" />
-	</div>
+		<div>
+			<label>作者</label>
+			<input type="text" name="author" />
+		</div>
 
-	<div>
-		<label>内容</label>
-		<input type="text" name="content" />
-	</div>
+		<div>
+			<label>内容</label>
+			<input type="text" name="content" />
+		</div>
 
-	<input type="submit" value="提交" class="btn btn-primary" />
+		<input type="submit" value="提交" class="btn btn-primary" />
+	</fieldset>
 </form>
 
 {% endblock %}

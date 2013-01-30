@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block page_title %}{{ work.Title }}{% endblock %}
+{% block page_id%}page-single-work{% endblock %}
+
+{% block body %}
+
+	<div class="work-title">{{ work.Title }}</div>
+	<div class="work-author">
+		[<a href="{{ url_for('single_dynasty', dynastyID = work.DynastyID) }}">{{ work.Dynasty }}</a>]
+		<a href="{{ url_for('single_author', authorID=work.AuthorID) }}">{{ work.Author }}</a></div>
+	<div class="work-content">{{ work.Content }}</div>
+
+{% endblock %}

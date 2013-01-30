@@ -2,7 +2,14 @@ body{margin:60px 0 0 0;}
 #page-index .work-item .work-title{font-size:35px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}
 #page-index .work-item .work-author{font-size:18px;margin-bottom:10px;}
 #page-index .work-item .work-content{font-size:18px;line-height:25px;font-family:'';}
+#page-single-work .work-title{font-size:35px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}
+#page-single-work .work-author{font-size:18px;margin-bottom:10px;}
+#page-single-work .work-content{font-size:18px;line-height:25px;font-family:'';}
 #page-author .author-item .author{font-size:35px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}
 #page-author .author-item .author-introduction{font-size:18px;line-height:25px;font-family:'';}
+#page-single-author .author{font-size:35px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}
+#page-single-author .author-introduction{font-size:18px;line-height:25px;font-family:'';}
 #page-dynasty .dynasty-item .dynasty{font-size:35px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}
 #page-dynasty .dynasty-item .dynasty-introduction{font-size:18px;line-height:25px;font-family:'';}
+#page-single-dynasty .dynasty{font-size:35px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}
+#page-single-dynasty .dynasty-introduction{font-size:18px;line-height:25px;font-family:'';}

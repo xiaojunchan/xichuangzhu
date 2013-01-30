@@ -1,15 +1,14 @@
 {% extends "layout.html" %}
 
 {% block page_title %}朝代{% endblock %}
-
 {% block page_id%}page-dynasty{% endblock %}
 
 {% block body %}
 
 	{% for dynasty in dynasties %}
 	<div class='dynasty-item'>
-		<div class='dynasty'>{{ dynasty[1] }}</div>
-		<div class='dynasty-introduction'>{{ dynasty[2] }}</div>
+		<div class='dynasty'><a href="{{ url_for('single_dynasty', dynastyID=dynasty.DynastyID) }}">{{ dynasty.Dynasty }}</a></div>
+		<div class='dynasty-introduction'>{{ dynasty.Introduction }}</div>
 	</div>
 	{% endfor %}
 

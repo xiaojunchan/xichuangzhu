@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block page_title %}{{ dynasty.Dynasty }}{% endblock %}
+{% block page_id%}page-single-dynasty{% endblock %}
+
+{% block body %}
+
+	<div class='dynasty'>{{ dynasty.Dynasty }}</div>
+	<div class='dynasty-introduction'>{{ dynasty.Introduction }}</div>
+
+{% endblock %}

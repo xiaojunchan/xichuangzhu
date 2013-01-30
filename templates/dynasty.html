@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block page_title %}朝代{% endblock %}
+
+{% block page_id%}page-dynasty{% endblock %}
+
+{% block body %}
+
+	{% for dynasty in dynasties %}
+	<div class='dynasty-item'>
+		<div class='dynasty'>{{ dynasty[1] }}</div>
+		<div class='dynasty-introduction'>{{ dynasty[2] }}</div>
+	</div>
+	{% endfor %}
+
+{% endblock %}

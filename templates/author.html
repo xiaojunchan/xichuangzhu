@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block page_title %}作者{% endblock %}
+
+{% block page_id%}page-author{% endblock %}
+
+{% block body %}
+
+	{% for author in authors %}
+	<div class='author-item'>
+		<div class='author'>{{ author[1] }}</div>
+		<div class='author-introduction'>{{ author[2] }}</div>
+	</div>
+	{% endfor %}
+
+{% endblock %}

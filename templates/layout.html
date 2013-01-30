@@ -1,12 +1,12 @@
 <!doctype html>
 <html>
 	<head>
-		<title>西窗烛</title>
+		<title>{% block page_title %}西窗烛{% endblock %}</title>
 		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/bootstrap.min.css') }}">
 		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style/page.css') }}">
 	</head>
 
-	<body>
+	<body id="{% block page_id %}{% endblock %}">
 	
 		<div class="navbar navbar-fixed-top">
 			<div class="navbar-inner">
@@ -14,9 +14,10 @@
 					<a class="brand" href="{{ url_for('index') }}">西窗烛</a>
 
 					<ul class="nav">
-						<li class="active"><a href="{{ url_for('index') }}">首页</a></li>
-						<li><a href="#">朝代</a></li>
-						<li><a href="#">链接</a></li>
+						<li><a href="{{ url_for('index') }}">首页</a></li>
+						<li><a href="{{ url_for('author') }}">作者</a></li>
+						<li><a href="{{ url_for('dynasty') }}">朝代</a></li>
+						<li><a href="{{ url_for('add_work') }}">添加</a></li>
 					</ul>
 				</div>
 			</div>

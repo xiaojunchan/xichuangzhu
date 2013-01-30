@@ -1,5 +1,16 @@
 {% extends "layout.html" %}
 
+{% block page_title %}西窗烛{% endblock %}
+
+{% block page_id%}page-index{% endblock %}
+
 {% block body %}
-<h1>Index</h1>
+
+	{% for work in works %}
+	<div class='work-item'>
+		<div class='work-title'>{{ work[1] }}</div>
+		<div class='work-content'>{{ work[2] }}</div>
+	</div>
+	{% endfor %}
+
 {% endblock %}

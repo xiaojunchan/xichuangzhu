@@ -2,18 +2,35 @@
 
 from flask import Flask, render_template, request
 import MySQLdb
+import MySQLdb.cursors
 
 app = Flask(__name__)
 
-conn = MySQLdb.connect(host='localhost', user='root', passwd='xiaowangzi', db='classic', charset='utf8')
+conn = MySQLdb.connect(host='localhost', user='root', passwd='xiaowangzi', db='classic', charset='utf8', cursorclass = MySQLdb.cursors.DictCursor)
 cursor = conn.cursor()
 
 # page home
 @app.route('/')
 def index():
-	cursor.execute('SELECT * FROM work')
+	query = '''SELECT work.WorkID, work.Title, work.Content, work.AuthorID, work.DynastyID, author.Author, dynasty.Dynasty\n
+			FROM work, author, dynasty\n
+			WHERE work.AuthorID = author.AuthorID\n
+			AND work.DynastyID = dynasty.DynastyID'''
+	cursor.execute(query)
 	works = cursor.fetchall()
 	return render_template('index.html', works=works)
+
+# page work
+@app.route('/work/<int:workID>')
+def work(workID):
+	query = '''SELECT work.WorkID, work.Title, work.Content, work.AuthorID, work.DynastyID, author.Author, dynasty.Dynasty
+			FROM work, author, dynasty\n
+			WHERE work.workID = d%\n
+			AND work.AuthorID = author.AuthorID\n
+			AND work.DynastyID = dynasty.DynastyID''' % workID
+	cursor.execute(query)
+	work = cursor.fetchone()
+	return work.WorkID
 
 # page author
 @app.route('/author')

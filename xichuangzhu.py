@@ -81,7 +81,20 @@ def single_author(authorID):
 			AND author.AuthorID = %s''' % authorID
 	cursor.execute(query)
 	author = cursor.fetchone()
-	return render_template('single_author.html', author=author)
+	# all works
+	query = "SELECT * FROM work WHERE AuthorID = %d" % authorID
+	cursor.execute(query)
+	works = cursor.fetchall()
+	# works number
+	worksNum = {'shi':0, 'ci':0, 'wen':0}
+	for work in works:
+		if work['Type'] == 'shi':
+			worksNum['shi'] += 1
+		elif work['Type'] == 'ci':
+			worksNum['ci'] += 1
+		elif work['Type'] == 'wen':
+			worksNum['wen'] += 1
+	return render_template('single_author.html', author=author, works=works, worksNum=worksNum)
 
 #page add author
 @app.route('/add_author', methods=['GET', 'POST'])
@@ -111,10 +124,14 @@ def dynasty():
 # page single dynasty
 @app.route('/dynasty/<int:dynastyID>')
 def single_dynasty(dynastyID):
-	query = "SELECT * FROM dynasty WHERE DynastyID = %s" % dynastyID
+	query = "SELECT * FROM dynasty WHERE DynastyID = %d" % dynastyID
 	cursor.execute(query)
 	dynasty = cursor.fetchone()
-	return render_template('single_dynasty.html', dynasty=dynasty)
+	# authors
+	query = "SELECT * FROM author WHERE DynastyID = %d" % dynastyID
+	cursor.execute(query)
+	authors = cursor.fetchall()
+	return render_template('single_dynasty.html', dynasty=dynasty, authors=authors)
 
 #page add dynasty
 @app.route('/add_dynasty', methods=['GET', 'POST'])

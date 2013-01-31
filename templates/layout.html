@@ -41,22 +41,24 @@
 					</ul>
 
 					<!-- add -->
-					<div class="btn-group pull-right">
-						<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-							添加 <span class="caret"></span>
-						</a>
+					<ul class="nav pull-right">
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+								添加 <span class="caret"></span>
+							</a>
 
-						<ul class="dropdown-menu">
-							<li><a href="{{ url_for('add_work') }}">作品</a></li>
-							<li><a href="{{ url_for('add_author') }}">作者</a></li>
-							<li><a href="{{ url_for('add_dynasty') }}">朝代</a></li>
-						</ul>
-					</div>
+							<ul class="dropdown-menu">
+								<li><a href="{{ url_for('add_work') }}">作品</a></li>
+								<li><a href="{{ url_for('add_author') }}">作者</a></li>
+								<li><a href="{{ url_for('add_dynasty') }}">朝代</a></li>
+							</ul>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
 
-		<div class="container">
+		<div id="main-wap" class="container">
 		{% block body %}{% endblock %}
 		</div>
 	</body>

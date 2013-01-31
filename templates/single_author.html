@@ -7,7 +7,33 @@
 <div class="row">
 	<div class="span9">
 		<div class='author'>{{ author.Author }}</div>
+
+		<a href="{{ url_for('edit_author', authorID=author.AuthorID) }}"></a>
+
+		<div class='author-period'>〔<a href="{{ url_for('single_dynasty', dynastyID=author.DynastyID) }}">{{ author.Dynasty }}</a>〕{{ author.BirthYear }}年~{{ author.DeathYear }}年</div>
+		<h4>简介</h4>
 		<div class='author-introduction'>{{ author.Introduction }}</div>
+		<h4>
+			作品
+			<sup>
+				<span class="badge badge-inverse">
+					诗
+					{{ worksNum.shi }}
+					/
+					词
+					{{ worksNum.ci }}
+					/
+					文
+					{{ worksNum.wen }}
+				</span>
+			</sup>
+		</h4>
+		{% for work in works %}
+		<div class="work-item">
+			<div class='work-title'><a href="{{url_for('single_work', workID=work.WorkID)}}">{{ work.Title }}</a></div>
+			<div class='work-content'>{{ work.Content|truncate(20, True) }}</div>
+		</div>
+		{% endfor %}
 	</div>
 
 	<div class="span3"></div>

@@ -8,7 +8,21 @@
 <div class="row">
 	<div class="span9">
 		<div class='dynasty'>{{ dynasty.Dynasty }}</div>
+		<div class="dynasty-period">{{ dynasty.StartYear }}年~{{ dynasty.EndYear }}年</div>
+
+		<h4>简介</h4>
 		<div class='dynasty-introduction'>{{ dynasty.Introduction }}</div>
+
+		<h4>
+			文学家
+			<sup><span class="badge badge-inverse">{{ authors|length }}</span></sup>
+		</h4>
+		{% for author in authors %}
+		<div class="author-item">
+			<div class='author'><a href="{{ url_for('single_author', authorID=author.AuthorID) }}">{{ author.Author }}</a></div>
+			<div class='author-introduction'>{{ author.Introduction|truncate(50, True) }}</div>
+		</div>
+		{% endfor %}
 	</div>
 
 	<div class="span3"></div>

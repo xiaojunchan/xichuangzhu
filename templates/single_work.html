@@ -5,10 +5,19 @@
 
 {% block body %}
 
-	<div class="work-title">{{ work.Title }}</div>
-	<div class="work-author">
-		[<a href="{{ url_for('single_dynasty', dynastyID = work.DynastyID) }}">{{ work.Dynasty }}</a>]
-		<a href="{{ url_for('single_author', authorID=work.AuthorID) }}">{{ work.Author }}</a></div>
-	<div class="work-content">{{ work.Content }}</div>
+<div class="row">
+	<div class="span9">
+		<div class="work-title">{{ work.Title }}</div>
+		<div class="work-author">
+			〔<a href="{{ url_for('single_dynasty', dynastyID = work.DynastyID) }}">{{ work.Dynasty }}</a>〕<a href="{{ url_for('single_author', authorID=work.AuthorID) }}">{{ work.Author }}</a></div>
+		<div class="work-content">{{ work.Content }}</div>
+
+		<h4>注释</h4>
+		
+		<h4>点评</h4>
+	</div>
+
+	<div class="span3"></div>
+</div>
 
 {% endblock %}

@@ -5,7 +5,13 @@
 
 {% block body %}
 
-	<div class='dynasty'>{{ dynasty.Dynasty }}</div>
-	<div class='dynasty-introduction'>{{ dynasty.Introduction }}</div>
+<div class="row">
+	<div class="span9">
+		<div class='dynasty'>{{ dynasty.Dynasty }}</div>
+		<div class='dynasty-introduction'>{{ dynasty.Introduction }}</div>
+	</div>
+
+	<div class="span3"></div>
+</div>
 
 {% endblock %}

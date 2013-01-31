@@ -1,12 +1,11 @@
 {% extends "layout.html" %}
 
 {% block page_title %}添加作者{% endblock %}
-
 {% block page_id%}page-add-author{% endblock %}
 
 {% block body %}
 
-<form method="post" action="{{ url_for('add_author') }}">
+<form id="form-add-author" method="post" action="{{ url_for('add_author') }}">
 	<fieldset>
 		<legend>添加作者</legend>
 
@@ -14,25 +13,29 @@
 			<label>作者</label>
 			<input type="text" name="author"/>
 		</div>
+
+		<div>
+			<label>朝代</label>
+			<select name='dynastyID'>
+				{% for dynasty in dynasties %}
+				<option value="{{ dynasty.DynastyID }}">{{ dynasty.Dynasty }}</option>
+				{% endfor %}
+			</select>
+		</div>
 		
 		<div>
 			<label>生年</label>
-			<input type="text" name="birthYear"/>
+			<input type="text" name="birthYear" />
 		</div>
 		
 		<div>
 			<label>卒年</label>
-			<input type="text" name="deathYear"/>
+			<input type="text" name="deathYear" />
 		</div>
 
 		<div>
-			<label>朝代</label>
-			<input type="text" name="dynasty"/>
-		</div>		
-
-		<div>
 			<label>简介</label>
-			<input type="text" name="introduction" />
+			<textarea id="author-introduction" rows="10" name="introduction"></textarea>
 		</div>
 
 		<input type="submit" value="提交" class="btn btn-primary" />

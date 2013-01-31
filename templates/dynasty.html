@@ -10,7 +10,9 @@
 
 		{% for dynasty in dynasties %}
 		<div class='dynasty-item'>
-			<div class='dynasty'><a href="{{ url_for('single_dynasty', dynastyID=dynasty.DynastyID) }}">{{ dynasty.Dynasty }}</a></div>
+			<div class='dynasty'>
+				<a href="{{ url_for('single_dynasty', dynastyID=dynasty.DynastyID) }}">{{ dynasty.Dynasty }}</a><sup class="dynasty-period">[{{ dynasty.StartYear }}至{{ dynasty.EndYear }}]</sup>
+			</div>
 			<div class='dynasty-introduction'>{{ dynasty.Introduction }}</div>
 		</div>
 		{% endfor %}

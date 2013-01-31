@@ -5,11 +5,19 @@
 
 {% block body %}
 
-	{% for author in authors %}
-	<div class='author-item'>
-		<div class='author'><a href="{{ url_for('single_author', authorID=author.AuthorID) }}">{{ author.Author }}</a></div>
-		<div class='author-introduction'>{{ author.Introduction }}</div>
+<div class="row">
+	<div class="span9">
+		{% for author in authors %}
+		<div class='author-item'>
+			<div class='author'>
+				<a href="{{ url_for('single_author', authorID=author.AuthorID) }}">{{ author.Author }}</a><sup class='author-dynasty'>[{{ author.Dynasty }}]</sup>
+			</div>
+			<div class='author-introduction'>{{ author.Introduction }}</div>
+		</div>
+		{% endfor %}
 	</div>
-	{% endfor %}
+
+	<div class="span3"></div>
+</div>
 
 {% endblock %}

@@ -66,18 +66,25 @@ body{
 //-----------------------------------------------------
 #page-author{
 	.author-item{
+		margin-bottom: 20px;
+
 		.author{
 			font-size: 35px;
 			line-height: 40px;
 			margin-bottom: 5px;
 			font-weight: bold;
-			font-family: '宋体';			
+			font-family: '宋体';
+
+			.author-dynasty{
+				font-size: 18px;
+				margin-left: 5px;
+				font-weight: normal;
+			}
 		}
 
 		.author-introduction{
 			font-size: 18px;
-			line-height: 25px;
-			font-family: '';			
+			line-height: 25px;		
 		}
 	}
 }
@@ -100,6 +107,16 @@ body{
 	}
 }
 
+// page add author
+//-----------------------------------------------------
+#page-add-author{
+	#form-add-author{
+		#author-introduction{
+			width: 500px;
+		}
+	}
+}
+
 // page dynasty
 //-----------------------------------------------------
 #page-dynasty{
@@ -112,6 +129,13 @@ body{
 			margin-bottom: 5px;
 			font-weight: bold;
 			font-family: '宋体';
+
+			.dynasty-period{
+				font-size: 15px;
+				margin-left: 5px;
+				font-family: '微软雅黑';
+				font-weight: normal;
+			}
 		}
 
 		.dynasty-introduction{

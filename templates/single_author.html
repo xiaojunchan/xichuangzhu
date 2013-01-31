@@ -4,8 +4,13 @@
 {% block page_id%}page-single-author{% endblock %}
 
 {% block body %}
+<div class="row">
+	<div class="span9">
+		<div class='author'>{{ author.Author }}</div>
+		<div class='author-introduction'>{{ author.Introduction }}</div>
+	</div>
 
-	<div class='author'>{{ author.Author }}</div>
-	<div class='author-introduction'>{{ author.Introduction }}</div>
+	<div class="span3"></div>
+</div>
 
 {% endblock %}

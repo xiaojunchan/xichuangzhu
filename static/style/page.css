@@ -6,11 +6,12 @@ body{margin:65px 0 0 0;}
 #page-single-work .work-author{font-size:18px;margin-bottom:10px;}
 #page-single-work .work-content{font-size:18px;line-height:25px;font-family:'';}
 #page-add-work #form-add-work #work-content{width:500px;}
-#page-author .author-item .author{font-size:35px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}
-#page-author .author-item .author-introduction{font-size:18px;line-height:25px;font-family:'';}
+#page-author .author-item{margin-bottom:20px;}#page-author .author-item .author{font-size:35px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}#page-author .author-item .author .author-dynasty{font-size:18px;margin-left:5px;font-weight:normal;}
+#page-author .author-item .author-introduction{font-size:18px;line-height:25px;}
 #page-single-author .author{font-size:35px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}
 #page-single-author .author-introduction{font-size:18px;line-height:25px;font-family:'';}
-#page-dynasty .dynasty-item{margin-bottom:20px;}#page-dynasty .dynasty-item .dynasty{font-size:35px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}
+#page-add-author #form-add-author #author-introduction{width:500px;}
+#page-dynasty .dynasty-item{margin-bottom:20px;}#page-dynasty .dynasty-item .dynasty{font-size:35px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}#page-dynasty .dynasty-item .dynasty .dynasty-period{font-size:15px;margin-left:5px;font-family:'微软雅黑';font-weight:normal;}
 #page-dynasty .dynasty-item .dynasty-introduction{font-size:18px;line-height:25px;font-family:'';}
 #page-single-dynasty .dynasty{font-size:35px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}
 #page-single-dynasty .dynasty-introduction{font-size:18px;line-height:25px;font-family:'';}

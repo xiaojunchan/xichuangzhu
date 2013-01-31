@@ -87,9 +87,16 @@ def single_author(authorID):
 @app.route('/add_author', methods=['GET', 'POST'])
 def add_author():
 	if request.method == 'GET':
-		return render_template('add_author.html')
+		query = "SELECT DynastyID, Dynasty FROM dynasty ORDER BY StartYear ASC";
+		cursor.execute(query)
+		dynasties = cursor.fetchall()
+		return render_template('add_author.html', dynasties=dynasties)
 	elif request.method == 'POST':
-		return 'proc add author'
+		query = '''INSERT INTO author (Author, Introduction, BirthYear, DeathYear, DynastyID) VALUES\n
+				('%s', '%s', %d, %d, %d)''' % (request.form['author'], request.form['introduction'], int(request.form['birthYear']), int(request.form['deathYear']), int(request.form['dynastyID']))
+		cursor.execute(query)
+		conn.commit()
+		return redirect(url_for('author'))
 
 # Dynasty Controller
 #--------------------------------------------------

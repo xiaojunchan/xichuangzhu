@@ -1,12 +1,17 @@
 # -*- coding: utf-8 -*-
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
+
 import MySQLdb
 import MySQLdb.cursors
 
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+
 app = Flask(__name__)
 
-conn = MySQLdb.connect(host='localhost', user='root', passwd='xiaowangzi', db='classic', charset='utf8', cursorclass = MySQLdb.cursors.DictCursor)
+conn = MySQLdb.connect(host='localhost', user='root', passwd='xiaowangzi', db='classic', use_unicode=1, charset='utf8', cursorclass=MySQLdb.cursors.DictCursor)
 cursor = conn.cursor()
 
 # Home Controller
@@ -38,13 +43,21 @@ def single_work(workID):
 	work = cursor.fetchone()
 	return render_template('single_work.html', work=work)
 
-# page add works
+# page add work
 @app.route('/add_work', methods=['GET', 'POST'])
 def add_work():
 	if request.method == 'GET':
 		return render_template('add_work.html')
 	elif request.method == 'POST':
-		return 'proc add work'
+		# get id
+		query = "SELECT AuthorID, DynastyID FROM author WHERE Author = '%s'" % request.form['author']
+		cursor.execute(query)
+		authorInfo = cursor.fetchone()
+		# insert
+		query = '''INSERT INTO work (Title, Content, AuthorID, DynastyID, Type) VALUES ('%s', '%s', %d, %d, '%s')''' % (request.form['title'], request.form['content'], authorInfo['AuthorID'], authorInfo['DynastyID'], request.form['type'])
+		cursor.execute(query)
+		conn.commit()
+		return redirect(url_for('index'))
 
 # Author Controller
 #--------------------------------------------------
@@ -70,7 +83,7 @@ def single_author(authorID):
 	author = cursor.fetchone()
 	return render_template('single_author.html', author=author)
 
-#page add dynasty
+#page add author
 @app.route('/add_author', methods=['GET', 'POST'])
 def add_author():
 	if request.method == 'GET':
@@ -84,7 +97,7 @@ def add_author():
 # page dynasty
 @app.route('/dynasty')
 def dynasty():
-	cursor.execute('SELECT * FROM dynasty')
+	cursor.execute('SELECT * FROM dynasty ORDER BY StartYear ASC')
 	dynasties = cursor.fetchall()
 	return render_template('dynasty.html', dynasties=dynasties)
 
@@ -102,7 +115,11 @@ def add_dynasty():
 	if request.method == 'GET':
 		return render_template('add_dynasty.html')
 	elif request.method == 'POST':
-		return 'proc add dynasty'
+		query = '''INSERT INTO dynasty (Dynasty, Introduction, StartYear, EndYear) VALUES
+				('%s', '%s', %d, %d)''' % (request.form['dynasty'], request.form['introduction'], int(request.form['startYear']), int(request.form['endYear']))
+		cursor.execute(query)
+		conn.commit()
+		return redirect(url_for('dynasty'))
 
 if __name__ == '__main__':
 	app.run(debug=True)

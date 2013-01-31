@@ -1,18 +1,22 @@
 {% extends "layout.html" %}
 
 {% block page_title %}添加作品{% endblock %}
-
 {% block page_id%}page-add-work{% endblock %}
 
 {% block body %}
 
-<form method="post" action="{{ url_for('add_work') }}">
+<form id="form-add-work" method="post" action="{{ url_for('add_work') }}">
 	<fieldset>
 		<legend>添加作品</legend>
 
 		<div>
 			<label>类别</label>
-			<input type="text" name="type"/>
+			<select name='type'>
+				<option value='shi'>诗</option>
+				<option value='ci'>词</option>
+				<option value='wen'>文</option>
+			</select>
+
 		</div>
 
 		<div>
@@ -27,7 +31,7 @@
 
 		<div>
 			<label>内容</label>
-			<input type="text" name="content" />
+			<textarea name="content" id="work-content" rows='10'></textarea>
 		</div>
 
 		<input type="submit" value="提交" class="btn btn-primary" />

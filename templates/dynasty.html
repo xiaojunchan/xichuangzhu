@@ -5,11 +5,18 @@
 
 {% block body %}
 
-	{% for dynasty in dynasties %}
-	<div class='dynasty-item'>
-		<div class='dynasty'><a href="{{ url_for('single_dynasty', dynastyID=dynasty.DynastyID) }}">{{ dynasty.Dynasty }}</a></div>
-		<div class='dynasty-introduction'>{{ dynasty.Introduction }}</div>
+<div class="row">
+	<div class="span9">
+
+		{% for dynasty in dynasties %}
+		<div class='dynasty-item'>
+			<div class='dynasty'><a href="{{ url_for('single_dynasty', dynastyID=dynasty.DynastyID) }}">{{ dynasty.Dynasty }}</a></div>
+			<div class='dynasty-introduction'>{{ dynasty.Introduction }}</div>
+		</div>
+		{% endfor %}
 	</div>
-	{% endfor %}
+
+	<div class="span3"></div>
+</div>
 
 {% endblock %}

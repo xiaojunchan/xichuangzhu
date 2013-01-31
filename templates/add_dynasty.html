@@ -1,23 +1,33 @@
 {% extends "layout.html" %}
 
-{% block page_title %}添加作者{% endblock %}
+{% block page_title %}添加朝代{% endblock %}
 
-{% block page_id%}page-add-author{% endblock %}
+{% block page_id%}page-add-dynasty{% endblock %}
 
 {% block body %}
 
-<form method="post" action="{{ url_for('add_dynasty') }}">
+<form id="form-add-dynasty" method="post" action="{{ url_for('add_dynasty') }}">
 	<fieldset>
 		<legend>添加朝代</legend>
 
 		<div>
 			<label>朝代</label>
-			<input type="text" name="dynasty"/>
+			<input type="text" name="dynasty" />
+		</div>
+
+		<div>
+			<label>起始年</label>
+			<input type="text" name="startYear" />
+		</div>
+
+		<div>
+			<label>结束年</label>
+			<input type="text" name="endYear" />
 		</div>
 
 		<div>
 			<label>简介</label>
-			<input type="text" name="introduction" />
+			<textarea id='dynasty-introduction' rows="10" name="introduction" ></textarea>
 		</div>
 
 		<input type="submit" value="提交" class="btn btn-primary" />

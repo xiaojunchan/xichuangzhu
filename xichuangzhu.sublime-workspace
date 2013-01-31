@@ -4,12 +4,44 @@
 		"selected_items":
 		[
 			[
-				"me",
-				"method"
+				"ur",
+				"url_for"
+			],
+			[
+				"comm",
+				"commit"
+			],
+			[
+				"in",
+				"Introduciton"
+			],
+			[
+				"dynas",
+				"dynasty-introduction"
 			],
 			[
 				"au",
-				"author"
+				"authorID"
+			],
+			[
+				"for",
+				"form"
+			],
+			[
+				"un",
+				"unicode"
+			],
+			[
+				"A",
+				"AuthorID"
+			],
+			[
+				"Author",
+				"AuthorID"
+			],
+			[
+				"me",
+				"method"
 			],
 			[
 				"sin",
@@ -162,14 +194,6 @@
 			[
 				"valid",
 				"valid_email"
-			],
-			[
-				"for",
-				"form_validation"
-			],
-			[
-				"A",
-				"AND"
 			],
 			[
 				"pos",
@@ -399,7 +423,7 @@
 			"file": "static/style/page.less",
 			"settings":
 			{
-				"buffer_size": 2039,
+				"buffer_size": 2406,
 				"line_ending": "Unix"
 			}
 		},
@@ -407,7 +431,7 @@
 			"file": "xichuangzhu.py",
 			"settings":
 			{
-				"buffer_size": 3199,
+				"buffer_size": 4049,
 				"line_ending": "Unix"
 			}
 		},
@@ -415,7 +439,7 @@
 			"file": "templates/add_author.html",
 			"settings":
 			{
-				"buffer_size": 491,
+				"buffer_size": 735,
 				"line_ending": "Unix"
 			}
 		},
@@ -423,7 +447,7 @@
 			"file": "templates/add_dynasty.html",
 			"settings":
 			{
-				"buffer_size": 493,
+				"buffer_size": 716,
 				"line_ending": "Unix"
 			}
 		},
@@ -431,7 +455,7 @@
 			"file": "templates/add_work.html",
 			"settings":
 			{
-				"buffer_size": 635,
+				"buffer_size": 787,
 				"line_ending": "Unix"
 			}
 		},
@@ -439,7 +463,23 @@
 			"file": "templates/layout.html",
 			"settings":
 			{
-				"buffer_size": 1949,
+				"buffer_size": 1943,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/index.html",
+			"settings":
+			{
+				"buffer_size": 699,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/dynasty.html",
+			"settings":
+			{
+				"buffer_size": 513,
 				"line_ending": "Unix"
 			}
 		}
@@ -627,7 +667,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -635,15 +675,15 @@
 					"file": "static/style/page.less",
 					"settings":
 					{
-						"buffer_size": 2039,
+						"buffer_size": 2406,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1166,
-								1166
+								1708,
+								1708
 							]
 						],
 						"settings":
@@ -652,7 +692,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 604.0,
+						"translation.y": 1284.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -662,15 +702,15 @@
 					"file": "xichuangzhu.py",
 					"settings":
 					{
-						"buffer_size": 3199,
+						"buffer_size": 4049,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3088,
-								3088
+								3125,
+								3125
 							]
 						],
 						"settings":
@@ -679,7 +719,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1071.0,
+						"translation.y": 1546.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -689,15 +729,15 @@
 					"file": "templates/add_author.html",
 					"settings":
 					{
-						"buffer_size": 491,
+						"buffer_size": 735,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								220,
-								220
+								538,
+								538
 							]
 						],
 						"settings":
@@ -716,15 +756,96 @@
 					"file": "templates/add_dynasty.html",
 					"settings":
 					{
-						"buffer_size": 493,
+						"buffer_size": 716,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								197,
-								197
+								508,
+								508
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 51.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "templates/add_work.html",
+					"settings":
+					{
+						"buffer_size": 787,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								158,
+								158
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 51.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "templates/layout.html",
+					"settings":
+					{
+						"buffer_size": 1943,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1792,
+								1792
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 221.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "templates/index.html",
+					"settings":
+					{
+						"buffer_size": 699,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								667,
+								667
 							]
 						],
 						"settings":
@@ -738,55 +859,27 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "templates/add_work.html",
+					"buffer": 7,
+					"file": "templates/dynasty.html",
 					"settings":
 					{
-						"buffer_size": 635,
+						"buffer_size": 513,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								218,
-								218
+								168,
+								168
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/HTML/HTML.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "templates/layout.html",
-					"settings":
-					{
-						"buffer_size": 1949,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1456,
-								1456
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 357.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -835,6 +928,14 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"dy",
+				"templates/dynasty.html"
+			],
+			[
+				"in",
+				"templates/index.html"
+			],
 			[
 				"la",
 				"templates/layout.html"

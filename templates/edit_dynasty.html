@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block page_title %}编辑朝代{% endblock %}
+{% block page_id%}page-edit-dynasty{% endblock %}
+
+{% block body %}
+
+<form id="form-edit-dynasty" method="post" action="{{ url_for('edit_dynasty', dynastyID=dynasty.DynastyID) }}">
+	<fieldset>
+		<legend>编辑朝代</legend>
+
+		<div>
+			<label>朝代</label>
+			<input type="text" name="dynasty" value="{{ dynasty.Dynasty }}" />
+		</div>
+
+		<div>
+			<label>起始年</label>
+			<input type="text" name="startYear" value="{{ dynasty.StartYear }}" />
+		</div>
+
+		<div>
+			<label>结束年</label>
+			<input type="text" name="endYear" value="{{ dynasty.EndYear }}" />
+		</div>
+
+		<div>
+			<label>简介</label>
+			<textarea id='dynasty-introduction' rows="10" name="introduction" >{{ dynasty.Introduction }}</textarea>
+		</div>
+
+		<input type="submit" value="提交" class="btn btn-primary" />
+	</fieldset>
+</form>
+
+{% endblock %}

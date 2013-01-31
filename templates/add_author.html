@@ -1,16 +1,16 @@
 {% extends "layout.html" %}
 
-{% block page_title %}添加作者{% endblock %}
+{% block page_title %}添加文学家{% endblock %}
 {% block page_id%}page-add-author{% endblock %}
 
 {% block body %}
 
 <form id="form-add-author" method="post" action="{{ url_for('add_author') }}">
 	<fieldset>
-		<legend>添加作者</legend>
+		<legend>添加文学家</legend>
 
 		<div>
-			<label>作者</label>
+			<label>文学家</label>
 			<input type="text" name="author"/>
 		</div>
 

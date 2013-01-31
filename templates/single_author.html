@@ -6,11 +6,11 @@
 {% block body %}
 <div class="row">
 	<div class="span9">
+		<a class="btn btn-primary pull-right" href="{{ url_for('edit_author', authorID=author.AuthorID) }}">编辑</a>
+	
 		<div class='author'>{{ author.Author }}</div>
+		<div class='author-period'>〔<a href="{{ url_for('single_dynasty', dynastyID=author.DynastyID) }}">{{ author.Dynasty }}</a>〕{{ author.BirthYear|replace('-', '前') }}年~{{ author.DeathYear|replace('-', '前') }}年</div>
 
-		<a href="{{ url_for('edit_author', authorID=author.AuthorID) }}"></a>
-
-		<div class='author-period'>〔<a href="{{ url_for('single_dynasty', dynastyID=author.DynastyID) }}">{{ author.Dynasty }}</a>〕{{ author.BirthYear }}年~{{ author.DeathYear }}年</div>
 		<h4>简介</h4>
 		<div class='author-introduction'>{{ author.Introduction }}</div>
 		<h4>

@@ -49,7 +49,7 @@ def add_work():
 	if request.method == 'GET':
 		return render_template('add_work.html')
 	elif request.method == 'POST':
-		# get id
+		# get author id
 		query = "SELECT AuthorID, DynastyID FROM author WHERE Author = '%s'" % request.form['author']
 		cursor.execute(query)
 		authorInfo = cursor.fetchone()
@@ -57,7 +57,29 @@ def add_work():
 		query = '''INSERT INTO work (Title, Content, AuthorID, DynastyID, Type) VALUES ('%s', '%s', %d, %d, '%s')''' % (request.form['title'], request.form['content'], authorInfo['AuthorID'], authorInfo['DynastyID'], request.form['type'])
 		cursor.execute(query)
 		conn.commit()
-		return redirect(url_for('index'))
+		return redirect(url_for('single_work', workID=cursor.lastrowid))
+
+# page edit work
+@app.route('/edit_work/<int:workID>', methods=['GET', 'POST'])
+def edit_work(workID):
+	if request.method == 'GET':
+		query = '''SELECT * FROM work, author\n
+			WHERE work.AuthorID = author.AuthorID
+			AND work.WorkID = %d''' % workID
+		cursor.execute(query)
+		work = cursor.fetchone()
+		return render_template('edit_work.html', work=work)
+	elif request.method == 'POST':
+		# get author id
+		query = "SELECT AuthorID, DynastyID FROM author WHERE Author = '%s'" % request.form['author']
+		cursor.execute(query)
+		authorInfo = cursor.fetchone()
+		# edit
+		query = '''UPDATE work SET Title = '%s', Content = '%s', AuthorID = %d, DynastyID = %d, Type = '%s'\n
+			WHERE WorkID=%d''' % (request.form['title'], request.form['content'], authorInfo['AuthorID'], authorInfo['DynastyID'], request.form['type'], workID)
+		cursor.execute(query)
+		conn.commit()
+		return redirect(url_for('single_work', workID=workID))
 
 # Author Controller
 #--------------------------------------------------
@@ -82,7 +104,7 @@ def single_author(authorID):
 	cursor.execute(query)
 	author = cursor.fetchone()
 	# all works
-	query = "SELECT * FROM work WHERE AuthorID = %d" % authorID
+	query = "SELECT * FROM work WHERE AuthorID=%d" % authorID
 	cursor.execute(query)
 	works = cursor.fetchall()
 	# works number
@@ -109,7 +131,27 @@ def add_author():
 				('%s', '%s', %d, %d, %d)''' % (request.form['author'], request.form['introduction'], int(request.form['birthYear']), int(request.form['deathYear']), int(request.form['dynastyID']))
 		cursor.execute(query)
 		conn.commit()
-		return redirect(url_for('author'))
+		return redirect(url_for('single_author', authorID=cursor.lastrowid))
+
+# page edit author
+@app.route('/edit_author/<int:authorID>', methods=['GET', 'POST'])
+def edit_author(authorID):
+	if request.method == 'GET':
+		# dynasties
+		query = "SELECT Dynasty, DynastyID from dynasty ORDER BY StartYear ASC"
+		cursor.execute(query)
+		dynasties = cursor.fetchall()
+		# author info
+		query = "SELECT * FROM author WHERE AuthorID = %d" % authorID
+		cursor.execute(query)
+		author = cursor.fetchone()
+		return render_template('edit_author.html', dynasties=dynasties, author=author)
+	elif request.method == 'POST':
+		query = '''UPDATE author SET Author='%s', Introduction='%s', BirthYear=%d, DeathYear=%d, DynastyID=%d\n
+			WHERE AuthorID = %d''' % (request.form['author'], request.form['introduction'], int(request.form['birthYear']), int(request.form['deathYear']), int(request.form['dynastyID']), authorID)
+		cursor.execute(query)
+		conn.commit()
+		return redirect(url_for('single_author', authorID=authorID))
 
 # Dynasty Controller
 #--------------------------------------------------
@@ -143,7 +185,22 @@ def add_dynasty():
 				('%s', '%s', %d, %d)''' % (request.form['dynasty'], request.form['introduction'], int(request.form['startYear']), int(request.form['endYear']))
 		cursor.execute(query)
 		conn.commit()
-		return redirect(url_for('dynasty'))
+		return redirect(url_for('single_dynasty', dynastyID=cursor.lastrowid))
+
+#page edit dynasty
+@app.route('/edit_dynasty/<int:dynastyID>', methods=['GET', 'POST'])
+def edit_dynasty(dynastyID):
+	if request.method == 'GET':
+		query = "SELECT * FROM dynasty WHERE DynastyID = %d" % dynastyID
+		cursor.execute(query)
+		dynasty = cursor.fetchone()
+		return render_template('edit_dynasty.html', dynasty=dynasty)
+	elif request.method == 'POST':
+		query = '''UPDATE dynasty SET Dynasty='%s', Introduction='%s', StartYear=%d, EndYear=%d\n
+			WHERE DynastyID = %d''' % (request.form['dynasty'], request.form['introduction'], int(request.form['startYear']), int(request.form['endYear']), dynastyID)
+		cursor.execute(query)
+		conn.commit()
+		return redirect(url_for('single_dynasty', dynastyID=dynastyID))
 
 if __name__ == '__main__':
 	app.run(debug=True)

@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block page_title %}编辑文学家{% endblock %}
+{% block page_id%}page-edit-author{% endblock %}
+
+{% block body %}
+
+<form id="form-edit-author" method="post" action="{{ url_for('edit_author', authorID=author.AuthorID) }}">
+	<fieldset>
+		<legend>编辑文学家</legend>
+
+		<div>
+			<label>文学家</label>
+			<input type="text" name="author" value="{{ author.Author }}" />
+		</div>
+
+		<div>
+			<label>朝代</label>
+			<select name='dynastyID'>
+				{% for dynasty in dynasties %}
+				<option
+					value="{{ dynasty.DynastyID }}"
+					{% if dynasty.DynastyID == author.DynastyID %}
+					selected="selected"
+					{% endif %}
+					>
+					{{ dynasty.Dynasty }}
+				</option>
+				{% endfor %}
+			</select>
+		</div>
+		
+		<div>
+			<label>生年</label>
+			<input type="text" name="birthYear" value="{{ author.BirthYear }}" />
+		</div>
+		
+		<div>
+			<label>卒年</label>
+			<input type="text" name="deathYear" value="{{ author.DeathYear }}" />
+		</div>
+
+		<div>
+			<label>简介</label>
+			<textarea id="author-introduction" rows="10" name="introduction">{{ author.Introduction }}</textarea>
+		</div>
+
+		<input type="submit" value="提交" class="btn btn-primary" />
+	</fieldset>
+</form>
+
+{% endblock %}

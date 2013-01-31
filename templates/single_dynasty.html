@@ -7,8 +7,10 @@
 
 <div class="row">
 	<div class="span9">
+		<a class="btn btn-primary pull-right" href="{{ url_for('edit_dynasty', dynastyID=dynasty.DynastyID) }}">编辑</a>
+
 		<div class='dynasty'>{{ dynasty.Dynasty }}</div>
-		<div class="dynasty-period">{{ dynasty.StartYear }}年~{{ dynasty.EndYear }}年</div>
+		<div class="dynasty-period">{{ dynasty.StartYear|replace('-', '前') }}年~{{ dynasty.EndYear|replace('-', '前') }}年</div>
 
 		<h4>简介</h4>
 		<div class='dynasty-introduction'>{{ dynasty.Introduction }}</div>

@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block page_title %}编辑作品{% endblock %}
+{% block page_id%}page-edit-work{% endblock %}
+
+{% block body %}
+
+<form id="form-edit-work" method="post" action="{{ url_for('edit_work', workID=work.WorkID) }}">
+	<fieldset>
+		<legend>编辑作品</legend>
+
+		<div>
+			<label>类别</label>
+			<select name='type'>
+				<option value='shi' {% if work.Type == 'shi' %}selected="selected"{% endif %}>诗</option>
+				<option value='ci' {% if work.Type == 'ci' %}selected="selected"{% endif %}>词</option>
+				<option value='wen' {% if work.Type == 'wen' %}selected="selected"{% endif %}>文</option>
+			</select>
+		</div>
+
+		<div>
+			<label>标题</label>
+			<input type="text" name="title" value="{{ work.Title }}" />
+		</div>
+
+		<div>
+			<label>作者</label>
+			<input type="text" name="author" value="{{ work.Author }}" />
+		</div>
+
+		<div>
+			<label>内容</label>
+			<textarea name="content" id="work-content" rows='10'>{{ work.Content }}</textarea>
+		</div>
+
+		<input type="submit" value="提交" class="btn btn-primary" />
+	</fieldset>
+</form>
+
+{% endblock %}

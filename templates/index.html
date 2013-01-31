@@ -9,9 +9,9 @@
 	<div class="span9">
 		{% for work in works %}
 		<div class="work-item">
-			<div class="work-title"><a href="{{ url_for('single_work', workID = work.WorkID) }}">{{ work.Title }}</a></div>
-			<div class="work-author">
-				〔<a href="{{ url_for('single_dynasty', dynastyID = work.DynastyID) }}">{{ work.Dynasty }}</a>〕<a href="{{ url_for('single_author', authorID=work.AuthorID) }}">{{ work.Author }}</a></div>
+			<div class="work-title"><a href="{{ url_for('single_work', workID = work.WorkID) }}">{{ work.Title }}</a><sup class="work-author">〔<a href="{{ url_for('single_dynasty', dynastyID = work.DynastyID) }}">{{ work.Dynasty }}</a>/<a href="{{ url_for('single_author', authorID=work.AuthorID) }}">{{ work.Author }}</a>〕</div>
+			</sup>
+			
 			<div class="work-content">{{ work.Content|truncate(100, True) }}</div>
 		</div>
 		{% endfor %}

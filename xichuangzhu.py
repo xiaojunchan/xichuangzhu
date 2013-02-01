@@ -5,6 +5,8 @@ from flask import Flask, render_template, request, redirect, url_for
 import MySQLdb
 import MySQLdb.cursors
 
+import markdown2
+
 import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -34,13 +36,15 @@ def index():
 # page single work
 @app.route('/work/<int:workID>')
 def single_work(workID):
-	query = '''SELECT work.WorkID, work.Title, work.Content, work.AuthorID, work.DynastyID, author.Author, dynasty.Dynasty
+	query = '''SELECT work.WorkID, work.Title, work.Content, work.Type, work.AuthorID, work.DynastyID, author.Author, dynasty.Dynasty
 			FROM work, author, dynasty\n
 			WHERE work.workID = %s\n
 			AND work.AuthorID = author.AuthorID\n
 			AND work.DynastyID = dynasty.DynastyID''' % workID
 	cursor.execute(query)
 	work = cursor.fetchone()
+	# use markdown to convert
+	work['Content'] = markdown2.markdown(work['Content'])
 	return render_template('single_work.html', work=work)
 
 # page add work

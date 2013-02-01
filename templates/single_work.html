@@ -6,7 +6,7 @@
 {% block body %}
 
 <div class="row">
-	<div class="span9">
+	<div class="span8">
 		<div class="btn-group pull-right">
 			<a class="btn btn-primary" href="{{ url_for('edit_work', workID=work.WorkID) }}">编辑</a>
 			<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
@@ -20,14 +20,14 @@
 		<div class="work-title">{{ work.Title }}</div>
 		<div class="work-author">
 			〔<a href="{{ url_for('single_dynasty', dynastyID = work.DynastyID) }}">{{ work.Dynasty }}</a>〕<a href="{{ url_for('single_author', authorID=work.AuthorID) }}">{{ work.Author }}</a></div>
-		<div class="work-content">{{ work.Content }}</div>
+		<div class="work-content work-type-{{ work.Type }}">{{ work.Content|safe }}</div>
 
 		<h4>注释</h4>
 		
 		<h4>点评</h4>
 	</div>
 
-	<div class="span3"></div>
+	<div class="span4"></div>
 </div>
 
 {% endblock %}

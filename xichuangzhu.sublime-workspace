@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"pa",
+				"padding-right"
+			],
+			[
+				"ma",
+				"margin-top"
+			],
+			[
+				"cl",
+				"clear"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"work",
+				"work"
+			],
+			[
+				"CO",
+				"Content"
+			],
+			[
 				"red",
 				"redirect"
 			],
@@ -14,14 +42,6 @@
 			[
 				"me",
 				"methods"
-			],
-			[
-				"work",
-				"workID"
-			],
-			[
-				"mar",
-				"margin-left"
 			],
 			[
 				"fon",
@@ -78,10 +98,6 @@
 			[
 				"dY",
 				"Dynasty"
-			],
-			[
-				"ma",
-				"margin-bottom"
 			],
 			[
 				"T",
@@ -495,7 +511,7 @@
 			"file": "static/style/page.less",
 			"settings":
 			{
-				"buffer_size": 3030,
+				"buffer_size": 3329,
 				"line_ending": "Unix"
 			}
 		},
@@ -503,7 +519,31 @@
 			"file": "xichuangzhu.py",
 			"settings":
 			{
-				"buffer_size": 7977,
+				"buffer_size": 8088,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/single_work.html",
+			"settings":
+			{
+				"buffer_size": 1006,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/add_work.html",
+			"settings":
+			{
+				"buffer_size": 1197,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/edit_work.html",
+			"settings":
+			{
+				"buffer_size": 1480,
 				"line_ending": "Unix"
 			}
 		}
@@ -708,15 +748,15 @@
 					"file": "static/style/page.less",
 					"settings":
 					{
-						"buffer_size": 3030,
+						"buffer_size": 3329,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								376,
-								376
+								969,
+								969
 							]
 						],
 						"settings":
@@ -725,7 +765,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 51.0,
+						"translation.y": 978.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -735,15 +775,15 @@
 					"file": "xichuangzhu.py",
 					"settings":
 					{
-						"buffer_size": 7977,
+						"buffer_size": 8088,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3305,
-								3305
+								1088,
+								1088
 							]
 						],
 						"settings":
@@ -752,7 +792,88 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1122.0,
+						"translation.y": 408.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "templates/single_work.html",
+					"settings":
+					{
+						"buffer_size": 1006,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								869,
+								869
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 51.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "templates/add_work.html",
+					"settings":
+					{
+						"buffer_size": 1197,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 204.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "templates/edit_work.html",
+					"settings":
+					{
+						"buffer_size": 1480,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1254,
+								1254
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 306.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -802,6 +923,18 @@
 		"selected_items":
 		[
 			[
+				"ed",
+				"templates/edit_work.html"
+			],
+			[
+				"add",
+				"templates/add_work.html"
+			],
+			[
+				"sin",
+				"templates/single_work.html"
+			],
+			[
 				"in",
 				"templates/index.html"
 			],
@@ -810,16 +943,8 @@
 				"templates/layout.html"
 			],
 			[
-				"sin",
-				"templates/single_work.html"
-			],
-			[
 				"edi",
 				"templates/edit_work.html"
-			],
-			[
-				"add",
-				"templates/add_work.html"
 			],
 			[
 				"lay",

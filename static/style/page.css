@@ -2,7 +2,7 @@ body{margin:65px 0 0 0;}body #main-wap{font-size:18px;line-height:26px;}body #ma
 body #main-wap textarea{width:500px;}
 body #main-wap h4{font-size:20px;color:#CD9B1D;margin:20px 0 15px 0;}
 .navbar-search .search-query{line-height:1.2;}
-.input-append{display:block;}
+.form-horizontal .input-append{display:block;}
 #page-index .work-item{margin-bottom:40px;}#page-index .work-item .work-title{font-size:30px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}
 #page-index .work-item .work-author{font-size:18px;font-weight:normal;}#page-index .work-item .work-author a{color:#333;}
 #page-single-work .work-title{font-size:30px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}

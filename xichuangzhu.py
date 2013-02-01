@@ -11,7 +11,7 @@ sys.setdefaultencoding('utf8')
 
 app = Flask(__name__)
 
-conn = MySQLdb.connect(host='localhost', user='root', passwd='xiaowangzi', db='classic', use_unicode=1, charset='utf8', cursorclass=MySQLdb.cursors.DictCursor)
+conn = MySQLdb.connect(host='localhost', user='root', passwd='xiaowangzi', db='classic', use_unicode=True, charset='utf8', cursorclass=MySQLdb.cursors.DictCursor)
 cursor = conn.cursor()
 
 # Home Controller
@@ -44,7 +44,7 @@ def single_work(workID):
 	return render_template('single_work.html', work=work)
 
 # page add work
-@app.route('/add_work', methods=['GET', 'POST'])
+@app.route('/work/add', methods=['GET', 'POST'])
 def add_work():
 	if request.method == 'GET':
 		return render_template('add_work.html')
@@ -60,7 +60,7 @@ def add_work():
 		return redirect(url_for('single_work', workID=cursor.lastrowid))
 
 # page edit work
-@app.route('/edit_work/<int:workID>', methods=['GET', 'POST'])
+@app.route('/work/edit/<int:workID>', methods=['GET', 'POST'])
 def edit_work(workID):
 	if request.method == 'GET':
 		query = '''SELECT * FROM work, author\n
@@ -80,6 +80,14 @@ def edit_work(workID):
 		cursor.execute(query)
 		conn.commit()
 		return redirect(url_for('single_work', workID=workID))
+
+# proc delete work
+@app.route('/work/delete/<int:workID>', methods=['GET'])
+def delete_work(workID):
+	query = "DELETE FROM work WHERE WorkID = %d" % workID
+	cursor.execute(query)
+	conn.commit()
+	return redirect(url_for('index'))
 
 # Author Controller
 #--------------------------------------------------
@@ -119,7 +127,7 @@ def single_author(authorID):
 	return render_template('single_author.html', author=author, works=works, worksNum=worksNum)
 
 #page add author
-@app.route('/add_author', methods=['GET', 'POST'])
+@app.route('/author/add', methods=['GET', 'POST'])
 def add_author():
 	if request.method == 'GET':
 		query = "SELECT DynastyID, Dynasty FROM dynasty ORDER BY StartYear ASC";
@@ -134,7 +142,7 @@ def add_author():
 		return redirect(url_for('single_author', authorID=cursor.lastrowid))
 
 # page edit author
-@app.route('/edit_author/<int:authorID>', methods=['GET', 'POST'])
+@app.route('/author/edit/<int:authorID>', methods=['GET', 'POST'])
 def edit_author(authorID):
 	if request.method == 'GET':
 		# dynasties
@@ -176,7 +184,7 @@ def single_dynasty(dynastyID):
 	return render_template('single_dynasty.html', dynasty=dynasty, authors=authors)
 
 #page add dynasty
-@app.route('/add_dynasty', methods=['GET', 'POST'])
+@app.route('/dynasty/add', methods=['GET', 'POST'])
 def add_dynasty():
 	if request.method == 'GET':
 		return render_template('add_dynasty.html')
@@ -188,7 +196,7 @@ def add_dynasty():
 		return redirect(url_for('single_dynasty', dynastyID=cursor.lastrowid))
 
 #page edit dynasty
-@app.route('/edit_dynasty/<int:dynastyID>', methods=['GET', 'POST'])
+@app.route('/dynasty/edit/<int:dynastyID>', methods=['GET', 'POST'])
 def edit_dynasty(dynastyID):
 	if request.method == 'GET':
 		query = "SELECT * FROM dynasty WHERE DynastyID = %d" % dynastyID

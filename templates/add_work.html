@@ -5,36 +5,47 @@
 
 {% block body %}
 
-<form id="form-add-work" method="post" action="{{ url_for('add_work') }}">
+<form id="form-add-work" class="form-horizontal" method="post" action="{{ url_for('add_work') }}">
 	<fieldset>
 		<legend>添加作品</legend>
 
-		<div>
-			<label>类别</label>
-			<select name='type'>
-				<option value='shi'>诗</option>
-				<option value='ci'>词</option>
-				<option value='wen'>文</option>
-			</select>
-
+		<div class="control-group">
+			<label class="control-label">类别</label>
+			<div class="controls">
+				<select name='type'>
+					<option value='shi'>诗</option>
+					<option value='ci'>词</option>
+					<option value='wen'>文</option>
+				</select>
+			</div>
 		</div>
 
-		<div>
-			<label>标题</label>
-			<input type="text" name="title" />
+		<div class="control-group">
+			<label class="control-label">标题</label>
+			<div class="controls">
+				<input type="text" name="title" />
+			</div>
 		</div>
 
-		<div>
-			<label>作者</label>
-			<input type="text" name="author" />
+		<div class="control-group">
+			<label class="control-label">作者</label>
+			<div class="controls">
+				<input type="text" name="author" />
+			</div>
 		</div>
 
-		<div>
-			<label>内容</label>
-			<textarea name="content" id="work-content" rows='10'></textarea>
+		<div class="control-group">
+			<label class="control-label">内容</label>
+			<div class="controls">
+				<textarea name="content" rows='10'></textarea>
+			</div>
 		</div>
 
-		<input type="submit" value="提交" class="btn btn-primary" />
+		<div class="control-group">
+			<div class="controls">
+				<input type="submit" value="提交" class="btn btn-primary" />
+			</div>
+		</div>
 	</fieldset>
 </form>
 

@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"red",
+				"redirect"
+			],
+			[
+				"WO",
+				"WorkID"
+			],
+			[
+				"me",
+				"methods"
+			],
+			[
+				"work",
+				"workID"
+			],
+			[
+				"mar",
+				"margin-left"
+			],
+			[
 				"fon",
 				"font-weight"
 			],
@@ -60,10 +80,6 @@
 				"Dynasty"
 			],
 			[
-				"me",
-				"method"
-			],
-			[
 				"ma",
 				"margin-bottom"
 			],
@@ -74,10 +90,6 @@
 			[
 				"works",
 				"worksNum"
-			],
-			[
-				"mar",
-				"margin-bottom"
 			],
 			[
 				"font",
@@ -483,7 +495,7 @@
 			"file": "static/style/page.less",
 			"settings":
 			{
-				"buffer_size": 2847,
+				"buffer_size": 2929,
 				"line_ending": "Unix"
 			}
 		},
@@ -491,31 +503,15 @@
 			"file": "xichuangzhu.py",
 			"settings":
 			{
-				"buffer_size": 7744,
+				"buffer_size": 7977,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "templates/index.html",
+			"file": "templates/single_work.html",
 			"settings":
 			{
-				"buffer_size": 714,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/author.html",
-			"settings":
-			{
-				"buffer_size": 637,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/layout.html",
-			"settings":
-			{
-				"buffer_size": 2002,
+				"buffer_size": 975,
 				"line_ending": "Unix"
 			}
 		}
@@ -556,19 +552,19 @@
 	},
 	"file_history":
 	[
-		"/var/www/xichuangzhu/templates/single_work.html",
-		"/var/www/xichuangzhu/templates/add_work.html",
-		"/var/www/xichuangzhu/templates/single_dynasty.html",
-		"/var/www/xichuangzhu/templates/edit_dynasty.html",
-		"/var/www/xichuangzhu/templates/add_dynasty.html",
-		"/var/www/xichuangzhu/templates/single_author.html",
 		"/var/www/xichuangzhu/templates/edit_work.html",
-		"/var/www/xichuangzhu/templates/dynasty.html",
-		"/var/www/xichuangzhu/templates/edit_author.html",
 		"/var/www/xichuangzhu/templates/author.html",
-		"/var/www/xichuangzhu/templates/add_author.html",
-		"/var/www/xichuangzhu/templates/layout.html",
+		"/var/www/xichuangzhu/templates/add_work.html",
 		"/var/www/xichuangzhu/templates/index.html",
+		"/var/www/xichuangzhu/templates/layout.html",
+		"/var/www/xichuangzhu/templates/add_author.html",
+		"/var/www/xichuangzhu/templates/edit_author.html",
+		"/var/www/xichuangzhu/templates/add_dynasty.html",
+		"/var/www/xichuangzhu/templates/edit_dynasty.html",
+		"/var/www/xichuangzhu/templates/single_work.html",
+		"/var/www/xichuangzhu/templates/single_dynasty.html",
+		"/var/www/xichuangzhu/templates/single_author.html",
+		"/var/www/xichuangzhu/templates/dynasty.html",
 		"/var/www/xichuangzhu/xichuangzhu.py",
 		"/var/www/xichuangzhu/templates/add",
 		"/var/www/xichuangzhu/static/style/bootstrap.css",
@@ -712,7 +708,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -720,15 +716,15 @@
 					"file": "static/style/page.less",
 					"settings":
 					{
-						"buffer_size": 2847,
+						"buffer_size": 2929,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								875,
-								875
+								260,
+								260
 							]
 						],
 						"settings":
@@ -737,7 +733,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 765.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -747,15 +743,15 @@
 					"file": "xichuangzhu.py",
 					"settings":
 					{
-						"buffer_size": 7744,
+						"buffer_size": 7977,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7306,
-								7306
+								3205,
+								3205
 							]
 						],
 						"settings":
@@ -764,25 +760,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2984.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "templates/index.html",
+					"file": "templates/single_work.html",
 					"settings":
 					{
-						"buffer_size": 714,
+						"buffer_size": 975,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								355,
-								355
+								530,
+								530
 							]
 						],
 						"settings":
@@ -792,60 +788,6 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "templates/author.html",
-					"settings":
-					{
-						"buffer_size": 637,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								439,
-								439
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "templates/layout.html",
-					"settings":
-					{
-						"buffer_size": 2002,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1091,
-								1091
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 306.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -895,6 +837,18 @@
 		"selected_items":
 		[
 			[
+				"sin",
+				"templates/single_work.html"
+			],
+			[
+				"edi",
+				"templates/edit_work.html"
+			],
+			[
+				"add",
+				"templates/add_work.html"
+			],
+			[
 				"lay",
 				"templates/layout.html"
 			],
@@ -905,14 +859,6 @@
 			[
 				"ind",
 				"templates/index.html"
-			],
-			[
-				"add",
-				"templates/add_dynasty.html"
-			],
-			[
-				"sin",
-				"templates/single_dynasty.html"
 			],
 			[
 				"si",
@@ -1109,6 +1055,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 231.0,
+	"side_bar_width": 181.0,
 	"status_bar_visible": true
 }

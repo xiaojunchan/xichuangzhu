@@ -5,47 +5,63 @@
 
 {% block body %}
 
-<form id="form-edit-author" method="post" action="{{ url_for('edit_author', authorID=author.AuthorID) }}">
+<form id="form-edit-author" class="form-horizontal" method="post" action="{{ url_for('edit_author', authorID=author.AuthorID) }}">
 	<fieldset>
 		<legend>编辑文学家</legend>
 
-		<div>
-			<label>文学家</label>
-			<input type="text" name="author" value="{{ author.Author }}" />
+		<div class="control-group">
+			<label class="control-label">姓名</label>
+			<div class="controls">
+				<input type="text" name="author" value="{{ author.Author }}" />
+			</div>
 		</div>
 
-		<div>
-			<label>朝代</label>
-			<select name='dynastyID'>
-				{% for dynasty in dynasties %}
-				<option
-					value="{{ dynasty.DynastyID }}"
-					{% if dynasty.DynastyID == author.DynastyID %}
-					selected="selected"
-					{% endif %}
-					>
-					{{ dynasty.Dynasty }}
-				</option>
-				{% endfor %}
-			</select>
+		<div class="control-group">
+			<label class="control-label">朝代</label>
+			<div class="controls">
+				<select name='dynastyID'>
+					{% for dynasty in dynasties %}
+					<option
+						value="{{ dynasty.DynastyID }}"
+						{% if dynasty.DynastyID == author.DynastyID %}
+						selected="selected"
+						{% endif %}
+						>
+						{{ dynasty.Dynasty }}
+					</option>
+					{% endfor %}
+				</select>
+			</div>
 		</div>
 		
-		<div>
-			<label>生年</label>
-			<input type="text" name="birthYear" value="{{ author.BirthYear }}" />
+		<div class="control-group">
+			<label class="control-label">生年</label>
+			<div class="controls input-append">
+				<input type="text" name="birthYear" value="{{ author.BirthYear }}" />
+				<span class="add-on">年</span>
+			</div>
 		</div>
 		
-		<div>
-			<label>卒年</label>
-			<input type="text" name="deathYear" value="{{ author.DeathYear }}" />
+		<div class="control-group">
+			<label class="control-label">卒年</label>
+			<div class="controls input-append">
+				<input type="text" name="deathYear" value="{{ author.DeathYear }}" />
+				<span class="add-on">年</span>
+			</div>
 		</div>
 
-		<div>
-			<label>简介</label>
-			<textarea id="author-introduction" rows="10" name="introduction">{{ author.Introduction }}</textarea>
+		<div class="control-group">
+			<label class="control-label">简介</label>
+			<div class="controls">
+				<textarea id="author-introduction" rows="10" name="introduction">{{ author.Introduction }}</textarea>
+			</div>
 		</div>
 
-		<input type="submit" value="提交" class="btn btn-primary" />
+		<div class="control-group">
+			<div class="controls">
+				<input type="submit" value="提交" class="btn btn-primary" />
+			</div>
+		</div>
 	</fieldset>
 </form>
 

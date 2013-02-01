@@ -6,31 +6,46 @@
 
 {% block body %}
 
-<form id="form-add-dynasty" method="post" action="{{ url_for('add_dynasty') }}">
+<form id="form-add-dynasty" class="form-horizontal" method="post" action="{{ url_for('add_dynasty') }}">
 	<fieldset>
 		<legend>添加朝代</legend>
 
-		<div>
-			<label>朝代</label>
-			<input type="text" name="dynasty" />
+		<div class="control-group">
+			<label class="control-label">朝代</label>
+			<div class="controls">
+				<input type="text" name="dynasty" />
+			</div>
 		</div>
 
-		<div>
-			<label>起始年</label>
-			<input type="text" name="startYear" />
+		<div class="control-group">
+			<label class="control-label">起始年</label>
+			<div class="controls input-append">
+				<input type="text" name="startYear" />
+				<span class="add-on">年</span>
+			</div>
 		</div>
 
-		<div>
-			<label>结束年</label>
-			<input type="text" name="endYear" />
+		<div class="control-group">
+			<label class="control-label">结束年</label>
+			<div class="controls input-append">
+				<input type="text" name="endYear" />
+				<span class="add-on">年</span>
+			</div>
 		</div>
 
-		<div>
-			<label>简介</label>
-			<textarea id='dynasty-introduction' rows="10" name="introduction" ></textarea>
+		<div class="control-group">
+			<label class="control-label">简介</label>
+			<div class="controls">
+				<textarea rows="10" name="introduction"></textarea>
+			</div>
 		</div>
 
-		<input type="submit" value="提交" class="btn btn-primary" />
+		<div class="control-group">
+			<div class="controls">
+				<input type="submit" value="提交" class="btn btn-primary" />
+			</div>
+		</div>
+
 	</fieldset>
 </form>
 

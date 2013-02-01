@@ -511,7 +511,7 @@
 			"file": "static/style/page.less",
 			"settings":
 			{
-				"buffer_size": 3329,
+				"buffer_size": 3372,
 				"line_ending": "Unix"
 			}
 		},
@@ -748,15 +748,15 @@
 					"file": "static/style/page.less",
 					"settings":
 					{
-						"buffer_size": 3329,
+						"buffer_size": 3372,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								969,
-								969
+								1301,
+								1301
 							]
 						],
 						"settings":
@@ -765,7 +765,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 978.0,
+						"translation.y": 1080.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

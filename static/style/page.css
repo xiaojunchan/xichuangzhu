@@ -9,8 +9,8 @@ body #main-wap h4{font-size:20px;color:#CD9B1D;margin:20px 0 15px 0;}
 #page-single-work .work-author{text-align:center;margin-bottom:20px;padding-right:6px;}
 #page-single-work .work-content{font-family:'宋体';font-weight:bold;}
 #page-single-work .work-type-shi{text-align:center;}
-#page-single-work .work-type-ci{text-indent:2em;}
-#page-single-work .work-type-wen p{text-indent:2em;margin-bottom:18px;}
+#page-single-work .work-type-ci{text-indent:2em;line-height:28px;}
+#page-single-work .work-type-wen p{text-indent:2em;line-height:28px;margin-bottom:18px;}
 #page-author .author-item{margin-bottom:40px;}#page-author .author-item .author{font-size:30px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}#page-author .author-item .author .author-dynasty{font-size:18px;font-weight:normal;}#page-author .author-item .author .author-dynasty a{color:#333;}
 #page-single-author .author{font-size:30px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}
 #page-single-author .author-period{margin-bottom:10px;}

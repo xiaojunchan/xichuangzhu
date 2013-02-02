@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, json
 
 import MySQLdb
 import MySQLdb.cursors
@@ -93,6 +93,37 @@ def delete_work(workID):
 	conn.commit()
 	return redirect(url_for('index'))
 
+# Collection Controller
+#--------------------------------------------------
+
+# page single collection
+@app.route('/collection/<int:collectionID>')
+def single_collection(collectionID):
+	query = "SELECT * FROM collection, author WHERE collectionID = %d" % collectionID
+	cursor.execute(query)
+	collection = cursor.fetchone()
+	return render_template('single_collection.html', collection=collection)
+
+# page add collection
+@app.route('/collection/add', methods=['POST', 'GET'])
+def add_collection():
+	if request.method == 'GET':
+		return render_template('add_collection.html')
+	elif request.method == 'POST':
+		query = '''INSERT INTO collection (Collection, AuthorID, Introduction) VALUES\n
+			('%s', %d, '%s')''' % (request.form['collection'], int(request.form['authorID']), request.form['introduction'])
+		cursor.execute(query)
+		conn.commit()
+		return redirect(url_for('single_collection'), collectionID = cursor.lastrowid)
+
+# proc search authors
+@app.route('/collection/add/search_author', methods=['POST'])
+def search_author_in_add_collection():
+	query = "SELECT AuthorID, Author FROM author WHERE Author LIKE '%%%s%%'" % request.form['author']
+	cursor.execute(query)
+	authors = cursor.fetchall()
+	return json.dumps(authors)
+	
 # Author Controller
 #--------------------------------------------------
 

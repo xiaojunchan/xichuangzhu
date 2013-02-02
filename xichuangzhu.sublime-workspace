@@ -4,6 +4,66 @@
 		"selected_items":
 		[
 			[
+				"sin",
+				"single_collection"
+			],
+			[
+				"fe",
+				"fetchone"
+			],
+			[
+				"coll",
+				"collection"
+			],
+			[
+				"con",
+				"conn"
+			],
+			[
+				"in",
+				"introduction"
+			],
+			[
+				"au",
+				"authorID"
+			],
+			[
+				"co",
+				"collection"
+			],
+			[
+				"IN",
+				"Introduction"
+			],
+			[
+				"C",
+				"Collection"
+			],
+			[
+				"select",
+				"select-author"
+			],
+			[
+				"se",
+				"search-author"
+			],
+			[
+				"op",
+				"optionElement"
+			],
+			[
+				"A",
+				"Author"
+			],
+			[
+				"me",
+				"methods"
+			],
+			[
+				"add",
+				"add_collection"
+			],
+			[
 				"pa",
 				"padding-right"
 			],
@@ -40,10 +100,6 @@
 				"WorkID"
 			],
 			[
-				"me",
-				"methods"
-			],
-			[
 				"fon",
 				"font-weight"
 			],
@@ -58,10 +114,6 @@
 			[
 				"wo",
 				"workID"
-			],
-			[
-				"au",
-				"author"
 			],
 			[
 				"Au",
@@ -90,10 +142,6 @@
 			[
 				"edit",
 				"edit_author"
-			],
-			[
-				"fe",
-				"fetchone"
 			],
 			[
 				"dY",
@@ -132,20 +180,12 @@
 				"Author"
 			],
 			[
-				"IN",
-				"INTO"
-			],
-			[
 				"ur",
 				"url_for"
 			],
 			[
 				"comm",
 				"commit"
-			],
-			[
-				"in",
-				"Introduciton"
 			],
 			[
 				"dynas",
@@ -160,16 +200,8 @@
 				"unicode"
 			],
 			[
-				"A",
-				"AuthorID"
-			],
-			[
 				"Author",
 				"AuthorID"
-			],
-			[
-				"sin",
-				"single_dynasty"
 			],
 			[
 				"exe",
@@ -190,10 +222,6 @@
 			[
 				"AU",
 				"AuthorID"
-			],
-			[
-				"add",
-				"add_work"
 			],
 			[
 				"re",
@@ -344,10 +372,6 @@
 				"border-radius"
 			],
 			[
-				"co",
-				"color"
-			],
-			[
 				"ba",
 				"background-color"
 			],
@@ -406,10 +430,6 @@
 			[
 				"t",
 				"title"
-			],
-			[
-				"con",
-				"content"
 			],
 			[
 				"qu",
@@ -494,14 +514,6 @@
 			[
 				"usr",
 				"userID"
-			],
-			[
-				"goa",
-				"goalID"
-			],
-			[
-				"g",
-				"goalContent"
 			]
 		]
 	},
@@ -519,15 +531,15 @@
 			"file": "xichuangzhu.py",
 			"settings":
 			{
-				"buffer_size": 8088,
+				"buffer_size": 9321,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "templates/single_work.html",
+			"file": "templates/add_collection.html",
 			"settings":
 			{
-				"buffer_size": 1006,
+				"buffer_size": 1788,
 				"line_ending": "Unix"
 			}
 		},
@@ -535,7 +547,7 @@
 			"file": "templates/add_work.html",
 			"settings":
 			{
-				"buffer_size": 1197,
+				"buffer_size": 1344,
 				"line_ending": "Unix"
 			}
 		},
@@ -584,8 +596,8 @@
 	},
 	"file_history":
 	[
-		"/var/www/xichuangzhu/templates/single_work.html",
 		"/var/www/xichuangzhu/templates/layout.html",
+		"/var/www/xichuangzhu/templates/single_work.html",
 		"/var/www/xichuangzhu/templates/index.html",
 		"/var/www/xichuangzhu/templates/edit_work.html",
 		"/var/www/xichuangzhu/templates/author.html",
@@ -740,7 +752,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -775,15 +787,15 @@
 					"file": "xichuangzhu.py",
 					"settings":
 					{
-						"buffer_size": 8088,
+						"buffer_size": 9321,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1088,
-								1088
+								3752,
+								3752
 							]
 						],
 						"settings":
@@ -792,25 +804,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 408.0,
+						"translation.y": 1530.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "templates/single_work.html",
+					"file": "templates/add_collection.html",
 					"settings":
 					{
-						"buffer_size": 1006,
+						"buffer_size": 1788,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								869,
-								869
+								954,
+								954
 							]
 						],
 						"settings":
@@ -819,7 +831,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 51.0,
+						"translation.y": 561.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -829,15 +841,15 @@
 					"file": "templates/add_work.html",
 					"settings":
 					{
-						"buffer_size": 1197,
+						"buffer_size": 1344,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								893,
+								893
 							]
 						],
 						"settings":
@@ -873,7 +885,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 306.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -923,6 +935,10 @@
 		"selected_items":
 		[
 			[
+				"lay",
+				"templates/layout.html"
+			],
+			[
 				"ed",
 				"templates/edit_work.html"
 			],
@@ -945,10 +961,6 @@
 			[
 				"edi",
 				"templates/edit_work.html"
-			],
-			[
-				"lay",
-				"templates/layout.html"
 			],
 			[
 				"au",

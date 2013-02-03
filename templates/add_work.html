@@ -5,6 +5,59 @@
 
 {% block body %}
 
+<script type="text/javascript">
+$(document).ready(function(){
+
+	var authors;
+
+	// search authors
+	$('#btn-search-author').click(function(){
+		var author = $('#input-author').val();
+		$.ajax({
+			'url': "{{ url_for('search_author_in_add_work') }}",
+			'type': 'POST',
+			'dataType': 'json',
+			'data': {
+				'author': author
+			},
+			'success': function(data){
+				authors = data;
+				$('#select-author').empty();
+
+				$.each(authors, function(index, author){
+					var option = "<option value=" + author['AuthorID'] + ">" + author['Author'] + "</option>";
+					$(option).appendTo('#select-author');
+				});
+
+				$('#select-author').change();
+			}
+		});
+	});
+
+	// select for collections
+	$("#select-author").change(function(){
+		var authorID = $(this)[0].options[$(this)[0].selectedIndex].value,
+			collections = [];
+
+		$('#select-collection').empty();
+
+		$.each(authors, function(index, author){
+			if(author['AuthorID'] == authorID){
+				// add collections to the select tag
+				collections = author['Collections'];
+
+				$.each(collections, function(index, collection){
+					var option = "<option value=" + collection['CollectionID'] + ">" + collection['Collection'] + "</option>";
+					$(option).appendTo('#select-collection');
+				});
+				//break;
+			}
+		});
+	});
+
+});
+</script>
+
 <form id="form-add-work" class="form-horizontal" method="post" action="{{ url_for('add_work') }}">
 	<fieldset>
 		<legend>添加作品</legend>
@@ -28,12 +81,15 @@
 		</div>
 
 		<div class="control-group">
-			<label class="control-label">作者</label>
+			<label class="control-label">作者 & 作品集</label>
 			<div class="controls">
-				<input type="text" name="author" class="span2" />
-				<input type="button" class="btn" value="搜索" />
-				<select name="authorID" class="span2">
+				<input id="input-author" type="text" class="span2" />
+				<input id="btn-search-author" type="button" class="btn" value="搜索" />
+				<select id="select-author" name="authorID" class="span2">
 					<option>作者</option>
+				</select>
+				<select id="select-collection" name="collectionID" class="span2">
+					<option>作品集</option>
 				</select>
 			</div>
 		</div>

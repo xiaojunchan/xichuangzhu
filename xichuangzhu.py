@@ -53,12 +53,13 @@ def add_work():
 	if request.method == 'GET':
 		return render_template('add_work.html')
 	elif request.method == 'POST':
-		# get author id
-		query = "SELECT AuthorID, DynastyID FROM author WHERE Author = '%s'" % request.form['author']
+		# get dynasty id
+		query = "SELECT DynastyID FROM author WHERE AuthorID = %d" % int(request.form['authorID'])
 		cursor.execute(query)
-		authorInfo = cursor.fetchone()
+		dynastyID = cursor.fetchone()['DynastyID']
 		# insert
-		query = '''INSERT INTO work (Title, Content, AuthorID, DynastyID, Type) VALUES ('%s', '%s', %d, %d, '%s')''' % (request.form['title'], request.form['content'], authorInfo['AuthorID'], authorInfo['DynastyID'], request.form['type'])
+		collectionID = int(request.form['collectionID']) if 'collectionID' in request.form else 0
+		query = '''INSERT INTO work (Title, Content, AuthorID, DynastyID, CollectionID, Type) VALUES ('%s', '%s', %d, %d, %d, '%s')''' % (request.form['title'], request.form['content'], int(request.form['authorID']), dynastyID, collectionID, request.form['type'])
 		cursor.execute(query)
 		conn.commit()
 		return redirect(url_for('single_work', workID=cursor.lastrowid))
@@ -92,6 +93,22 @@ def delete_work(workID):
 	cursor.execute(query)
 	conn.commit()
 	return redirect(url_for('index'))
+
+# proc search authors
+@app.route('/work/add/search_author', methods=['POST'])
+def search_author_in_add_work():
+	query = "SELECT AuthorID, Author FROM author WHERE Author LIKE '%%%s%%'" % request.form['author']
+	cursor.execute(query)
+	authors = cursor.fetchall()
+	# search for each author's collections
+	for author in authors:
+		query = "SELECT CollectionID, Collection FROM collection WHERE AuthorID = %d" % author['AuthorID']
+		cursor.execute(query)
+		collection = cursor.fetchall()
+		author['Collections'] = collection
+	return json.dumps(authors)
+
+@app.route
 
 # Collection Controller
 #--------------------------------------------------

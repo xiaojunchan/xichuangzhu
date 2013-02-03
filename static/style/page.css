@@ -3,7 +3,7 @@ body #main-wap textarea{width:500px;}
 body #main-wap h4{font-size:20px;color:#CD9B1D;margin:20px 0 15px 0;}
 .navbar-search .search-query{line-height:1.2;}
 .form-horizontal .input-append{display:block;}
-#page-index .work-item{margin-bottom:40px;}#page-index .work-item .work-title{font-size:30px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}
+#page-index .work-item{margin-bottom:40px;}#page-index .work-item .work-title{font-size:25px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}
 #page-index .work-item .work-author{font-size:18px;font-weight:normal;}#page-index .work-item .work-author a{color:#333;}
 #page-single-work .work-title{font-size:30px;line-height:40px;margin-top:10px;margin-bottom:12px;font-weight:bold;font-family:'宋体';text-align:center;clear:both;}
 #page-single-work .work-author{text-align:center;margin-bottom:20px;padding-right:6px;}
@@ -11,10 +11,14 @@ body #main-wap h4{font-size:20px;color:#CD9B1D;margin:20px 0 15px 0;}
 #page-single-work .work-type-shi{text-align:center;}
 #page-single-work .work-type-ci{text-indent:2em;line-height:28px;}
 #page-single-work .work-type-wen p{text-indent:2em;line-height:28px;margin-bottom:18px;}
-#page-author .author-item{margin-bottom:40px;}#page-author .author-item .author{font-size:30px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}#page-author .author-item .author .author-dynasty{font-size:18px;font-weight:normal;}#page-author .author-item .author .author-dynasty a{color:#333;}
+#page-single-work .work-collection{font-weight:bold;margin-bottom:5px;}
+#page-single-collection .collection{font-size:30px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}
+#page-single-collection .work-item{margin-bottom:15px;}#page-single-collection .work-item .work-title{font-weight:bold;margin-bottom:5px;}
+#page-author .author-item{margin-bottom:40px;}#page-author .author-item .author{font-size:25px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}#page-author .author-item .author .author-dynasty{font-size:18px;font-weight:normal;}#page-author .author-item .author .author-dynasty a{color:#333;}
 #page-single-author .author{font-size:30px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}
 #page-single-author .author-period{margin-bottom:10px;}
+#page-single-author .collection-item{margin-bottom:15px;}#page-single-author .collection-item .collection{font-weight:bold;margin-bottom:5px;}
 #page-single-author .work-item{margin-bottom:15px;}#page-single-author .work-item .work-title{font-weight:bold;margin-bottom:5px;}
-#page-dynasty .dynasty-item{margin-bottom:40px;}#page-dynasty .dynasty-item .dynasty{font-size:30px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}#page-dynasty .dynasty-item .dynasty .dynasty-period{font-size:18px;margin-left:5px;font-weight:normal;font-family:'arial','宋体';font-weight:normal;}
+#page-dynasty .dynasty-item{margin-bottom:40px;}#page-dynasty .dynasty-item .dynasty{font-size:25px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}#page-dynasty .dynasty-item .dynasty .dynasty-period{font-size:18px;margin-left:5px;font-weight:normal;font-family:'arial','宋体';font-weight:normal;}
 #page-single-dynasty .dynasty{font-size:30px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}
 #page-single-dynasty .author-item{margin-bottom:15px;}#page-single-dynasty .author-item .author{margin-bottom:5px;font-weight:bold;}

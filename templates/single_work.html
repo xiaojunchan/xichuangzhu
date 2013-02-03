@@ -22,6 +22,12 @@
 			〔<a href="{{ url_for('single_dynasty', dynastyID = work.DynastyID) }}">{{ work.Dynasty }}</a>〕<a href="{{ url_for('single_author', authorID=work.AuthorID) }}">{{ work.Author }}</a></div>
 		<div class="work-content work-type-{{ work.Type }}">{{ work.Content|safe }}</div>
 
+		{% if work.CollectionID != 0 %}
+		<h4>作品集</h4>
+		<div class="work-collection"><a href="{{ url_for('single_collection', collectionID=work.CollectionID) }}">{{ work.Collection }}</a></div>
+		<div class="work-collection-introduction">{{ work.Introduction|truncate(50, True) }}</div>
+		{% endif %}
+
 		<h4>注释</h4>
 		
 		<h4>点评</h4>

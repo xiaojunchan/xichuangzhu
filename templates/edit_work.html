@@ -5,6 +5,75 @@
 
 {% block body %}
 
+<script type="text/javascript">
+$(document).ready(function(){
+
+	var authors = [];
+
+	// read the collections of this author
+	// then copy to the global var 'authors'
+	// then triggle the change event
+	// which will read the global var 'authors' to the select tag
+	// that's all
+	$('#btn-search-author').click(function(){
+		var author = $('#input-author').val();
+		$.ajax({
+			'url': "{{ url_for('search_authors_in_add_work') }}",
+			'type': 'POST',
+			'dataType': 'json',
+			'data': {
+				'author': author
+			},
+			'success': function(data){
+				authors = data;
+				$('#select-author').empty();
+
+				$.each(authors, function(index, author){
+					var option = "<option value=" + author['AuthorID'] + ">" + author['Author'] + "</option>";
+					$(option).appendTo('#select-author');
+				});
+
+				$('#select-author').change();
+			}
+		});
+	});
+
+	// add author's collections to the select tag
+	$("#select-author").change(function(){
+		// get the
+		var authorID = $(this)[0].options[$(this)[0].selectedIndex].value,
+			collections = [];
+
+		$('#select-collection').empty();
+
+		$.each(authors, function(index, author){
+			if(author['AuthorID'] == authorID){
+				// add the collections to collections <select>
+				// and also add 0 option to the end 
+				// because maybe some work don't belong to any collection!
+				collections = author['Collections'];
+
+				$.each(collections, function(index, collection){
+					var option = "<option value=" + collection['CollectionID'] + ">" + collection['Collection'] + "</option>";
+					$(option).appendTo('#select-collection');
+				});
+
+				var option = "<option value=0>无</option>";
+				$(option).appendTo('#select-collection');
+			}
+		});
+	});
+
+	// triggle the click event to
+	// init the author <select>
+	// and the collection <select>
+	// tomorrow I think I should use the 
+	// more formal solution to solve this
+	$('#btn-search-author').click();
+
+});
+</script>
+
 <form id="form-edit-work" class="form-horizontal" method="post" action="{{ url_for('edit_work', workID=work.WorkID) }}">
 	<fieldset>
 		<legend>编辑作品</legend>
@@ -28,9 +97,12 @@
 		</div>
 
 		<div class="control-group">
-			<label class="control-label">作者</label>
+			<label class="control-label">作者 & 作品集</label>
 			<div class="controls">
-				<input type="text" name="author" value="{{ work.Author }}" />
+				<input id="input-author" type="text" class="span2" value="{{ work.Author }}" />
+				<input id="btn-search-author" type="button" class="btn" value="搜索" />
+				<select id="select-author" name="authorID" class="span2"></select>
+				<select id="select-collection" name="collectionID" class="span2"></select>
 			</div>
 		</div>
 

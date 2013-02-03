@@ -13,18 +13,28 @@
 
 		<h4>简介</h4>
 		<div class='author-introduction'>{{ author.Introduction }}</div>
+
+		{% if collections|length != 0 %}
+		<h4>
+			作品集
+			<sup><span class="badge badge-inverse">{{ collections|length }}</span></sup>
+		</h4>
+
+		{% for collection in collections %}
+		<div class="collection-item">
+			<div class="collection"><a href="{{ url_for('single_collection', collectionID=collection.CollectionID) }}">{{ collection.Collection }}</a></div>
+			<div class="collection-introduction">{{ collection.Introduction|truncate(50, True) }}</div>
+		</div>
+		{% endfor %}
+
+		{% endif %}
+
 		<h4>
 			作品
 			<sup>
 				<span class="badge badge-inverse">
-					诗
-					{{ worksNum.shi }}
-					/
-					词
-					{{ worksNum.ci }}
-					/
-					文
-					{{ worksNum.wen }}
+					<!--诗{{ worksNum.shi }}/词{{ worksNum.ci }}/文{{ worksNum.wen }}-->
+					{{ works|length }}
 				</span>
 			</sup>
 		</h4>

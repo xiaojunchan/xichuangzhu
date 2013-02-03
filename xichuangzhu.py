@@ -36,11 +36,12 @@ def index():
 # page single work
 @app.route('/work/<int:workID>')
 def single_work(workID):
-	query = '''SELECT work.WorkID, work.Title, work.Content, work.Type, work.AuthorID, work.DynastyID, author.Author, dynasty.Dynasty
-			FROM work, author, dynasty\n
-			WHERE work.workID = %s\n
+	query = '''SELECT work.WorkID, work.Title, work.Content, work.Type, work.AuthorID, work.DynastyID, work.CollectionID, author.Author, dynasty.Dynasty, collection.Collection, collection.Introduction\n
+			FROM work, author, dynasty, collection\n
+			WHERE work.workID = %d\n
 			AND work.AuthorID = author.AuthorID\n
-			AND work.DynastyID = dynasty.DynastyID''' % workID
+			AND work.DynastyID = dynasty.DynastyID\n
+			AND work.collectionID = collection.CollectionID\n''' % workID
 	cursor.execute(query)
 	work = cursor.fetchone()
 	# use markdown to convert
@@ -58,8 +59,7 @@ def add_work():
 		cursor.execute(query)
 		dynastyID = cursor.fetchone()['DynastyID']
 		# insert
-		collectionID = int(request.form['collectionID']) if 'collectionID' in request.form else 0
-		query = '''INSERT INTO work (Title, Content, AuthorID, DynastyID, CollectionID, Type) VALUES ('%s', '%s', %d, %d, %d, '%s')''' % (request.form['title'], request.form['content'], int(request.form['authorID']), dynastyID, collectionID, request.form['type'])
+		query = '''INSERT INTO work (Title, Content, AuthorID, DynastyID, CollectionID, Type) VALUES ('%s', '%s', %d, %d, %d, '%s')''' % (request.form['title'], request.form['content'], int(request.form['authorID']), dynastyID, int(request.form['collectionID']), request.form['type'])
 		cursor.execute(query)
 		conn.commit()
 		return redirect(url_for('single_work', workID=cursor.lastrowid))
@@ -68,20 +68,22 @@ def add_work():
 @app.route('/work/edit/<int:workID>', methods=['GET', 'POST'])
 def edit_work(workID):
 	if request.method == 'GET':
-		query = '''SELECT * FROM work, author\n
-			WHERE work.AuthorID = author.AuthorID
+		query = '''SELECT *\n
+			FROM work, author, collection\n
+			WHERE work.AuthorID = author.AuthorID\n
+			AND work.CollectionID = collection.CollectionID\n
 			AND work.WorkID = %d''' % workID
 		cursor.execute(query)
 		work = cursor.fetchone()
 		return render_template('edit_work.html', work=work)
 	elif request.method == 'POST':
 		# get author id
-		query = "SELECT AuthorID, DynastyID FROM author WHERE Author = '%s'" % request.form['author']
+		query = "SELECT DynastyID FROM author WHERE AuthorID = %d" % int(request.form['authorID'])
 		cursor.execute(query)
-		authorInfo = cursor.fetchone()
+		dynastyID = cursor.fetchone()['DynastyID']
 		# edit
-		query = '''UPDATE work SET Title = '%s', Content = '%s', AuthorID = %d, DynastyID = %d, Type = '%s'\n
-			WHERE WorkID=%d''' % (request.form['title'], request.form['content'], authorInfo['AuthorID'], authorInfo['DynastyID'], request.form['type'], workID)
+		query = '''UPDATE work SET Title = '%s', Content = '%s', AuthorID = %d, DynastyID = %d, CollectionID = %d, Type = '%s'\n
+			WHERE WorkID=%d''' % (request.form['title'], request.form['content'], int(request.form['authorID']), dynastyID, int(request.form['collectionID']), request.form['type'], workID)
 		cursor.execute(query)
 		conn.commit()
 		return redirect(url_for('single_work', workID=workID))
@@ -95,8 +97,8 @@ def delete_work(workID):
 	return redirect(url_for('index'))
 
 # proc search authors
-@app.route('/work/add/search_author', methods=['POST'])
-def search_author_in_add_work():
+@app.route('/work/add/search_authors', methods=['POST'])
+def search_authors_in_add_work():
 	query = "SELECT AuthorID, Author FROM author WHERE Author LIKE '%%%s%%'" % request.form['author']
 	cursor.execute(query)
 	authors = cursor.fetchall()
@@ -116,10 +118,17 @@ def search_author_in_add_work():
 # page single collection
 @app.route('/collection/<int:collectionID>')
 def single_collection(collectionID):
-	query = "SELECT * FROM collection, author WHERE collectionID = %d" % collectionID
+	query = '''SELECT * FROM collection, author, dynasty\n
+		WHERE collection.AuthorID = author.AuthorID\n
+		AND author.DynastyID = dynasty.dynastyID
+		AND collectionID = %d''' % collectionID
 	cursor.execute(query)
 	collection = cursor.fetchone()
-	return render_template('single_collection.html', collection=collection)
+	# works
+	query = "SELECT * FROM work WHERE CollectionID = %d" % collectionID
+	cursor.execute(query)
+	works = cursor.fetchall()
+	return render_template('single_collection.html', collection=collection, works=works)
 
 # page add collection
 @app.route('/collection/add', methods=['POST', 'GET'])
@@ -131,15 +140,32 @@ def add_collection():
 			('%s', %d, '%s')''' % (request.form['collection'], int(request.form['authorID']), request.form['introduction'])
 		cursor.execute(query)
 		conn.commit()
-		return redirect(url_for('single_collection'), collectionID = cursor.lastrowid)
+		return redirect(url_for('single_collection', collectionID = cursor.lastrowid))
 
-# proc search authors
+# proc search authors in add collection
 @app.route('/collection/add/search_author', methods=['POST'])
 def search_author_in_add_collection():
 	query = "SELECT AuthorID, Author FROM author WHERE Author LIKE '%%%s%%'" % request.form['author']
 	cursor.execute(query)
 	authors = cursor.fetchall()
 	return json.dumps(authors)
+
+# page edit collection
+@app.route('/collection/edit/<int:collectionID>', methods=['POST', 'GET'])
+def edit_collection(collectionID):
+	if request.method == 'GET':
+		query = '''SELECT * FROM collection, author\n
+			WHERE collection.AuthorID = author.AuthorID\n
+			AND CollectionID = %d''' % collectionID
+		cursor.execute(query)
+		collection = cursor.fetchone()
+		return render_template('edit_collection.html', collection=collection)
+	elif request.method == 'POST':
+		query = '''UPDATE collection SET Collection = '%s', AuthorID = %d, Introduction = '%s'\n
+			WHERE CollectionID = %d''' % (request.form['collection'], int(request.form['authorID']), request.form['introduction'], collectionID)
+		cursor.execute(query)
+		conn.commit()
+		return redirect(url_for('single_collection', collectionID=collectionID))
 	
 # Author Controller
 #--------------------------------------------------
@@ -157,13 +183,18 @@ def author():
 #page single author
 @app.route('/author/<int:authorID>')
 def single_author(authorID):
+	# author info
 	query = '''SELECT *\n
-			FROM author, dynasty\n
-			WHERE author.DynastyID = dynasty.DynastyID\n
-			AND author.AuthorID = %s''' % authorID
+		FROM author, dynasty\n
+		WHERE author.DynastyID = dynasty.DynastyID\n
+		AND author.AuthorID = %d''' % authorID
 	cursor.execute(query)
 	author = cursor.fetchone()
-	# all works
+	# collections
+	query = "SELECT * FROM collection WHERE AuthorID = %d" % author['AuthorID']
+	cursor.execute(query)
+	collections = cursor.fetchall()
+	# works
 	query = "SELECT * FROM work WHERE AuthorID=%d" % authorID
 	cursor.execute(query)
 	works = cursor.fetchall()
@@ -176,7 +207,7 @@ def single_author(authorID):
 			worksNum['ci'] += 1
 		elif work['Type'] == 'wen':
 			worksNum['wen'] += 1
-	return render_template('single_author.html', author=author, works=works, worksNum=worksNum)
+	return render_template('single_author.html', author=author, collections=collections, works=works, worksNum=worksNum)
 
 #page add author
 @app.route('/author/add', methods=['GET', 'POST'])

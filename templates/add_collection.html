@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block page_title %}添加作品集{% endblock %}
+{% block page_id%}page-add-collection{% endblock %}
+
+{% block body %}
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	var authors = [];
+
+	// search authors
+	$('#btn-search-author').click(function(){
+		var author = $('#input-author').val();
+		$.ajax({
+			'url': "{{ url_for('search_author_in_add_collection') }}",
+			'type': 'POST',
+			'dataType': 'json',
+			'data': {
+				'author': author
+			},
+			'success': function(data){
+				authors = data;
+
+				// add possible authors to the select tag
+				$('#select-author').empty();
+				$.each(data, function(index, element){
+					var option = "<option value=" + element['AuthorID'] + ">" + element['Author'] + "</option>";
+					$(option).appendTo('#select-author');
+				});
+			}
+		});
+	});
+
+
+});
+</script>
+
+<form id="form-add-collection" class="form-horizontal" method="post" action="{{ url_for('add_collection') }}">
+	<fieldset>
+		<legend>添加作品集</legend>
+
+		<div class="control-group">
+			<label class="control-label">集名</label>
+			<div class="controls">
+				<input type="text" name="collection" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label">作者</label>
+			<div class="controls">
+				<input id="input-author" type="text" class="span2" />
+				<input id="btn-search-author" type="button" class="btn" value="搜索" />
+				<select id="select-author" name="authorID" class="span2">
+					<option>作者</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label">简介</label>
+			<div class="controls">
+				<textarea name="introduction" rows='10'></textarea>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<div class="controls">
+				<input type="submit" value="提交" class="btn btn-primary" />
+			</div>
+		</div>
+	</fieldset>
+</form>
+
+{% endblock %}

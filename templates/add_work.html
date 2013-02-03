@@ -14,7 +14,7 @@ $(document).ready(function(){
 	$('#btn-search-author').click(function(){
 		var author = $('#input-author').val();
 		$.ajax({
-			'url': "{{ url_for('search_author_in_add_work') }}",
+			'url': "{{ url_for('search_authors_in_add_work') }}",
 			'type': 'POST',
 			'dataType': 'json',
 			'data': {
@@ -29,6 +29,7 @@ $(document).ready(function(){
 					$(option).appendTo('#select-author');
 				});
 
+				// triggle the change event to add collections
 				$('#select-author').change();
 			}
 		});
@@ -43,14 +44,18 @@ $(document).ready(function(){
 
 		$.each(authors, function(index, author){
 			if(author['AuthorID'] == authorID){
-				// add collections to the select tag
+				// add the collections to collections <select>
+				// and also add 0 option to the end 
+				// because maybe some work don't belong to any collection!
 				collections = author['Collections'];
-
+				
 				$.each(collections, function(index, collection){
 					var option = "<option value=" + collection['CollectionID'] + ">" + collection['Collection'] + "</option>";
 					$(option).appendTo('#select-collection');
 				});
-				//break;
+
+				var option = "<option value=0>无</option>";
+				$(option).appendTo('#select-collection');
 			}
 		});
 	});

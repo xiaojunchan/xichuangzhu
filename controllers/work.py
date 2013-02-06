@@ -61,13 +61,21 @@ def delete_work(workID):
 	Work.delete_work(workID)
 	return redirect(url_for('index'))
 
-# helper - search authors and their'collections in page add & edit work
+# helper - search authors and their collections in page add work
 #--------------------------------------------------
 
 @app.route('/work/search_authors', methods=['POST'])
-def search_authors_in_work():
+def get_authors_by_name():
 	name = request.form['author']
 	authors = Author.get_authors_by_name(name)
 	for author in authors:
 		author['Collections'] = Collection.get_collections_by_author(author['AuthorID'])
 	return json.dumps(authors)
+
+# helper - search the author's collections in page edit work
+#--------------------------------------------------
+@app.route('/work/search_collections', methods=['POST'])
+def get_collections_by_author():
+	authorID = int(request.form['authorID'])
+	collections = Collection.get_collections_by_author(authorID)
+	return json.dumps(collections)

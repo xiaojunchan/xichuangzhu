@@ -32,6 +32,13 @@ class Author:
 		cursor.execute(query)
 		return cursor.fetchone()
 
+	# get authors by name
+	@staticmethod
+	def get_authors_by_name(name):
+		query = "SELECT AuthorID, Author FROM author WHERE Author LIKE '%%%s%%'" % name
+		cursor.execute(query)
+		return cursor.fetchall()
+
 # NEW
 
 	# add a new author and return its AuthorID

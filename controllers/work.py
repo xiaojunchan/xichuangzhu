@@ -1,89 +1,73 @@
 from flask import render_template, request, redirect, url_for, json
 
-import markdown2
-
-import sys
-reload(sys)
-sys.setdefaultencoding('utf8')
-
 from xichuangzhu import app, conn, cursor
 
-# Work Controller
+from xichuangzhu.models.work_model import Work
+from xichuangzhu.models.dynasty_model import Dynasty
+from xichuangzhu.models.author_model import Author
+from xichuangzhu.models.collection_model import Collection
+
+import markdown2
+
+# page - single work
 #--------------------------------------------------
 
-# page single work
 @app.route('/work/<int:workID>')
 def single_work(workID):
-	query = '''SELECT work.WorkID, work.Title, work.Content, work.Type, work.AuthorID, work.DynastyID, work.CollectionID, author.Author, dynasty.Dynasty, collection.Collection, collection.Introduction\n
-			FROM work, author, dynasty, collection\n
-			WHERE work.workID = %d\n
-			AND work.AuthorID = author.AuthorID\n
-			AND work.DynastyID = dynasty.DynastyID\n
-			AND work.collectionID = collection.CollectionID\n''' % workID
-	cursor.execute(query)
-	work = cursor.fetchone()
-	# use markdown to convert
+	work = Work.get_work(workID)
 	work['Content'] = markdown2.markdown(work['Content'])
 	return render_template('single_work.html', work=work)
 
-# page add work
+# page - add work
+#--------------------------------------------------
+
 @app.route('/work/add', methods=['GET', 'POST'])
 def add_work():
 	if request.method == 'GET':
 		return render_template('add_work.html')
 	elif request.method == 'POST':
-		# get dynasty id
-		query = "SELECT DynastyID FROM author WHERE AuthorID = %d" % int(request.form['authorID'])
-		cursor.execute(query)
-		dynastyID = cursor.fetchone()['DynastyID']
-		# insert
-		query = '''INSERT INTO work (Title, Content, AuthorID, DynastyID, CollectionID, Type) VALUES ('%s', '%s', %d, %d, %d, '%s')''' % (request.form['title'], request.form['content'], int(request.form['authorID']), dynastyID, int(request.form['collectionID']), request.form['type'])
-		cursor.execute(query)
-		conn.commit()
-		return redirect(url_for('single_work', workID=cursor.lastrowid))
+		title        = request.form['title']
+		content      = request.form['content']
+		authorID     = int(request.form['authorID'])
+		dynastyID    = Dynasty.get_dynastyID_by_author(authorID)
+		collectionID = int(request.form['collectionID'])
+		type = request.form['type']
+		newWorkID = Work.add_work(title, content, authorID, dynastyID, collectionID, type)
+		return redirect(url_for('single_work', workID=newWorkID))
 
-# page edit work
+# page - edit work
+#--------------------------------------------------
+
 @app.route('/work/edit/<int:workID>', methods=['GET', 'POST'])
 def edit_work(workID):
 	if request.method == 'GET':
-		query = '''SELECT *\n
-			FROM work, author, collection\n
-			WHERE work.AuthorID = author.AuthorID\n
-			AND work.CollectionID = collection.CollectionID\n
-			AND work.WorkID = %d''' % workID
-		cursor.execute(query)
-		work = cursor.fetchone()
+		work = Work.get_work(workID)
 		return render_template('edit_work.html', work=work)
 	elif request.method == 'POST':
-		# get author id
-		query = "SELECT DynastyID FROM author WHERE AuthorID = %d" % int(request.form['authorID'])
-		cursor.execute(query)
-		dynastyID = cursor.fetchone()['DynastyID']
-		# edit
-		query = '''UPDATE work SET Title = '%s', Content = '%s', AuthorID = %d, DynastyID = %d, CollectionID = %d, Type = '%s'\n
-			WHERE WorkID=%d''' % (request.form['title'], request.form['content'], int(request.form['authorID']), dynastyID, int(request.form['collectionID']), request.form['type'], workID)
-		cursor.execute(query)
-		conn.commit()
+		title        = request.form['title']
+		content      = request.form['content']
+		authorID     = int(request.form['authorID'])
+		dynastyID    = Dynasty.get_dynastyID_by_author(authorID)
+		collectionID = int(request.form['collectionID'])
+		type         = request.form['type']
+		Work.edit_work(title, content, authorID, dynastyID, collectionID, type, workID)
 		return redirect(url_for('single_work', workID=workID))
 
-# proc delete work
+# proc - delete work
+#--------------------------------------------------
+
 @app.route('/work/delete/<int:workID>', methods=['GET'])
 def delete_work(workID):
-	query = "DELETE FROM work WHERE WorkID = %d" % workID
-	cursor.execute(query)
-	conn.commit()
+	Work.delete_work(workID)
 	return redirect(url_for('index'))
 
-# proc search authors
-@app.route('/work/add/search_authors', methods=['POST'])
-def search_authors_in_add_work():
-	query = "SELECT AuthorID, Author FROM author WHERE Author LIKE '%%%s%%'" % request.form['author']
-	cursor.execute(query)
-	authors = cursor.fetchall()
-	# search for each author's collections
+# helper - search authors and their'collections in page add & edit work
+#--------------------------------------------------
+
+@app.route('/work/search_authors', methods=['POST'])
+def search_authors_in_work():
+	name = request.form['author']
+	authors = Author.get_authors_by_name(name)
 	for author in authors:
-		query = "SELECT CollectionID, Collection FROM collection WHERE AuthorID = %d" % author['AuthorID']
-		cursor.execute(query)
-		collection = cursor.fetchall()
-		author['Collections'] = collection
+		author['Collections'] = Collection.get_collections_by_author(author['AuthorID'])
 	return json.dumps(authors)

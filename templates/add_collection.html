@@ -14,7 +14,7 @@ $(document).ready(function(){
 	$('#btn-search-author').click(function(){
 		var author = $('#input-author').val();
 		$.ajax({
-			'url': "{{ url_for('search_author_in_add_collection') }}",
+			'url': "{{ url_for('search_author_in_collection') }}",
 			'type': 'POST',
 			'dataType': 'json',
 			'data': {

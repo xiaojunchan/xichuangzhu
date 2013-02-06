@@ -18,6 +18,13 @@ class Dynasty:
 		cursor.execute(query)
 		return cursor.fetchone()
 
+	# get dynastyID by author
+	@staticmethod
+	def get_dynastyID_by_author(authorID):
+		query = "SELECT DynastyID FROM author WHERE AuthorID = %d" % authorID
+		cursor.execute(query)
+		return cursor.fetchone()['DynastyID']
+
 # new
 
 	# add a new dynasty

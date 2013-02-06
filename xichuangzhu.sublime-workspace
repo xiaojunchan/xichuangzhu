@@ -4,8 +4,48 @@
 		"selected_items":
 		[
 			[
+				"delete",
+				"delete_work"
+			],
+			[
+				"work",
+				"workID"
+			],
+			[
+				"edit",
+				"edit_work"
+			],
+			[
+				"conte",
+				"content"
+			],
+			[
+				"con",
+				"Content"
+			],
+			[
 				"wor",
-				"works"
+				"workID"
+			],
+			[
+				"A",
+				"Author"
+			],
+			[
+				"coll",
+				"collectionID"
+			],
+			[
+				"colle",
+				"Collection"
+			],
+			[
+				"auth",
+				"authorID"
+			],
+			[
+				"col",
+				"collection"
 			],
 			[
 				"dya",
@@ -52,10 +92,6 @@
 				"worksNum"
 			],
 			[
-				"colle",
-				"collections"
-			],
-			[
 				"modl",
 				"models"
 			],
@@ -68,10 +104,6 @@
 				"staticmethod"
 			],
 			[
-				"auth",
-				"authors"
-			],
-			[
 				"f",
 				"font-family"
 			],
@@ -82,10 +114,6 @@
 			[
 				"fe",
 				"fetchall"
-			],
-			[
-				"coll",
-				"collections"
 			],
 			[
 				"Co",
@@ -114,10 +142,6 @@
 			[
 				"Wh",
 				"WHERE"
-			],
-			[
-				"A",
-				"AuthorID"
 			],
 			[
 				"edi",
@@ -184,10 +208,6 @@
 				"single_collection"
 			],
 			[
-				"con",
-				"conn"
-			],
-			[
 				"in",
 				"introduction"
 			],
@@ -228,10 +248,6 @@
 				"margin-bottom"
 			],
 			[
-				"work",
-				"work"
-			],
-			[
 				"red",
 				"redirect"
 			],
@@ -246,10 +262,6 @@
 			[
 				"sing",
 				"single_work"
-			],
-			[
-				"edit",
-				"edit_author"
 			],
 			[
 				"dY",
@@ -502,18 +514,6 @@
 			[
 				"en",
 				"encode"
-			],
-			[
-				"csr",
-				"csrf_key"
-			],
-			[
-				"_csrf_set",
-				"_csrf_set_key"
-			],
-			[
-				"conet",
-				"context"
 			]
 		]
 	},
@@ -528,10 +528,10 @@
 			}
 		},
 		{
-			"file": "models/author_model.py",
+			"file": "controllers/work.py",
 			"settings":
 			{
-				"buffer_size": 1513,
+				"buffer_size": 2620,
 				"line_ending": "Unix"
 			}
 		},
@@ -539,7 +539,15 @@
 			"file": "models/work_model.py",
 			"settings":
 			{
-				"buffer_size": 934,
+				"buffer_size": 2612,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "models/author_model.py",
+			"settings":
+			{
+				"buffer_size": 1717,
 				"line_ending": "Unix"
 			}
 		},
@@ -547,7 +555,7 @@
 			"file": "models/collection_model.py",
 			"settings":
 			{
-				"buffer_size": 269,
+				"buffer_size": 1245,
 				"line_ending": "Unix"
 			}
 		},
@@ -555,7 +563,7 @@
 			"file": "models/dynasty_model.py",
 			"settings":
 			{
-				"buffer_size": 1079,
+				"buffer_size": 1298,
 				"line_ending": "Unix"
 			}
 		},
@@ -563,7 +571,7 @@
 			"file": "controllers/collection.py",
 			"settings":
 			{
-				"buffer_size": 2462,
+				"buffer_size": 2165,
 				"line_ending": "Unix"
 			}
 		}
@@ -604,6 +612,11 @@
 	},
 	"file_history":
 	[
+		"/var/www/xichuangzhu/templates/edit_work.html",
+		"/var/www/xichuangzhu/templates/add_work.html",
+		"/var/www/xichuangzhu/templates/add_collection.html",
+		"/var/www/xichuangzhu/templates/edit_collection.html",
+		"/var/www/xichuangzhu/controllers/collection.py",
 		"/var/www/xichuangzhu/controllers/author.py",
 		"/var/www/xichuangzhu/controllers/dynasty.py",
 		"/var/www/xichuangzhu/controllers/home.py",
@@ -618,15 +631,10 @@
 		"/var/www/xichuangzhu/__init__.py",
 		"/var/www/xichuangzhu/controllers/__init__.py",
 		"/var/www/xichuangzhu/controllers/work.py",
-		"/var/www/xichuangzhu/controllers/collection.py",
 		"/var/www/xichuangzhu/views.py",
 		"/var/www/xichuangzhu/controllers.py",
 		"/var/www/xichuangzhu/templates/single_work.html",
-		"/var/www/xichuangzhu/templates/add_work.html",
-		"/var/www/xichuangzhu/templates/edit_work.html",
 		"/var/www/xichuangzhu/templates/single_collection.html",
-		"/var/www/xichuangzhu/templates/add_collection.html",
-		"/var/www/xichuangzhu/templates/edit_collection.html",
 		"/var/www/xichuangzhu/templates/single_dynasty.html",
 		"/var/www/xichuangzhu/templates/layout.html",
 		"/var/www/xichuangzhu/templates/index.html",
@@ -766,7 +774,7 @@
 			"post"
 		],
 		"highlight": true,
-		"in_selection": true,
+		"in_selection": false,
 		"preserve_case": false,
 		"regex": false,
 		"replace_history":
@@ -796,8 +804,8 @@
 						"selection":
 						[
 							[
-								243,
-								243
+								5,
+								5
 							]
 						],
 						"settings":
@@ -813,26 +821,27 @@
 				},
 				{
 					"buffer": 1,
-					"file": "models/author_model.py",
+					"file": "controllers/work.py",
 					"settings":
 					{
-						"buffer_size": 1513,
+						"buffer_size": 2620,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								167,
-								167
+								749,
+								749
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 102.0,
+						"translation.y": 202.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -842,67 +851,69 @@
 					"file": "models/work_model.py",
 					"settings":
 					{
-						"buffer_size": 934,
+						"buffer_size": 2612,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								350,
-								350
+								2450,
+								2450
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 969.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "models/collection_model.py",
+					"file": "models/author_model.py",
 					"settings":
 					{
-						"buffer_size": 269,
+						"buffer_size": 1717,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								774,
+								774
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 204.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "models/dynasty_model.py",
+					"file": "models/collection_model.py",
 					"settings":
 					{
-						"buffer_size": 1079,
+						"buffer_size": 1245,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								767,
-								767
+								144,
+								144
 							]
 						],
 						"settings":
@@ -917,18 +928,18 @@
 				},
 				{
 					"buffer": 5,
-					"file": "controllers/collection.py",
+					"file": "models/dynasty_model.py",
 					"settings":
 					{
-						"buffer_size": 2462,
+						"buffer_size": 1298,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1983,
-								1983
+								484,
+								484
 							]
 						],
 						"settings":
@@ -938,6 +949,33 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "controllers/collection.py",
+					"settings":
+					{
+						"buffer_size": 2165,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2123,
+								2123
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 566.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -987,8 +1025,8 @@
 		"selected_items":
 		[
 			[
-				"sin",
-				"templates/single_author.html"
+				"ed",
+				"templates/edit_work.html"
 			],
 			[
 				"add",
@@ -996,15 +1034,15 @@
 			],
 			[
 				"edi",
-				"templates/edit_work.html"
+				"templates/edit_collection.html"
+			],
+			[
+				"sin",
+				"templates/single_author.html"
 			],
 			[
 				"lay",
 				"templates/layout.html"
-			],
-			[
-				"ed",
-				"templates/edit_work.html"
 			],
 			[
 				"in",

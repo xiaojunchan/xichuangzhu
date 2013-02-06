@@ -1,62 +1,54 @@
 from flask import render_template, request, redirect, url_for, json
 
-import sys
-reload(sys)
-sys.setdefaultencoding('utf8')
-
 from xichuangzhu import app, conn, cursor
 
-# Collection Controller
+from xichuangzhu.models.collection_model import Collection
+from xichuangzhu.models.work_model import Work
+from xichuangzhu.models.author_model import Author
+
+# page - single collection
 #--------------------------------------------------
 
-# page single collection
 @app.route('/collection/<int:collectionID>')
 def single_collection(collectionID):
-	query = '''SELECT * FROM collection, author, dynasty\n
-		WHERE collection.AuthorID = author.AuthorID\n
-		AND author.DynastyID = dynasty.dynastyID
-		AND collectionID = %d''' % collectionID
-	cursor.execute(query)
-	collection = cursor.fetchone()
-	# works
-	query = "SELECT * FROM work WHERE CollectionID = %d" % collectionID
-	cursor.execute(query)
-	works = cursor.fetchall()
+	collection = Collection.get_collection(collectionID)
+	works      = Work.get_works_by_collection(collectionID)
 	return render_template('single_collection.html', collection=collection, works=works)
 
-# page add collection
+# page - add collection
+#--------------------------------------------------
+
 @app.route('/collection/add', methods=['POST', 'GET'])
 def add_collection():
 	if request.method == 'GET':
 		return render_template('add_collection.html')
 	elif request.method == 'POST':
-		query = '''INSERT INTO collection (Collection, AuthorID, Introduction) VALUES\n
-			('%s', %d, '%s')''' % (request.form['collection'], int(request.form['authorID']), request.form['introduction'])
-		cursor.execute(query)
-		conn.commit()
-		return redirect(url_for('single_collection', collectionID = cursor.lastrowid))
+		collection   = request.form['collection']
+		authorID     = int(request.form['authorID'])
+		introduction = request.form['introduction']
+		newCollectionID = Collection.add_collection(collection, authorID, introduction)
+		return redirect(url_for('single_collection', collectionID = newCollectionID))
 
-# proc search authors in add collection
-@app.route('/collection/add/search_author', methods=['POST'])
-def search_author_in_add_collection():
-	query = "SELECT AuthorID, Author FROM author WHERE Author LIKE '%%%s%%'" % request.form['author']
-	cursor.execute(query)
-	authors = cursor.fetchall()
-	return json.dumps(authors)
+# page - edit collection
+#--------------------------------------------------
 
-# page edit collection
 @app.route('/collection/edit/<int:collectionID>', methods=['POST', 'GET'])
 def edit_collection(collectionID):
 	if request.method == 'GET':
-		query = '''SELECT * FROM collection, author\n
-			WHERE collection.AuthorID = author.AuthorID\n
-			AND CollectionID = %d''' % collectionID
-		cursor.execute(query)
-		collection = cursor.fetchone()
+		collection = Collection.get_collection(collectionID)
 		return render_template('edit_collection.html', collection=collection)
 	elif request.method == 'POST':
-		query = '''UPDATE collection SET Collection = '%s', AuthorID = %d, Introduction = '%s'\n
-			WHERE CollectionID = %d''' % (request.form['collection'], int(request.form['authorID']), request.form['introduction'], collectionID)
-		cursor.execute(query)
-		conn.commit()
+		collection   = request.form['collection']
+		authorID     = int(request.form['authorID'])
+		introduction = request.form['introduction']
+		Collection.edit_collection(collection, authorID, introduction, collectionID)
 		return redirect(url_for('single_collection', collectionID=collectionID))
+
+# helper - search authors in page add & edit collection
+#--------------------------------------------------
+
+@app.route('/collection/search_author', methods=['POST'])
+def search_author_in_collection():
+	name = request.form['author']
+	authors = Author.get_authors_by_name(name)
+	return json.dumps(authors)

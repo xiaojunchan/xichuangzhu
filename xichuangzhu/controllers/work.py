@@ -56,10 +56,10 @@ def edit_work(workID):
 # proc - delete work
 #--------------------------------------------------
 
-@app.route('/work/delete/<int:workID>', methods=['GET'])
-def delete_work(workID):
-	Work.delete_work(workID)
-	return redirect(url_for('index'))
+# @app.route('/work/delete/<int:workID>', methods=['GET'])
+# def delete_work(workID):
+# 	Work.delete_work(workID)
+# 	return redirect(url_for('index'))
 
 # helper - search authors and their collections in page add work
 #--------------------------------------------------

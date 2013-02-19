@@ -9,7 +9,8 @@ class Author:
 	def get_authors():
 		query = '''SELECT *\n
 			FROM author, dynasty\n
-			WHERE author.DynastyID = dynasty.DynastyID'''
+			WHERE author.DynastyID = dynasty.DynastyID\n
+			LIMIT 0, 5'''
 		cursor.execute(query)
 		return cursor.fetchall()
 

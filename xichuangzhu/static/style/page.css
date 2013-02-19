@@ -1,10 +1,13 @@
-body{margin:65px 0 0 0;}body #main-wap{font-size:18px;line-height:26px;}body #main-wap a:not[class='btn']{color:#005580;}
+body{margin:65px 0 0 0;font-family:'宋体';}body #main-wap{font-size:18px;line-height:26px;}body #main-wap a:not[class='btn']{color:#005580;}
 body #main-wap textarea{width:500px;}
-body #main-wap h4{font-size:20px;color:#CD9B1D;margin:20px 0 15px 0;}
+body #main-wap h4{font-size:20px;margin:20px 0 15px 0;}
 .navbar-search .search-query{line-height:1.2;}
 .form-horizontal .input-append{display:block;}
-#page-index .work-item{margin-bottom:30px;}#page-index .work-item .work-title{font-size:25px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}
-#page-index .work-item .work-author{font-size:18px;font-weight:normal;}#page-index .work-item .work-author a{color:#333;}
+#page-index .work-item{margin-bottom:15px;}#page-index .work-item .work-title{font-size:16px;line-height:30px;font-weight:bold;font-family:'宋体';}
+#page-index .work-item .work-author{font-size:12px;font-weight:normal;}#page-index .work-item .work-author a{color:#333;}
+#page-index .work-item .work-content{font-size:14px;line-height:22px;}
+#page-index .author-item{margin-bottom:10px;}#page-index .author-item .author{font-size:16px;line-height:20px;font-weight:bold;}#page-index .author-item .author .author-dynasty{font-size:12px;font-weight:normal;}#page-index .author-item .author .author-dynasty a{color:black;}
+#page-index .author-item .author-introduction{font-size:12px;}
 #page-single-work .work-title{font-size:30px;line-height:40px;margin-top:10px;margin-bottom:12px;font-weight:bold;font-family:'宋体';text-align:center;clear:both;}
 #page-single-work .work-author{text-align:center;margin-bottom:20px;padding-right:6px;}
 #page-single-work .work-content{font-family:'宋体';font-weight:bold;}

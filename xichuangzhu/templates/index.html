@@ -6,18 +6,39 @@
 {% block body %}
 
 <div class="row">
-	<div class="span9">
+	<div class="span8">
+
+		<h4>作品</h4>
+
 		{% for work in works %}
 		<div class="work-item">
-			<div class="work-title"><a href="{{ url_for('single_work', workID = work.WorkID) }}">{{ work.Title }}</a><sup class="work-author">〔<a href="{{ url_for('single_dynasty', dynastyID = work.DynastyID) }}">{{ work.Dynasty }}</a>|<a href="{{ url_for('single_author', authorID=work.AuthorID) }}">{{ work.Author }}</a>〕</div>
+			<div class="work-title"><a href="{{ url_for('single_work', workID = work.WorkID) }}">{{ work.Title }}</a><sup class="work-author">〔<!-- <a href="{{ url_for('single_dynasty', dynastyID = work.DynastyID) }}">{{ work.Dynasty }}</a>| --><a href="{{ url_for('single_author', authorID=work.AuthorID) }}">{{ work.Author }}</a>〕</div>
 			</sup>
 			
-			<div class="work-content">{{ work.Content|truncate(100, True) }}</div>
+			<div class="work-content">{{ work.Content|truncate(38, True) }}</div>
 		</div>
 		{% endfor %}
+
+		<h4>点评</h4>
+
 	</div>
 
-	<div class="span3"></div>
+	<div class="span4">
+
+		<h4>文学家</h4>
+
+		{% for author in authors %}
+		<div class='author-item'>
+			<div class='author'>
+				<a href="{{ url_for('single_author', authorID=author.AuthorID) }}">{{ author.Author }}</a><sup class='author-dynasty'>〔<a href="{{ url_for('single_dynasty', dynastyID=author.DynastyID) }}">{{ author.Dynasty }}</a>〕</sup>
+			</div>
+			<div class='author-introduction'>{{ author.Quote }}</div>
+		</div>
+		{% endfor %}
+
+		<h4>朝代</h4>
+
+	</div>
 </div>
 
 {% endblock %}

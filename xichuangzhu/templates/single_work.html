@@ -7,14 +7,8 @@
 
 <div class="row">
 	<div class="span8">
-		<div class="btn-group pull-right">
+		<div class="pull-right">
 			<a class="btn btn-primary" href="{{ url_for('edit_work', workID=work.WorkID) }}">编辑</a>
-			<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-				<span class="caret"></span>
-			</button>
-			<ul class="dropdown-menu">
-				<li><a href="{{ url_for('delete_work', workID=work.WorkID) }}">删除</a></li>
-			</ul>
 		</div>
 
 		<div class="work-title">{{ work.Title }}</div>

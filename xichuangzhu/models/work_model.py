@@ -17,13 +17,14 @@ class Work:
 		work = cursor.fetchone()
 		return work
 
-	# get all works
+	# get 6 works
 	@staticmethod
 	def get_works():
 		query = '''SELECT work.WorkID, work.Title, work.Content, work.AuthorID, work.DynastyID, author.Author, dynasty.Dynasty\n
 			FROM work, author, dynasty\n
 			WHERE work.AuthorID = author.AuthorID\n
-			AND work.DynastyID = dynasty.DynastyID'''
+			AND work.DynastyID = dynasty.DynastyID\n
+			LIMIT 0, 5'''
 		cursor.execute(query)
 		return cursor.fetchall()
 

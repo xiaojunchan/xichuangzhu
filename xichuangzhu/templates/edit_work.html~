@@ -10,6 +10,7 @@ $(document).ready(function(){
 
 	// add all the author's collections
 	// to the <select> tag
+	$('#btn-search-author').click();
 	$.ajax({
 		'url': "{{ url_for('get_collections_by_author') }}",
 		'type': 'POST',
@@ -114,7 +115,7 @@ $(document).ready(function(){
 				<input id="input-author" type="text" class="span2" value="{{ work.Author }}" />
 				<input id="btn-search-author" type="button" class="btn" value="搜索" />
 				<select id="select-author" name="authorID" class="span2">
-					<option value="{{ work.AuthorID }}">{{ work.Author }}</option>
+					<option value="{{ work.authorID }}">{{ work.Author }}</option>
 				</select>
 				<select id="select-collection" name="collectionID" class="span2"></select>
 			</div>

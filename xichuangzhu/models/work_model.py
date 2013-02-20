@@ -19,12 +19,13 @@ class Work:
 
 	# get 6 works
 	@staticmethod
-	def get_works():
+	def get_works_by_random(worksNum):
 		query = '''SELECT work.WorkID, work.Title, work.Content, work.AuthorID, work.DynastyID, author.Author, dynasty.Dynasty\n
 			FROM work, author, dynasty\n
 			WHERE work.AuthorID = author.AuthorID\n
 			AND work.DynastyID = dynasty.DynastyID\n
-			LIMIT 0, 5'''
+			ORDER BY RAND()\n
+			LIMIT %d''' % worksNum
 		cursor.execute(query)
 		return cursor.fetchall()
 

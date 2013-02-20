@@ -34,7 +34,7 @@ def add_dynasty():
 		startYear    = int(request.form['startYear'])
 		endYear      = int(request.form['endYear'])
 		newDynastyID = Dynasty.add_dynasty(dynasty, introduction, startYear, endYear)
-		return redirect(url_for('single_dynasty', dynastyID=cursor.lastrowid))
+		return redirect(url_for('single_dynasty', dynastyID=newDynastyID))
 
 # page edit dynasty
 #--------------------------------------------------

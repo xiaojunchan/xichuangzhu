@@ -8,7 +8,7 @@
 <div class="row">
 	<div class="span8">
 
-		<h4>作品</h4>
+		<h2>作品</h2>
 
 		{% for work in works %}
 		<div class="work-item">
@@ -19,13 +19,13 @@
 		</div>
 		{% endfor %}
 
-		<h4>点评</h4>
+		<!-- <h2>点评</h2> -->
 
 	</div>
 
 	<div class="span4">
 
-		<h4>文学家</h4>
+		<h2>文学家</h2>
 
 		{% for author in authors %}
 		<div class='author-item'>
@@ -36,7 +36,16 @@
 		</div>
 		{% endfor %}
 
-		<h4>朝代</h4>
+		<h2>五千年</h2>
+
+		<ul id="dynasties-wap">
+			{% for dynasty in dynasties %}
+			<li class='dynasty-item'>
+				<a href="{{ url_for('single_dynasty', dynastyID=dynasty.DynastyID) }}">{{ dynasty.Dynasty }}</a>
+				<span>/</span>
+			</li>
+			{% endfor %}
+		</ul>
 
 	</div>
 </div>

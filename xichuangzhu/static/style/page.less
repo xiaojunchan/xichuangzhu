@@ -1,11 +1,12 @@
 body{
-	margin: 65px 0 0 0;
-
+	margin: 55px 0 0 0;
 	font-family: '宋体';
+
 	
 	#main-wap{
 		font-size: 18px;
 		line-height: 26px;
+		min-height: 700px;
 
 		a:not[class='btn']{
 			color: rgb(0, 85, 128)
@@ -17,10 +18,26 @@ body{
 
 		h4{
 			font-size: 20px;
-			//color: #CD9B1D;
+			color: #CD9B1D;
 			margin: 20px 0 15px 0;
 		}
+
+		h2{
+			font-size: 18px;
+			line-height: 18px;
+			font-family: 'yahei';
+			font-weight: normal;
+			margin: 15px 0;
+			color: darkred;
+		}
 	}
+}
+
+#footer{
+	text-align: center;
+	font-size: 12px;
+	font-family: '微软雅黑';
+	margin-bottom: 8px;
 }
 
 // fix bootstrap css
@@ -37,7 +54,7 @@ body{
 //-----------------------------------------------------
 #page-index{
 	.work-item{
-		margin-bottom: 15px;
+		margin-bottom: 12px;
 
 		.work-title{
 			font-size: 16px;
@@ -62,7 +79,7 @@ body{
 	}
 
 	.author-item{
-		margin-bottom: 10px;
+		margin-bottom: 12px;
 
 		.author{
 			font-size: 16px;
@@ -81,9 +98,28 @@ body{
 
 		.author-introduction{
 			font-size: 12px;
-			//line-height: 22px;
 		}
 	}
+
+	#dynasties-wap{
+		margin: 0;
+		list-style: none;
+
+		.dynasty-item{
+			float: left;
+			font-size: 16px;
+			margin-bottom: 5px;
+
+			a{
+				font-weight: bold;
+			}
+
+			span{
+				margin-right: 5px;
+			}
+		}
+	}
+
 }
 
 // page single work

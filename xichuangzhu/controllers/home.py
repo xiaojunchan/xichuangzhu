@@ -4,6 +4,7 @@ from xichuangzhu import app
 
 from xichuangzhu.models.work_model import Work
 from xichuangzhu.models.author_model import Author
+from xichuangzhu.models.dynasty_model import Dynasty
 
 # Home Controller
 #--------------------------------------------------
@@ -11,6 +12,7 @@ from xichuangzhu.models.author_model import Author
 # page home
 @app.route('/')
 def index():
-	works = Work.get_works()
-	authors = Author.get_authors()
-	return render_template('index.html', works=works, authors=authors)
+	works = Work.get_works_by_random(8)
+	authors = Author.get_authors_by_random(5)
+	dynasties = Dynasty.get_dynasties()
+	return render_template('index.html', works=works, authors=authors, dynasties=dynasties)

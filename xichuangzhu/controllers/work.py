@@ -18,6 +18,13 @@ def single_work(workID):
 	work['Content'] = markdown2.markdown(work['Content'])
 	return render_template('single_work.html', work=work)
 
+# page - all works
+#--------------------------------------------------
+@app.route('/works')
+def works():
+	works = Work.get_works()
+	return render_template('works.html', works=works)
+
 # page - add work
 #--------------------------------------------------
 

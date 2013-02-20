@@ -1,24 +1,25 @@
 {% extends "layout.html" %}
 
-{% block page_title %}朝代{% endblock %}
+{% block page_title %}五千年{% endblock %}
 {% block page_id%}page-dynasty{% endblock %}
 
 {% block body %}
 
 <div class="row">
-	<div class="span9">
+	<div class="span8">
+		<h2>华夏五千年</h2>
 
 		{% for dynasty in dynasties %}
 		<div class='dynasty-item'>
 			<div class='dynasty'>
 				<a href="{{ url_for('single_dynasty', dynastyID=dynasty.DynastyID) }}">{{ dynasty.Dynasty }}</a><sup class="dynasty-period">〔{{ dynasty.StartYear|replace('-', '前') }}年~{{ dynasty.EndYear|replace('-', '前') }}年〕</sup>
 			</div>
-			<div class='dynasty-introduction'>{{ dynasty.Introduction }}</div>
+			<div class='dynasty-introduction'>{{ dynasty.Introduction|truncate(100, True) }}</div>
 		</div>
 		{% endfor %}
 	</div>
 
-	<div class="span3"></div>
+	<div class="span4"></div>
 </div>
 
 {% endblock %}

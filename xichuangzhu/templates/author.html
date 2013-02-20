@@ -5,19 +5,47 @@
 
 {% block body %}
 
+<script type="text/javascript">
+
+$(document).ready(function(){
+	$('.author a').tooltip();
+});
+
+</script>
+
 <div class="row">
-	<div class="span9">
-		{% for author in authors %}
-		<div class='author-item'>
-			<div class='author'>
-				<a href="{{ url_for('single_author', authorID=author.AuthorID) }}">{{ author.Author }}</a><sup class='author-dynasty'>〔<a href="{{ url_for('single_dynasty', dynastyID=author.DynastyID) }}">{{ author.Dynasty }}</a>〕</sup>
-			</div>
-			<div class='author-introduction'>{{ author.Introduction }}</div>
+	<div class="span8">
+
+		<h2>历代文学家</h2>
+
+		{% for dynasty in dynasties %}
+		{% if dynasty.authors|length != 0 %}
+
+		<div class="author-wap">
+
+			<div class='author-dynasty'>{{ dynasty.Dynasty }}</div>
+
+			<ul class="author-group clearfix">
+				{% for author in dynasty.authors %}
+				<li class='author'>
+					<a title="{{ author.Quote }}" href="{{ url_for('single_author', authorID=author.AuthorID) }}">{{ author.Author }}</a>
+				</li>
+				{% endfor %}
+			</ul>
 		</div>
+
+		{% endif %}
 		{% endfor %}
 	</div>
 
-	<div class="span3"></div>
+	<div class="span4">
+		<h2>诗人</h2>
+
+		<h2>词人</h2>
+
+		<h2>散文家</h2>
+
+	</div>
 </div>
 
 {% endblock %}

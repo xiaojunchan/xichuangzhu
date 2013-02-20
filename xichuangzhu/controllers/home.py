@@ -12,7 +12,7 @@ from xichuangzhu.models.dynasty_model import Dynasty
 # page home
 @app.route('/')
 def index():
-	works = Work.get_works_by_random(8)
+	works = Work.get_works_by_random(5)
 	authors = Author.get_authors_by_random(5)
 	dynasties = Dynasty.get_dynasties()
 	return render_template('index.html', works=works, authors=authors, dynasties=dynasties)

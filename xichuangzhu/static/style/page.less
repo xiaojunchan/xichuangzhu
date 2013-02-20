@@ -1,7 +1,6 @@
 body{
 	margin: 55px 0 0 0;
-	font-family: '宋体';
-
+	font-family: 'arial', '宋体';
 	
 	#main-wap{
 		font-size: 18px;
@@ -37,7 +36,14 @@ body{
 	text-align: center;
 	font-size: 12px;
 	font-family: '微软雅黑';
-	margin-bottom: 8px;
+	margin:20px 0 10px 0;
+}
+
+.link-more{
+	a{
+		margin-left: 5px;
+		font-size: 12px;
+	}
 }
 
 // fix bootstrap css
@@ -54,7 +60,7 @@ body{
 //-----------------------------------------------------
 #page-index{
 	.work-item{
-		margin-bottom: 12px;
+		margin-bottom: 15px;
 
 		.work-title{
 			font-size: 16px;
@@ -79,7 +85,7 @@ body{
 	}
 
 	.author-item{
-		margin-bottom: 12px;
+		margin-bottom: 15px;
 
 		.author{
 			font-size: 16px;
@@ -120,6 +126,35 @@ body{
 		}
 	}
 
+}
+
+// page add work
+//-----------------------------------------------------
+#page-works{
+	.work-item{
+		margin-bottom: 15px;
+
+		.work-title{
+			font-size: 16px;
+			line-height: 30px;
+			font-weight: bold;
+			font-family: '宋体';
+		}
+
+		.work-author{
+			font-size: 12px;
+			font-weight: normal;
+
+			a{
+				color: #333;
+			}
+		}
+
+		.work-content{
+			font-size: 14px;
+			line-height: 22px;
+		}
+	}	
 }
 
 // page single work
@@ -199,27 +234,37 @@ body{
 // page author
 //-----------------------------------------------------
 #page-author{
-	.author-item{
-		margin-bottom: 30px;
 
-		.author{
-			font-size: 25px;
-			line-height: 40px;
-			margin-bottom: 5px;
-			font-weight: bold;
-			font-family: '宋体';
+	.author-wap{
+		border-bottom: 1px dashed lightgray;
+		margin: 0 0 15px;
 
-			.author-dynasty{
-				font-size: 18px;
-				font-weight: normal;
-				
-				a{
-					color: #333;
-				}
-			}
+		.author-dynasty{
+			font-size: 16px;
+			line-height: 16px;
+			color: darkblue;
+			font-family: '微软雅黑';
+			width: 100px;
+			float: left;
+			display: inline-block;
 		}
 
-		.author-introduction{
+		.author-group{
+			list-style: none;
+			//padding: 0 0 15px 0;
+			margin: 0 0 0 100px;
+
+			li{
+				float: left;
+				margin-bottom: 15px;
+
+				&.author{
+					font-size: 16px;
+					line-height: 20px;
+					//font-weight: bold;
+					width: 90px;
+				}
+			}
 		}
 	}
 }
@@ -272,17 +317,17 @@ body{
 //-----------------------------------------------------
 #page-dynasty{
 	.dynasty-item{
-		margin-bottom: 30px;
+		margin-bottom: 20px;
 		
 		.dynasty{
-			font-size: 25px;
-			line-height: 40px;
-			margin-bottom: 5px;
+			font-size: 16px;
+			line-height: 25px;
+			//margin-bottom: 5px;
 			font-weight: bold;
 			font-family: '宋体';
 
 			.dynasty-period{
-				font-size: 18px;
+				font-size: 12px;
 				margin-left: 5px;
 				font-weight: normal;
 				font-family: 'arial','宋体';
@@ -291,6 +336,8 @@ body{
 		}
 
 		.dynasty-introduction{
+			font-size: 14px;
+			line-height: 22px;
 		}
 	}
 }

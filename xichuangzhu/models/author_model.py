@@ -4,7 +4,7 @@ class Author:
 
 # GET
 
-	# get all authors
+	# get authors by random
 	@staticmethod
 	def get_authors_by_random(authorsNum):
 		query = '''SELECT *\n
@@ -12,6 +12,15 @@ class Author:
 			WHERE author.DynastyID = dynasty.DynastyID\n
 			ORDER BY RAND()\n
 			LIMIT %d''' % authorsNum
+		cursor.execute(query)
+		return cursor.fetchall()
+
+	# get all authors
+	@staticmethod
+	def get_authors():
+		query = '''SELECT *\n
+			FROM author, dynasty\n
+			WHERE author.DynastyID = dynasty.DynastyID'''
 		cursor.execute(query)
 		return cursor.fetchall()
 

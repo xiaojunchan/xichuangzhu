@@ -14,10 +14,9 @@ class Work:
 			AND work.DynastyID = dynasty.DynastyID\n
 			AND work.collectionID = collection.CollectionID\n''' % workID
 		cursor.execute(query)
-		work = cursor.fetchone()
-		return work
+		return cursor.fetchone()
 
-	# get 6 works
+	# get works by random
 	@staticmethod
 	def get_works_by_random(worksNum):
 		query = '''SELECT work.WorkID, work.Title, work.Content, work.AuthorID, work.DynastyID, author.Author, dynasty.Dynasty\n
@@ -28,6 +27,16 @@ class Work:
 			LIMIT %d''' % worksNum
 		cursor.execute(query)
 		return cursor.fetchall()
+
+	# get all works
+	@staticmethod
+	def get_works():
+		query = '''SELECT work.WorkID, work.Title, work.Content, work.AuthorID, work.DynastyID, author.Author, dynasty.Dynasty\n
+			FROM work, author, dynasty\n
+			WHERE work.AuthorID = author.AuthorID\n
+			AND work.DynastyID = dynasty.DynastyID'''
+		cursor.execute(query)
+		return cursor.fetchall()		
 
 	# get an author's all works
 	@staticmethod

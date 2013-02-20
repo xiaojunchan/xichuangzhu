@@ -12,8 +12,10 @@ from xichuangzhu.models.dynasty_model import Dynasty
 
 @app.route('/author')
 def author():
-	authors = Author.get_authors()
-	return render_template('author.html', authors=authors)
+	dynasties = Dynasty.get_dynasties()
+	for dyn in dynasties:
+		dyn['authors'] = Author.get_authors_by_dynasty(dyn['DynastyID'])
+	return render_template('author.html', dynasties=dynasties)
 
 # page single author
 #--------------------------------------------------

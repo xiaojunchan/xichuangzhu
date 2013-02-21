@@ -21,7 +21,7 @@
 						<li><a href="{{ url_for('index') }}">首页</a></li>
 						<li><a href="#">收藏</a></li>
 						<li><a href="#">论坛</a></li>
-						<!-- <li><a href="#">店铺</a></li> -->
+						<li><a href="#">店铺</a></li>
 					</ul>
 
 					<!-- search -->
@@ -30,7 +30,7 @@
 					</form>
 
 					<!-- user info -->
-					<ul class="nav pull-right">
+					<!-- <ul class="nav pull-right">
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 								hustlzp <b class="caret"></b>
@@ -39,10 +39,12 @@
 								<li><a href="#">退出</a></li>
 							</ul>
 						</li>
-					</ul>
+					</ul> -->
+
+					<a href="https://www.douban.com/service/auth2/auth?client_id=0cf909cba46ce67526eb1d62ed46b35f&redirect_uri=http://localhost:5000/login/douban&response_type=code"><img id="douban-icon" title="使用豆瓣帐号登陆" src="http://img3.douban.com/pics/douban-icons/favicon_24x24.png" /></a>
 
 					<!-- add -->
-					<ul class="nav pull-right">
+					<!-- <ul class="nav pull-right">
 						<li class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 								添加 <span class="caret"></span>
@@ -55,7 +57,8 @@
 								<li><a href="{{ url_for('add_dynasty') }}">朝代</a></li>
 							</ul>
 						</li>
-					</ul>
+					</ul> -->
+
 				</div>
 			</div>
 		</div>

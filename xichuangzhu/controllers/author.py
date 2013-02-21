@@ -38,11 +38,12 @@ def add_author():
 		return render_template('add_author.html', dynasties=dynasties)
 	elif request.method == 'POST':
 		author       = request.form['author']
+		quote        = request.form['quote']
 		introduction = request.form['introduction']
 		birthYear    = int(request.form['birthYear'])
 		deathYear    = int(request.form['deathYear'])
 		dynastyID    = int(request.form['dynastyID'])
-		newAuthorID  = Author.add_author(author, introduction, birthYear, deathYear, dynastyID)
+		newAuthorID  = Author.add_author(author, quote, introduction, birthYear, deathYear, dynastyID)
 		return redirect(url_for('single_author', authorID=newAuthorID))
 
 # page edit author

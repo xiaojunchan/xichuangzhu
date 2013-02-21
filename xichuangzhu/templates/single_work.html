@@ -17,19 +17,22 @@
 		<div class="work-content work-type-{{ work.Type }}">{{ work.Content|safe }}</div>
 
 		{% if work.CollectionID != 0 %}
-		<h4>作品集</h4>
+		<h2>作品集</h2>
 		<div class="work-collection"><a href="{{ url_for('single_collection', collectionID=work.CollectionID) }}">{{ work.Collection }}</a></div>
-		<div class="work-collection-introduction">{{ work.Introduction|truncate(50, True) }}</div>
+		<div class="work-collection-introduction">{{ work.Introduction|truncate(60, True) }}</div>
 		{% endif %}
 
-		<h4>题解</h4>
+		<h2>题解</h2>
 
-		<h4>注释</h4>
+		<h2>注释</h2>
 		
-		<h4>点评</h4>
+		<h2>点评</h2>
 	</div>
 
-	<div class="span4"></div>
+	<div class="span4">
+
+
+	</div>
 </div>
 
 {% endblock %}

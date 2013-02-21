@@ -12,7 +12,7 @@ body{
 		}
 
 		textarea{
-			width: 500px;
+			//width: 500px;
 		}
 
 		h4{
@@ -85,7 +85,7 @@ body{
 	}
 
 	.author-item{
-		margin-bottom: 15px;
+		margin-bottom: 12px;
 
 		.author{
 			font-size: 16px;
@@ -161,8 +161,8 @@ body{
 //-----------------------------------------------------
 #page-single-work{
 	.work-title{
-		font-size: 30px;
-		line-height: 40px;
+		font-size: 25px;
+		line-height: 35px;
 		margin-top: 10px;
 		margin-bottom: 12px;
 		font-weight: bold;
@@ -175,33 +175,42 @@ body{
 		text-align: center;
 		margin-bottom: 20px;
 		padding-right: 6px;
+		font-size: 16px;
 	}
 
 	.work-content{
-		//font-family: '仿宋_GB2312';
-		font-family: '宋体';
+		font-family: '仿宋_GB2312';
+		//font-family: '宋体';
 		font-weight: bold;
-		//font-size: 14pt;
+		font-size: 18px;
+		margin-bottom: 30px;
+		font-size: 14pt;
 	}
 	.work-type-shi{
 		text-align: center;
 	}
 	.work-type-ci{
 		text-indent: 2em;
-		line-height: 28px;
+		line-height: 30px;
 	}
 	.work-type-wen{
 		p{
 			text-indent: 2em;
-			line-height: 28px;
+			line-height: 30px;
 			margin-bottom: 18px;
 		}
 	}
 
 	.work-collection{
 		font-weight: bold;
+		font-size: 16px;
 		margin-bottom: 5px;
 	}
+
+	.work-collection-introduction{
+		font-size: 14px;
+	}
+
 }
 
 // page add work
@@ -236,8 +245,8 @@ body{
 #page-author{
 
 	.author-wap{
-		border-bottom: 1px dashed lightgray;
-		margin: 0 0 15px;
+		border-top: 1px dashed lightgray;
+		padding-top: 15px;
 
 		.author-dynasty{
 			font-size: 16px;
@@ -251,7 +260,6 @@ body{
 
 		.author-group{
 			list-style: none;
-			//padding: 0 0 15px 0;
 			margin: 0 0 0 100px;
 
 			li{
@@ -261,8 +269,7 @@ body{
 				&.author{
 					font-size: 16px;
 					line-height: 20px;
-					//font-weight: bold;
-					width: 90px;
+					width: 100px;
 				}
 			}
 		}
@@ -273,35 +280,51 @@ body{
 //-----------------------------------------------------
 #page-single-author{
 	.author{
-		font-size: 30px;
-		line-height: 40px;
-		margin-bottom: 5px;
+		font-size: 25px;
+		line-height: 45px;
 		font-weight: bold;
-		font-family: '宋体';			
+
+		.author-quote{
+			font-size: 12px;
+			font-weight: normal;
+			color: gray;
+			margin-left: 10px;
+		}		
 	}
 
 	.author-period{
+		font-size: 16px;
 		margin-bottom: 10px;
 	}
 
-	.author-introduction{		
+	.author-introduction{
+		font-size: 14px;
+		line-height: 25px;	
 	}
 
 	.collection-item{
-		margin-bottom: 15px;
+		margin-bottom: 10px;
 		
 		.collection{
 			font-weight: bold;
-			margin-bottom: 5px;
+			font-size: 16px;
+		}
+
+		.collection-introduction{
+			font-size: 14px;
 		}
 	}
 
 	.work-item{
-		margin-bottom: 15px;
+		margin-bottom: 10px;
 
 		.work-title{
 			font-weight: bold;
-			margin-bottom: 5px;
+			font-size: 16px;
+		}
+
+		.work-content{
+			font-size: 14px;
 		}
 	}
 }
@@ -322,7 +345,6 @@ body{
 		.dynasty{
 			font-size: 16px;
 			line-height: 25px;
-			//margin-bottom: 5px;
 			font-weight: bold;
 			font-family: '宋体';
 
@@ -346,26 +368,29 @@ body{
 //-----------------------------------------------------
 #page-single-dynasty{
 	.dynasty{
-		font-size: 30px;
-		line-height: 40px;
-		margin-bottom: 5px;
+		font-size: 25px;
+		line-height: 45px;
 		font-weight: bold;
-		font-family: '宋体';
+	}
+
+	.dynasty-period{
+		font-size: 16px;
 	}
 
 	.dynasty-introduction{
+		font-size: 14px;
 	}
 
 	.author-item{
-		margin-bottom: 15px;
+		margin-bottom: 10px;
 
 		.author{
-			margin-bottom: 5px;
+			font-size: 16px;
 			font-weight: bold;
 		}
 
 		.author-introduction{
-
+			font-size: 14px;
 		}
 	}
 }

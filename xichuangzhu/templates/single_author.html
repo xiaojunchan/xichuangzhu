@@ -5,20 +5,23 @@
 
 {% block body %}
 <div class="row">
-	<div class="span9">
+	<div class="span8">
 		<a class="btn btn-primary pull-right" href="{{ url_for('edit_author', authorID=author.AuthorID) }}">编辑</a>
 	
-		<div class='author'>{{ author.Author }}</div>
+		<div class="author">
+			<span>{{ author.Author }}</span><span class="author-quote">{{ author.Quote }}</span>
+		</div>
+	
 		<div class='author-period'>〔<a href="{{ url_for('single_dynasty', dynastyID=author.DynastyID) }}">{{ author.Dynasty }}</a>〕{{ author.BirthYear|replace('-', '前') }}年~{{ author.DeathYear|replace('-', '前') }}年</div>
 
-		<h4>简介</h4>
+		<h2>简介</h2>
 		<div class='author-introduction'>{{ author.Introduction }}</div>
 
 		{% if collections|length != 0 %}
-		<h4>
+		<h2>
 			作品集
-			<sup><span class="badge badge-inverse">{{ collections|length }}</span></sup>
-		</h4>
+			<!-- <sup><span class="badge badge-inverse">{{ collections|length }}</span></sup> -->
+		</h2>
 
 		{% for collection in collections %}
 		<div class="collection-item">
@@ -29,24 +32,25 @@
 
 		{% endif %}
 
-		<h4>
+		<h2>
 			作品
-			<sup>
+			<!-- <sup>
 				<span class="badge badge-inverse">
-					<!--诗{{ worksNum.shi }}/词{{ worksNum.ci }}/文{{ worksNum.wen }}-->
+					诗{{ worksNum.shi }}/词{{ worksNum.ci }}/文{{ worksNum.wen }}
 					{{ works|length }}
 				</span>
-			</sup>
-		</h4>
+			</sup> -->
+		</h2>
+
 		{% for work in works %}
 		<div class="work-item">
 			<div class='work-title'><a href="{{url_for('single_work', workID=work.WorkID)}}">{{ work.Title }}</a></div>
-			<div class='work-content'>{{ work.Content|truncate(20, True) }}</div>
+			<div class='work-content'>{{ work.Content|truncate(30, True) }}</div>
 		</div>
 		{% endfor %}
 	</div>
 
-	<div class="span3"></div>
+	<div class="span4"></div>
 </div>
 
 {% endblock %}

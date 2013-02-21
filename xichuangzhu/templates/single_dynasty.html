@@ -6,28 +6,29 @@
 {% block body %}
 
 <div class="row">
-	<div class="span9">
+	<div class="span8">
 		<a class="btn btn-primary pull-right" href="{{ url_for('edit_dynasty', dynastyID=dynasty.DynastyID) }}">编辑</a>
 
 		<div class='dynasty'>{{ dynasty.Dynasty }}</div>
 		<div class="dynasty-period">{{ dynasty.StartYear|replace('-', '前') }}年~{{ dynasty.EndYear|replace('-', '前') }}年</div>
 
-		<h4>简介</h4>
+		<h2>简介</h2>
 		<div class='dynasty-introduction'>{{ dynasty.Introduction }}</div>
 
-		<h4>
+		<h2>
 			文学家
-			<sup><span class="badge badge-inverse">{{ authors|length }}</span></sup>
-		</h4>
+			<!-- <sup><span class="badge badge-inverse">{{ authors|length }}</span></sup> -->
+		</h2>
+
 		{% for author in authors %}
 		<div class="author-item">
 			<div class='author'><a href="{{ url_for('single_author', authorID=author.AuthorID) }}">{{ author.Author }}</a></div>
-			<div class='author-introduction'>{{ author.Introduction|truncate(50, True) }}</div>
+			<div class='author-introduction'>{{ author.Introduction|truncate(30, True) }}</div>
 		</div>
 		{% endfor %}
 	</div>
 
-	<div class="span3"></div>
+	<div class="span4"></div>
 </div>
 
 {% endblock %}

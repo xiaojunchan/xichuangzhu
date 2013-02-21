@@ -65,8 +65,9 @@ class Author:
 
 	# edit an author
 	@staticmethod
-	def edit_author(author, introduction, birthYear, deathYear, dynastyID, authorID):
-		query = '''UPDATE author SET Author='%s', Introduction='%s', BirthYear=%d, DeathYear=%d, DynastyID=%d\n
-			WHERE AuthorID = %d''' % (author, introduction, birthYear, deathYear, dynastyID, authorID)
+	def edit_author(author,quote, introduction, birthYear, deathYear, dynastyID, authorID):
+		query = '''UPDATE author\n
+			SET Author='%s', Quote='%s', Introduction='%s', BirthYear=%d, DeathYear=%d, DynastyID=%d\n
+			WHERE AuthorID = %d''' % (author, quote, introduction, birthYear, deathYear, dynastyID, authorID)
 		cursor.execute(query)
 		return conn.commit()

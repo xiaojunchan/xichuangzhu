@@ -56,9 +56,10 @@ def edit_author(authorID):
 		return render_template('edit_author.html', dynasties=dynasties, author=author)
 	elif request.method == 'POST':
 		author       = request.form['author']
+		quote        = request.form['quote']
 		introduction = request.form['introduction']
 		birthYear    = int(request.form['birthYear'])
 		deathYear    = int(request.form['deathYear'])
 		dynastyID    = int(request.form['dynastyID'])		
-		Author.edit_author(author, introduction, birthYear, deathYear, dynastyID, authorID)
+		Author.edit_author(author, quote, introduction, birthYear, deathYear, dynastyID, authorID)
 		return redirect(url_for('single_author', authorID=authorID))

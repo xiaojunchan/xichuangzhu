@@ -9,7 +9,7 @@
 		<a class="btn btn-primary pull-right" href="{{ url_for('edit_author', authorID=author.AuthorID) }}">编辑</a>
 	
 		<div class="author">
-			<span>{{ author.Author }}</span><span class="author-quote">{{ author.Quote }}</span>
+			<h1>{{ author.Author }}</h1><!-- <span class="author-quote">{{ author.Quote }}</span> -->
 		</div>
 	
 		<div class='author-period'>〔<a href="{{ url_for('single_dynasty', dynastyID=author.DynastyID) }}">{{ author.Dynasty }}</a>〕{{ author.BirthYear|replace('-', '前') }}年~{{ author.DeathYear|replace('-', '前') }}年</div>

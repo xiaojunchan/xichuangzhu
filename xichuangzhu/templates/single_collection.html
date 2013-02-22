@@ -11,7 +11,7 @@
 			<a class="btn btn-primary" href="{{ url_for('edit_collection', collectionID=collection.CollectionID) }}">编辑</a>
 		</div>
 
-		<div class="collection">{{ collection.Collection }}</div>
+		<h1 class="collection">{{ collection.Collection }}</h1>
 
 		<div class="collection-author">
 			〔<a href="{{ url_for('single_dynasty', dynastyID = collection.DynastyID) }}">{{ collection.Dynasty }}</a>〕<a href="{{ url_for('single_author', authorID=collection.AuthorID) }}">{{ collection.Author }}</a>

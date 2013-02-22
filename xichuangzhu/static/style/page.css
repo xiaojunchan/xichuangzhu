@@ -25,7 +25,7 @@ body #main-wap h2{font-size:18px;line-height:18px;font-family:'yahei';font-weigh
 #page-single-work .work-collection{font-weight:bold;font-size:16px;margin-bottom:5px;}
 #page-single-work .work-collection-introduction{font-size:14px;}
 #page-single-collection .collection{font-size:30px;line-height:40px;margin-bottom:5px;font-weight:bold;font-family:'宋体';}
-#page-single-collection .work-item{margin-bottom:15px;}#page-single-collection .work-item .work-title{font-weight:bold;margin-bottom:5px;}
+#page-single-collection .work-item{margin-bottom:10px;}#page-single-collection .work-item .work-title{font-weight:bold;margin-bottom:5px;}
 #page-author .author-wap{border-top:1px dashed lightgray;padding-top:15px;}#page-author .author-wap .author-dynasty{font-size:16px;line-height:16px;color:darkblue;font-family:'微软雅黑';width:100px;float:left;display:inline-block;}
 #page-author .author-wap .author-group{list-style:none;margin:0 0 0 100px;}#page-author .author-wap .author-group li{float:left;margin-bottom:15px;}#page-author .author-wap .author-group li.author{font-size:16px;line-height:20px;width:100px;}
 #page-single-author .author{font-size:25px;line-height:45px;font-weight:bold;}#page-single-author .author .author-quote{font-size:12px;font-weight:normal;color:gray;margin-left:15px;}

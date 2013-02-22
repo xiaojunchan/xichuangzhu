@@ -17,10 +17,10 @@
 			〔<a href="{{ url_for('single_dynasty', dynastyID = collection.DynastyID) }}">{{ collection.Dynasty }}</a>〕<a href="{{ url_for('single_author', authorID=collection.AuthorID) }}">{{ collection.Author }}</a>
 		</div>
 
-		<h4>简介</h4>
+		<h2>简介</h2>
 		<div class="collection-introduction">{{ collection.Introduction }}</div>
 
-		<h4>作品</h4>
+		<h2>作品</h2>
 		{% for work in works %}
 		<div class="work-item">
 			<div class='work-title'><a href="{{url_for('single_work', workID=work.WorkID)}}">{{ work.Title }}</a></div>

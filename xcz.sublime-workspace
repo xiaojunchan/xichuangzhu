@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"ve",
+				"verify_code"
+			],
+			[
+				"lo",
+				"location"
+			],
+			[
+				"loca",
+				"locationID"
+			],
+			[
+				"user",
+				"userID"
+			],
+			[
+				"sig",
+				"signature"
+			],
+			[
 				"url",
 				"urllib2"
 			],
@@ -440,10 +460,6 @@
 				"_SESSION"
 			],
 			[
-				"user",
-				"userID"
-			],
-			[
 				"_sho",
 				"_show_page_change_pwd"
 			],
@@ -498,22 +514,6 @@
 			[
 				"ac",
 				"active"
-			],
-			[
-				"em",
-				"email"
-			],
-			[
-				"sh",
-				"show_page_register"
-			],
-			[
-				"setr",
-				"set_rules"
-			],
-			[
-				"b",
-				"border-radius"
 			]
 		]
 	},
@@ -539,7 +539,7 @@
 			"file": "xichuangzhu/controllers/user.py",
 			"settings":
 			{
-				"buffer_size": 1388,
+				"buffer_size": 2264,
 				"line_ending": "Unix"
 			}
 		},
@@ -547,7 +547,23 @@
 			"file": "xichuangzhu/models/user_model.py",
 			"settings":
 			{
-				"buffer_size": 232,
+				"buffer_size": 614,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "xichuangzhu/templates/dynasty.html",
+			"settings":
+			{
+				"buffer_size": 688,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "xichuangzhu/templates/single_collection.html",
+			"settings":
+			{
+				"buffer_size": 1104,
 				"line_ending": "Unix"
 			}
 		}
@@ -790,7 +806,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -805,8 +821,8 @@
 						"selection":
 						[
 							[
-								470,
-								470
+								3098,
+								3098
 							]
 						],
 						"settings":
@@ -815,7 +831,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 204.0,
+						"translation.y": 3502.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -842,7 +858,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 306.0,
+						"translation.y": 68.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -852,23 +868,24 @@
 					"file": "xichuangzhu/controllers/user.py",
 					"settings":
 					{
-						"buffer_size": 1388,
+						"buffer_size": 2264,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1093,
-								1093
+								1783,
+								1783
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 255.0,
+						"translation.y": 850.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -878,20 +895,74 @@
 					"file": "xichuangzhu/models/user_model.py",
 					"settings":
 					{
-						"buffer_size": 232,
+						"buffer_size": 614,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								202,
-								202
+								613,
+								613
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "xichuangzhu/templates/dynasty.html",
+					"settings":
+					{
+						"buffer_size": 688,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								251,
+								251
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "xichuangzhu/templates/single_collection.html",
+					"settings":
+					{
+						"buffer_size": 1104,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								776,
+								776
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -944,6 +1015,14 @@
 		"selected_items":
 		[
 			[
+				"coll",
+				"xichuangzhu/templates/single_collection.html"
+			],
+			[
+				"dy",
+				"xichuangzhu/templates/dynasty.html"
+			],
+			[
 				"au",
 				"xichuangzhu/models/author_model.py"
 			],
@@ -978,10 +1057,6 @@
 			[
 				"wor",
 				"xichuangzhu/controllers/work.py"
-			],
-			[
-				"dy",
-				"xichuangzhu/templates/dynasty.html"
 			],
 			[
 				"auth",

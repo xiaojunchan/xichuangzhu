@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block page_title %}绑定邮箱{% endblock %}
+{% block page_id%}page-verify-email{% endblock %}
+
+{% block body %}
+
+<form id="form-verify-email" class="form-horizontal" method="post" action="{{ url_for('send_verify_email') }}">
+	<fieldset>
+		<legend>欢迎{{ user_name }}，请绑定邮箱来创建帐号</legend>
+
+		<div class="input-prepend input-append">
+			<span class="add-on">
+				<i class="icon-envelope"></i>
+			</span>
+			<input type="text" name="email" />
+			<input type="submit" value="提交" class="btn btn-primary" />
+		</div>
+
+		<input type="hidden" value="{{ user_id }}" name="user_id" />
+	</fieldset>
+</form>
+
+{% endblock %}

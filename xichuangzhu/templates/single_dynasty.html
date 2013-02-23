@@ -7,7 +7,9 @@
 
 <div class="row">
 	<div class="span8">
+		{% if session.user_id == 45197381 %}
 		<a class="btn btn-primary pull-right" href="{{ url_for('edit_dynasty', dynastyID=dynasty.DynastyID) }}">编辑</a>
+		{% endif %}
 
 		<h1 class='dynasty'>{{ dynasty.Dynasty }}</h1>
 		<div class="dynasty-period">{{ dynasty.StartYear|replace('-', '前') }}年~{{ dynasty.EndYear|replace('-', '前') }}年</div>
@@ -23,7 +25,7 @@
 		{% for author in authors %}
 		<div class="author-item">
 			<div class='author'><a href="{{ url_for('single_author', authorID=author.AuthorID) }}">{{ author.Author }}</a></div>
-			<div class='author-introduction'>{{ author.Introduction|truncate(30, True) }}</div>
+			<div class='author-introduction'>{{ author.Quote|truncate(30, True) }}</div>
 		</div>
 		{% endfor %}
 	</div>

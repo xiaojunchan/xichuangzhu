@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block page_title %}绑定邮箱{% endblock %}
+{% block page_id%}page-verify-email{% endblock %}
+
+{% block body %}
+
+{% if state == 'send_succ' %}
+<div>邮件已发送，请进入邮箱完成绑定。</div>
+
+{% elif state == 'send_failed' %}
+<div>邮件发送失败。</div>
+
+{% elif state == 'unactive' %}
+<div>您尚未绑定邮箱，请进入邮箱完成绑定。</div>
+
+{% elif state == 'active_succ' %}
+<div>邮箱绑定成功！<span id="second-count"></span>秒后进入首页。</div>
+<script type="text/javascript">
+	
+	// 倒计时
+	var count = 3;
+
+	function countDown(){
+		if(count == 0){
+			clearTimeout(t);
+			window.location = "{{ url_for('index') }}";
+		}
+		else{
+			$('#second-count').text(count);
+			t = setTimeout("countDown()", 1000);			
+		}
+
+		count--;
+	}
+
+	$('#second-count').text(count);
+	t = setTimeout("countDown()", 1000);
+</script>
+
+{% elif state == 'active_failed' %}
+<div>邮箱绑定失败！</div>
+
+{% endif %}
+
+{% endblock %}

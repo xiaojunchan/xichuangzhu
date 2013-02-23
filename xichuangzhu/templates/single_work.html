@@ -7,9 +7,11 @@
 
 <div class="row">
 	<div class="span8">
+		{% if session.user_id == 45197381 %}
 		<div class="pull-right">
 			<a class="btn btn-primary" href="{{ url_for('edit_work', workID=work.WorkID) }}">编辑</a>
 		</div>
+		{% endif %}
 
 		<div class="work-title">{{ work.Title }}</div>
 		<div class="work-author">

@@ -1,6 +1,6 @@
 #-*- coding: UTF-8 -*-
 
-from flask import render_template, request, redirect, url_for, json
+from flask import render_template, request, redirect, url_for, json, session
 
 from xichuangzhu import app
 
@@ -13,6 +13,7 @@ from email.mime.text import MIMEText
 
 import hashlib
 
+# proc - login by douban's oauth2.0
 @app.route('/login/douban')
 def auth():
 	code = request.args['code']
@@ -31,41 +32,63 @@ def auth():
 	response = urllib2.urlopen(req)
 	info = eval(response.read())
 
-	userID = int(info['douban_user_id'])
-	accessToken = info['access_token']
+	user_id = int(info['douban_user_id'])
+	access_token = info['access_token']
 
-	if User.check_user(userID):
-		# if user exist, set session
-		return '1'
+	# if user exist
+	if User.check_user_exist(user_id):
+		# if user unactive
+		if not User.check_user_active(user_id):
+			return redirect(url_for('verify_email_callback', state='unactive'))
+		else:
+			# set session
+			session['user_id'] = user_id
+			session['user_name'] = User.get_name(user_id)
+			return redirect(url_for('index'))
+	# if not exist
 	else:
-		# if not, create a new user and verify email
-
 		# get user info
 		url = "https://api.douban.com/v2/user/~me"
 		req = urllib2.Request(url)
-		req.add_header('Authorization', 'Bearer ' + accessToken)
+		req.add_header('Authorization', 'Bearer ' + access_token)
 		response = urllib2.urlopen(req)
-
-		# remove '\' and convert str to dict
-		userInfo = eval(response.read().replace('\\', ''))
+		user_info = eval(response.read().replace('\\', ''))	# remove '\' and convert str to dict
 
 		# add user
-		userID = int(userInfo['id'])
-		name = userInfo['name']
-		avatar = userInfo['avatar']
-		signature = userInfo['signature']
-		desc = userInfo['desc']
-		locationID = int(userInfo['loc_id'])
-		location = userInfo['loc_name']
+		user_id = int(user_info['id'])
+		user_name = user_info['name']
+		avatar = user_info['avatar']
+		signature = user_info['signature']
+		desc = user_info['desc']
+		location_id = int(user_info['loc_id'])
+		location = user_info['loc_name']
+		User.add_user(user_id, user_name, avatar, signature, desc, location_id, location)
 
-		User.add_user(userID, name, avatar, signature, desc, locationID, location)
+		# go to the verify email page
+		return redirect(url_for('send_verify_email', user_id=user_id, user_name=user_name))
 
-		# send email
+# page - send verify email
+@app.route('/send_verify_email/douban', methods=['GET', 'POST'])
+def send_verify_email():
+	if request.method == 'GET':
+		user_id = request.args['user_id']
+		user_name = request.args['user_name']
+		return render_template('send_verify_email.html', user_id=user_id, user_name=user_name)
+	elif request.method == 'POST':
+		# email
 		f_addr = "hustlzp@qq.com"
-		t_addr = "724475543@qq.com"
+		t_addr = request.form['email']
 
-		verify_code = hashlib.sha1(name).hexdigest()
-		verify_url = "http://xichuangzhu.com/user/verify_email/" + userID + "/" + verify_code
+		# user info
+		user_id = int(request.form['user_id'])
+		user_name = User.get_name(user_id)
+
+		# add this email to user
+		User.add_email(user_id, t_addr)
+
+		# gene verify url
+		verify_code = hashlib.sha1(user_name).hexdigest()
+		verify_url = "http://localhost:5000/verify_email/douban/" + str(user_id) + "/" + verify_code
 		msgText = '''<html>
 			<h1>点击如下链接激活你在西窗烛的帐号：</h1>
 			<a href='%s'>%s</a>
@@ -76,11 +99,34 @@ def auth():
 		msg['To'] = t_addr
 		msg['Subject'] = "[西窗烛] 邮箱验证"
 
+		# send email
 		s = smtplib.SMTP('smtp.qq.com', 25)
 		s.login('hustlzp@qq.com', 'xiaowang2013qqzi')
-		error = s.sendmail('hustlzp@qq.com', '724475543@qq.com', msg.as_string())
-		return "success"
-		# return redirect(url_for('home'))
+		s.sendmail('hustlzp@qq.com', '724475543@qq.com', msg.as_string())
 
-#@app.route('/login/douban/<>')
-#def verify():
+		return redirect(url_for('verify_email_callback', state='send_succ'))
+
+# proc - verify the code and active user
+@app.route('/verify_email/douban/<int:user_id>/<verify_code>')
+def verify_email(user_id, verify_code):
+	user_name = User.get_name(user_id)
+	if verify_code == hashlib.sha1(user_name).hexdigest():
+		User.active_user(user_id)
+		session['user_id'] = user_id
+		session['user_name'] = user_name
+		return redirect(url_for('verify_email_callback', state='active_succ'))
+	else:
+		return redirect(url_for('verify_email_callback', state='active_failed'))
+
+# page - show the state of verify
+@app.route('/verify_email_callback/douban/')
+def verify_email_callback():
+	state = request.args['state']
+	return render_template('verify_email_callback.html', state=state)
+
+# proc - logout
+@app.route('/logout')
+def logout():
+	session.pop('user_id', None)
+	session.pop('user_name', None)
+	return redirect(url_for('index'))

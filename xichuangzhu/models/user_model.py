@@ -2,14 +2,30 @@ from xichuangzhu import conn, cursor
 
 class User:
 
-# CHECK
+# GET
 	
-	# check user exist
+	# get name by id
 	@staticmethod
-	def check_user(userID):
-		query = "SELECT * FROM user WHERE UserID = %d" % userID
+	def get_name(userID):
+		query = "SELECT Name FROM user WHERE UserID = %d" % userID
 		cursor.execute(query)
-		return cursor.rowcount > 0
+		return cursor.fetchone()['Name']
+
+# UPDATE
+
+	# active user
+	@staticmethod
+	def active_user(userID):
+		query = "UPDATE user SET IsActive = 1 WHERE UserID = %d" % userID
+		cursor.execute(query)
+		return conn.commit()
+
+	# add email to the user
+	@staticmethod
+	def add_email(user_id, email):
+		query = "UPDATE user SET Email = '%s' WHERE UserID = %d" % (email, user_id)
+		cursor.execute(query)
+		return conn.commit()
 
 # NEW
 
@@ -20,4 +36,21 @@ class User:
 			VALUES (%d, '%s', '%s', '%s', '%s', %d, '%s')''' % (userID, name, avatar, signature, desc, locationID, location)
 		cursor.execute(query)
 		return conn.commit()
+
+# CHECK
+	
+	# check user exist
+	@staticmethod
+	def check_user_exist(user_id):
+		query = "SELECT * FROM user WHERE UserID = %d" % user_id
+		cursor.execute(query)
+		return cursor.rowcount > 0
+
+	# check user active
+	@staticmethod
+	def check_user_active(user_id):
+		query = "SELECT * FROM user WHERE UserID = %d AND IsActive = 1" % user_id
+		cursor.execute(query)
+		return cursor.rowcount > 0
+
 

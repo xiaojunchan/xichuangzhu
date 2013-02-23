@@ -7,7 +7,7 @@
 <div class="row">
 	<div class="span8">
 		{% if session.user_id == 45197381 %}
-		<a class="btn btn-primary pull-right" href="{{ url_for('edit_author', authorID=author.AuthorID) }}">编辑</a>
+		<a class="btn btn-small pull-right" href="{{ url_for('edit_author', authorID=author.AuthorID) }}">编辑</a>
 		{% endif %}
 	
 		<div class="author">

@@ -56,7 +56,7 @@ class Author:
 	@staticmethod
 	def add_author(author, quote, introduction, birthYear, deathYear, dynastyID):
 		query = '''INSERT INTO author (Author, Quote, Introduction, BirthYear, DeathYear, DynastyID) VALUES\n
-			('%s', '%s', %d, %d, %d)''' % (author, quote, introduction, birthYear, deathYear, dynastyID)
+			('%s', '%s', '%s', %d, %d, %d)''' % (author, quote, introduction, birthYear, deathYear, dynastyID)
 		cursor.execute(query)
 		conn.commit()
 		return cursor.lastrowid

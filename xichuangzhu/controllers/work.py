@@ -6,17 +6,19 @@ from xichuangzhu.models.work_model import Work
 from xichuangzhu.models.dynasty_model import Dynasty
 from xichuangzhu.models.author_model import Author
 from xichuangzhu.models.collection_model import Collection
+from xichuangzhu.models.review_model import Review
 
 import markdown2
 
 # page - single work
 #--------------------------------------------------
 
-@app.route('/work/<int:workID>')
-def single_work(workID):
-	work = Work.get_work(workID)
+@app.route('/work/<int:work_id>')
+def single_work(work_id):
+	work = Work.get_work(work_id)
 	work['Content'] = markdown2.markdown(work['Content'])
-	return render_template('single_work.html', work=work)
+	reviews = Review.get_reviews_by_work(work['WorkID'])
+	return render_template('single_work.html', work=work, reviews=reviews)
 
 # page - all works
 #--------------------------------------------------

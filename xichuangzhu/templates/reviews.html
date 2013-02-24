@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block page_title %}评论{% endblock %}
+{% block page_id%}page-reviews{% endblock %}
+
+{% block body %}
+
+<div class="row">
+	<div class="span8">
+		<h2>最受欢迎的评论</h2>
+
+		{% for review in reviews %}
+		<div class="review-item">
+			<a class="user-avatar" href="#" >
+				<img src="{{ review.Avatar }}" />
+			</a>
+
+			<div class="review-wap">
+				<div class="review-title">
+					<a href="{{ url_for('single_review', review_id = review.ReviewID) }}">{{ review.Title }}</a>
+				</div>
+
+				<div class="review-content">{{ review.Content|truncate(38, True) }}</div>
+
+				<div class="review-extra-info">
+					<a href="#">{{ review.Name }}</a>
+					评论
+					<a href="{{ url_for('single_work', work_id=review.WorkID) }}">{{ review.WorkTitle }}〔{{ review.Author }}〕</a>
+					{{ review.Time }}
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+
+	</div>
+
+	<div class="span4">
+		<h2>评论人</h2>
+	</div>
+</div>
+
+{% endblock %}

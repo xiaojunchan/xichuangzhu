@@ -12,7 +12,7 @@
 		{% for work in works %}
 		<div class="work-item">
 			<div class="work-title">
-				<a href="{{ url_for('single_work', workID = work.WorkID) }}">{{ work.Title }}</a><sup class="work-author">〔<!-- <a href="{{ url_for('single_dynasty', dynastyID = work.DynastyID) }}">{{ work.Dynasty }}</a>| --><a href="{{ url_for('single_author', authorID=work.AuthorID) }}">{{ work.Author }}</a>〕</sup>
+				<a href="{{ url_for('single_work', work_id = work.WorkID) }}">{{ work.Title }}</a><sup class="work-author">〔<!-- <a href="{{ url_for('single_dynasty', dynastyID = work.DynastyID) }}">{{ work.Dynasty }}</a>| --><a href="{{ url_for('single_author', authorID=work.AuthorID) }}">{{ work.Author }}</a>〕</sup>
 			</div>
 			
 			<div class="work-content">{{ work.Content|truncate(38, True) }}</div>

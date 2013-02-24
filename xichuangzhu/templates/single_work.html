@@ -15,7 +15,7 @@
 		{% if session.user_id %}
 		<div class="btn-group pull-right">
 			<a class="btn btn-small" href="#">收藏 <span class="icon-heart"></span></a>
-			<a class="btn btn-small" href="#">点评 <span class="icon-file"></span></a>
+			<a class="btn btn-small" href="{{ url_for('add_review', work_id=work.WorkID) }}">点评 <span class="icon-file"></span></a>
 			{% if session.user_id == 45197381 %}
 			<a class="btn btn-small" href="{{ url_for('edit_work', workID=work.WorkID) }}">编辑 <span class="icon-edit"></span></a>
 			{% endif %}
@@ -33,6 +33,23 @@
 		<h2>注释</h2>
 		
 		<h2>点评</h2>
+		{% for review in reviews %}
+		<div class="review-item">
+			<a class="user-avatar" href="#">
+				<img src="{{ review.Avatar }}">
+			</a>
+			
+			<div class="review-wap">
+				<a class="review-title" href="{{ url_for('single_review', review_id=review.ReviewID) }}">{{ review.Title }}</a>
+				<div class="review-extra-info">
+					来自
+					<a href="#">{{ review.Name }}</a>
+					{{ review.Time }}
+				</div>
+				<div class="review-content">{{ review.Content }}</div>
+			</div>
+		</div>
+		{% endfor %}
 	</div>
 
 	<div class="span4">

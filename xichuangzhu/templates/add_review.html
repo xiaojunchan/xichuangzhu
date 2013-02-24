@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block page_title %}点评：{{ work.Title }}{% endblock %}
+{% block page_id%}page-add-review{% endblock %}
+
+{% block body %}
+
+<form id="form-add-review" class="form-horizontal" method="post" action="{{ url_for('add_review', work_id=work.WorkID) }}">
+	<fieldset>
+		<legend>点评：{{ work.Title }}</legend>
+
+		<div class="control-group">
+			<label class="control-label">标题</label>
+			<div class="controls">
+				<input type="text" class="input-xlarge" name="title" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label">点评</label>
+			<div class="controls">
+				<textarea class="input-xxlarge" rows="15" name="content"></textarea>
+			</div>
+		</div>
+
+		<input type="hidden" name="user_id" value="{{ session.user_id }}" />
+
+		<div class="control-group">
+			<div class="controls">
+				<input type="submit" value="提交" class="btn btn-primary" />
+			</div>
+		</div>
+
+	</fieldset>
+</form>
+
+{% endblock %}

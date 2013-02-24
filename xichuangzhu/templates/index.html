@@ -18,14 +18,42 @@
 		{% for work in works %}
 		<div class="work-item">
 			<div class="work-title">
-				<a href="{{ url_for('single_work', workID = work.WorkID) }}">{{ work.Title }}</a><sup class="work-author">〔<!-- <a href="{{ url_for('single_dynasty', dynastyID = work.DynastyID) }}">{{ work.Dynasty }}</a>| --><a href="{{ url_for('single_author', authorID=work.AuthorID) }}">{{ work.Author }}</a>〕</sup>
+				<a href="{{ url_for('single_work', work_id = work.WorkID) }}">{{ work.Title }}</a><sup class="work-author">〔<!-- <a href="{{ url_for('single_dynasty', dynastyID = work.DynastyID) }}">{{ work.Dynasty }}</a>| --><a href="{{ url_for('single_author', authorID=work.AuthorID) }}">{{ work.Author }}</a>〕</sup>
 			</div>
 			
 			<div class="work-content">{{ work.Content|truncate(38, True) }}</div>
 		</div>
 		{% endfor %}
 
-		<h2>点评</h2>
+		<h2>
+			点评
+			<span class='link-more'>
+				<a href="{{ url_for('reviews') }}">更多</a>
+			</span>
+		</h2>
+
+		{% for review in reviews %}
+		<div class="review-item">
+			<a class="user-avatar" href="#" >
+				<img src="{{ review.Avatar }}" />
+			</a>
+
+			<div class="review-wap">
+				<div class="review-title">
+					<a href="{{ url_for('single_review', review_id = review.ReviewID) }}">{{ review.Title }}</a>
+				</div>
+
+				<div class="review-content">{{ review.Content|truncate(38, True) }}</div>
+
+				<div class="review-extra-info">
+					<a href="#">{{ review.Name }}</a>
+					评论
+					<a href="{{ url_for('single_work', work_id=review.WorkID) }}">{{ review.WorkTitle }}〔{{ review.Author }}〕</a>
+					{{ review.Time }}
+				</div>
+			</div>
+		</div>
+		{% endfor %}
 
 		<!-- <h2>话题</h2> -->
 

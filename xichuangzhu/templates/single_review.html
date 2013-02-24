@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block page_title %}{{ review.Title }} (评论：{{review.WorkTitle}}){% endblock %}
+{% block page_id%}page-single-review{% endblock %}
+
+{% block body %}
+
+<div class="row">
+	<div class="span8">
+		{% if session.user_id == review.UserID %}
+		<a class="btn btn-small pull-right" href="{{ url_for('edit_review', review_id=review.ReviewID) }}">编辑 <span class="icon-edit"></span></a>
+		{% endif %}
+
+		<h1 class="review-title">{{ review.Title }}</h1>
+
+		<a href="#" class="user-avatar">
+			<img src="{{ review.Avatar }}">
+		</a>
+
+		<div class="review-wap">
+			<div class="review-extra-info">
+				<a href="#">{{ review.Name }}</a>
+				评论
+				<a href="{{ url_for('single_work', work_id=review.WorkID) }}">{{ review.WorkTitle }}〔{{ review.Author }}〕</a>
+				{{ review.Time }}
+			</div>
+
+			<div>{{ review.Content|safe }}</div>
+		</div>
+
+		
+	</div>
+
+	<div class="span4">
+		<h2></h2>
+	</div>
+</div>
+
+{% endblock %}

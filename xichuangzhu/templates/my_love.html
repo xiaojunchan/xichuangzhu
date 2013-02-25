@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block page_title %}我的收藏{% endblock %}
+{% block page_id%}page-my-love{% endblock %}
+
+{% block body %}
+
+<div class="row">
+	<div class="span8">
+		<h2>我的收藏</h2>
+
+		{% for work in works %}
+		<div class="work-item">
+			<div class="work-title">
+				<a href="{{ url_for('single_work', work_id = work.WorkID) }}">{{ work.Title }}</a><sup class="work-author">〔<a href="{{ url_for('single_author', authorID=work.AuthorID) }}">{{ work.Author }}</a>〕</sup>
+			</div>
+			
+			<div class="work-content">{{ work.Content|truncate(38, True) }}</div>
+		</div>
+		{% endfor %}
+
+	</div>
+
+	<div class="span4"></div>
+</div>
+
+{% endblock %}

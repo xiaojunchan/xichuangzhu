@@ -8,7 +8,7 @@ body #main-wap .tooltip{font-family:'arial','宋体';text-indent:0;font-weight:n
 .form-horizontal .input-append{display:block;}
 #page-index .work-item{margin-bottom:15px;}#page-index .work-item .work-title{font-size:16px;line-height:30px;font-weight:bold;}
 #page-index .work-item .work-author{font-size:12px;font-weight:normal;}#page-index .work-item .work-author a{color:#333;}
-#page-index .work-item .work-content{font-size:14px;line-height:22px;}
+#page-index .work-item .work-content{line-height:22px;}
 #page-index .review-item{margin-bottom:15px;}#page-index .review-item .user-avatar{float:left;margin-top:5px;}
 #page-index .review-item .review-wap{margin-left:60px;}#page-index .review-item .review-wap .review-title{font-size:16px;font-weight:bold;}
 #page-index .review-item .review-wap .review-content{font-size:12px;line-height:22px;}
@@ -55,3 +55,6 @@ body #main-wap .tooltip{font-family:'arial','宋体';text-indent:0;font-weight:n
 #page-reviews .review-item .review-wap{margin-left:60px;}#page-reviews .review-item .review-wap .review-title{font-size:16px;font-weight:bold;}
 #page-reviews .review-item .review-wap .review-content{font-size:12px;line-height:22px;}
 #page-reviews .review-item .review-wap .review-extra-info{font-size:12px;line-height:22px;}
+#page-my-love .work-item{margin-bottom:15px;}#page-my-love .work-item .work-title{font-size:16px;line-height:30px;font-weight:bold;}
+#page-my-love .work-item .work-author{font-size:12px;font-weight:normal;}#page-my-love .work-item .work-author a{color:#333;}
+#page-my-love .work-item .work-content{line-height:22px;}

@@ -2,7 +2,7 @@
 
 from flask import render_template, request, redirect, url_for, json
 
-from xichuangzhu import app, conn, cursor
+from xichuangzhu import app
 
 from xichuangzhu.models.work_model import Work
 from xichuangzhu.models.dynasty_model import Dynasty
@@ -44,11 +44,12 @@ def add_work():
 	elif request.method == 'POST':
 		title        = request.form['title']
 		content      = request.form['content']
+		intro        = request.form['introduction']
 		authorID     = int(request.form['authorID'])
 		dynastyID    = Dynasty.get_dynastyID_by_author(authorID)
 		collectionID = int(request.form['collectionID'])
 		type = request.form['type']
-		newWorkID = Work.add_work(title, content, authorID, dynastyID, collectionID, type)
+		newWorkID = Work.add_work(title, content, intro, authorID, dynastyID, collectionID, type)
 		return redirect(url_for('single_work', workID=newWorkID))
 
 # page - edit work

@@ -26,6 +26,15 @@ class Love:
 		cursor.execute(query)
 		return cursor.fetchall()
 
+# CHECK 
+
+	# check if user loves work
+	@staticmethod
+	def check_love(user_id, work_id):
+		query = "SELECT * FROM love WHERE UserID = %d AND WorkID = %d" % (user_id, work_id)
+		cursor.execute(query)
+		return cursor.rowcount > 0
+
 # NEW
 	
 	# a user love a work

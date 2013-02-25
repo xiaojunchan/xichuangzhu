@@ -1,6 +1,6 @@
 #-*- coding: UTF-8 -*-
 
-from flask import render_template, request, redirect, url_for, json
+from flask import render_template, request, redirect, url_for, json, session
 
 from xichuangzhu import app
 
@@ -9,6 +9,7 @@ from xichuangzhu.models.dynasty_model import Dynasty
 from xichuangzhu.models.author_model import Author
 from xichuangzhu.models.collection_model import Collection
 from xichuangzhu.models.review_model import Review
+from xichuangzhu.models.love_model import Love
 
 import markdown2
 
@@ -17,16 +18,34 @@ import re
 # page - single work
 #--------------------------------------------------
 
+# view
 @app.route('/work/<int:work_id>')
 def single_work(work_id):
 	work = Work.get_work(work_id)
 	work['Content'] = re.sub(r'<([^<]+)>', r"<sup title='\1'></sup>", work['Content'])
 	work['Content'] = markdown2.markdown(work['Content'])
 	reviews = Review.get_reviews_by_work(work['WorkID'])
-	return render_template('single_work.html', work=work, reviews=reviews)
+	is_loved = Love.check_love(session['user_id'], work_id)
+	return render_template('single_work.html', work=work, reviews=reviews, is_loved=is_loved)
+
+# proc - love work
+#--------------------------------------------------
+@app.route('/work/love/<int:work_id>')
+def love_work(work_id):
+	Love.add_love(session['user_id'], work_id)
+	return redirect(url_for('single_work', work_id=work_id))
+
+# proc - unlove work
+#--------------------------------------------------
+@app.route('/work/unlove/<int:work_id>')
+def unlove_work(work_id):
+	Love.remove_love(session['user_id'], work_id)
+	return redirect(url_for('single_work', work_id=work_id))
 
 # page - all works
 #--------------------------------------------------
+
+# view
 @app.route('/works')
 def works():
 	works = Work.get_works()

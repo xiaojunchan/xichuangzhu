@@ -13,3 +13,10 @@ from xichuangzhu.models.love_model import Love
 def my_love():
 	works = Love.get_works_by_user_love(session['user_id'])
 	return render_template('my_love.html', works=works)
+
+# # proc - add love work
+# #--------------------------------------------------
+# @app.route('/add_love/<int:work_id>')
+# def add_love(work_id):
+# 	Love.add_love(session['user_id'], work_id)
+# 	return redirect()

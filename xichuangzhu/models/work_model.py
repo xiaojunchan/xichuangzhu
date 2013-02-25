@@ -71,7 +71,7 @@ class Work:
 	@staticmethod
 	def add_work(title, content, introduction, authorID, dynastyID, collectionID, type):
 		query = '''INSERT INTO work (Title, Content, Introduction, AuthorID, DynastyID, CollectionID, Type)\n
-			VALUES ('%s', '%s', %d, %d, %d, '%s')''' % (title, content, introduction, authorID, dynastyID, collectionID, type)
+			VALUES ('%s', '%s', '%s', %d, %d, %d, '%s')''' % (title, content, introduction, authorID, dynastyID, collectionID, type)
 		cursor.execute(query)
 		conn.commit()
 		return cursor.lastrowid

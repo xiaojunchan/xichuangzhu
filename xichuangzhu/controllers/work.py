@@ -68,8 +68,8 @@ def add_work():
 		dynastyID    = Dynasty.get_dynastyID_by_author(authorID)
 		collectionID = int(request.form['collectionID'])
 		type = request.form['type']
-		newWorkID = Work.add_work(title, content, intro, authorID, dynastyID, collectionID, type)
-		return redirect(url_for('single_work', workID=newWorkID))
+		new_work_id = Work.add_work(title, content, intro, authorID, dynastyID, collectionID, type)
+		return redirect(url_for('single_work', work_id=new_work_id))
 
 # page - edit work
 #--------------------------------------------------

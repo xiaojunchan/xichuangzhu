@@ -20,9 +20,8 @@
 					<ul class="nav">
 						<li><a href="{{ url_for('index') }}">首页</a></li>
 						<li><a href="{{ url_for('my_love') }}">收藏</a></li>
-						<li><a href="#">主页</a></li>
 						<!-- <li><a href="#">论坛</a></li> -->
-						<!-- <li><a href="#">店铺</a></li> -->
+						<li><a href="#">店铺</a></li>
 					</ul>
 
 					<!-- search -->
@@ -39,6 +38,7 @@
 								{{ session.user_name }} <b class="caret"></b>
 							</a>
 							<ul class="dropdown-menu">
+								<li><a href="#">主页</a></li>
 								<li><a href="{{ url_for('logout') }}">退出</a></li>
 							</ul>
 						</li>

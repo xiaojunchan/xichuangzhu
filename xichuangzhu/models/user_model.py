@@ -6,10 +6,17 @@ class User:
 	
 	# get name by id
 	@staticmethod
-	def get_name(userID):
-		query = "SELECT Name FROM user WHERE UserID = %d" % userID
+	def get_name(user_id):
+		query = "SELECT Name FROM user WHERE UserID = %d" % user_id
 		cursor.execute(query)
 		return cursor.fetchone()['Name']
+
+	# get people's all info
+	@staticmethod
+	def get_people(user_id):
+		query = "SELECT * FROM user WHERE UserID = %d" % user_id
+		cursor.execute(query)
+		return cursor.fetchone()
 
 # UPDATE
 

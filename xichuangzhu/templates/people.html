@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block page_title %}{{ people.Name }}的主页{% endblock %}
+{% block page_id%}page-people{% endblock %}
+
+{% block body %}
+
+<div class="row">
+	<div class="span8">
+
+		<h1>{{ people.Name }}</h1>
+
+	</div>
+
+	<div class="span4"></div>
+</div>
+
+{% endblock %}

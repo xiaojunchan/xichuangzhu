@@ -54,7 +54,7 @@ $(document).ready(function(){
 		<h2>点评</h2>
 		{% for review in reviews %}
 		<div class="review-item">
-			<a class="user-avatar" href="#">
+			<a class="user-avatar" href="{{ url_for('people', user_id=review.UserID) }}">
 				<img src="{{ review.Avatar }}">
 			</a>
 			
@@ -62,7 +62,7 @@ $(document).ready(function(){
 				<a class="review-title" href="{{ url_for('single_review', review_id=review.ReviewID) }}">{{ review.Title }}</a>
 				<div class="review-extra-info">
 					来自
-					<a href="#">{{ review.Name }}</a>
+					<a href="{{ url_for('people', user_id=review.UserID) }}">{{ review.Name }}</a>
 					{{ review.Time }}
 				</div>
 				<div class="review-content">{{ review.Content }}</div>

@@ -130,3 +130,9 @@ def logout():
 	session.pop('user_id', None)
 	session.pop('user_name', None)
 	return redirect(url_for('index'))
+
+# page - personal page
+@app.route('/people/<int:user_id>')
+def people(user_id):
+	people = User.get_people(user_id)
+	return render_template('people.html', people=people)

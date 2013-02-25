@@ -6,12 +6,16 @@ from xichuangzhu import app
 
 from xichuangzhu.models.love_model import Love
 
+import re
+
 # page - my love works
 #--------------------------------------------------
 
 @app.route('/mylove')
 def my_love():
-	works = Love.get_works_by_user_love(session['user_id'])
+	works = Love.get_works_by_user_love(session['user_id'])	
+	for work in works:
+		work['Content'] = re.sub(r'<([^<]+)>', '', work['Content'])
 	return render_template('my_love.html', works=works)
 
 # # proc - add love work

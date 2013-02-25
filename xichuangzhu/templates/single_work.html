@@ -5,6 +5,18 @@
 
 {% block body %}
 
+<script type="text/javascript">
+
+$(document).ready(function(){
+	$('.work-content sup').tooltip();
+
+	$('.work-content sup').each(function(index){
+		$(this).text('〔' + (index + 1) + '〕');
+	})
+});
+
+</script>
+
 <div class="row">
 	<div class="span8">
 		<div class="work-title">{{ work.Title }}</div>
@@ -29,8 +41,9 @@
 		{% endif %}
 
 		<h2>题解</h2>
+		<div class="work-introduction">{{ work.WorkIntroduction }}</div>
 
-		<h2>注释</h2>
+		<!-- <h2>注释</h2> -->
 		
 		<h2>点评</h2>
 		{% for review in reviews %}

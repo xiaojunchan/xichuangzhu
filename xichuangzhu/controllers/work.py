@@ -1,3 +1,5 @@
+#-*- coding: UTF-8 -*-
+
 from flask import render_template, request, redirect, url_for, json
 
 from xichuangzhu import app, conn, cursor
@@ -10,12 +12,15 @@ from xichuangzhu.models.review_model import Review
 
 import markdown2
 
+import re
+
 # page - single work
 #--------------------------------------------------
 
 @app.route('/work/<int:work_id>')
 def single_work(work_id):
 	work = Work.get_work(work_id)
+	work['Content'] = re.sub(r'<([^<]+)>', r"<sup title='\1'></sup>", work['Content'])
 	work['Content'] = markdown2.markdown(work['Content'])
 	reviews = Review.get_reviews_by_work(work['WorkID'])
 	return render_template('single_work.html', work=work, reviews=reviews)
@@ -25,6 +30,8 @@ def single_work(work_id):
 @app.route('/works')
 def works():
 	works = Work.get_works()
+	for work in works:
+		work['Content'] = re.sub(r'<([^<]+)>', '', work['Content'])
 	return render_template('works.html', works=works)
 
 # page - add work
@@ -55,11 +62,12 @@ def edit_work(work_id):
 	elif request.method == 'POST':
 		title        = request.form['title']
 		content      = request.form['content']
+		intro        = request.form['introduction']
 		authorID     = int(request.form['authorID'])
 		dynastyID    = Dynasty.get_dynastyID_by_author(authorID)
 		collectionID = int(request.form['collectionID'])
 		type         = request.form['type']
-		Work.edit_work(title, content, authorID, dynastyID, collectionID, type, work_id)
+		Work.edit_work(title, content, intro ,authorID, dynastyID, collectionID, type, work_id)
 		return redirect(url_for('single_work', work_id=work_id))
 
 # proc - delete work

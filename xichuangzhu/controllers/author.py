@@ -7,6 +7,8 @@ from xichuangzhu.models.work_model import Work
 from xichuangzhu.models.collection_model import Collection
 from xichuangzhu.models.dynasty_model import Dynasty
 
+import re
+
 # page all authors
 #--------------------------------------------------
 
@@ -22,10 +24,12 @@ def author():
 
 @app.route('/author/<int:authorID>')
 def single_author(authorID):
-	author      = Author.get_author(authorID)
+	author = Author.get_author(authorID)
 	collections = Collection.get_collections_by_author(authorID)
-	works       = Work.get_works_by_author(authorID)
-	worksNum    = Work.get_works_num(works)
+	works = Work.get_works_by_author(authorID)
+	for work in works:
+		work['Content'] = re.sub(r'<([^<]+)>', '', work['Content'])
+	worksNum = Work.get_works_num(works)
 	return render_template('single_author.html', author=author, collections=collections, works=works, worksNum=worksNum)
 
 # page add author

@@ -7,6 +7,8 @@ from xichuangzhu.models.author_model import Author
 from xichuangzhu.models.dynasty_model import Dynasty
 from xichuangzhu.models.review_model import Review
 
+import re
+
 # Home Controller
 #--------------------------------------------------
 
@@ -14,6 +16,8 @@ from xichuangzhu.models.review_model import Review
 @app.route('/')
 def index():
 	works = Work.get_works_by_random(4)
+	for work in works:
+		work['Content'] = re.sub(r'<([^<]+)>', '', work['Content'])
 	reviews = Review.get_reviews_by_random(5)
 	authors = Author.get_authors_by_random(5)
 	dynasties = Dynasty.get_dynasties()

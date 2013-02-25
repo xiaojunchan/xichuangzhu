@@ -17,7 +17,7 @@
 			<a class="btn btn-small" href="#">收藏 <span class="icon-heart"></span></a>
 			<a class="btn btn-small" href="{{ url_for('add_review', work_id=work.WorkID) }}">点评 <span class="icon-file"></span></a>
 			{% if session.user_id == 45197381 %}
-			<a class="btn btn-small" href="{{ url_for('edit_work', workID=work.WorkID) }}">编辑 <span class="icon-edit"></span></a>
+			<a class="btn btn-small" href="{{ url_for('edit_work', work_id=work.WorkID) }}">编辑 <span class="icon-edit"></span></a>
 			{% endif %}
 		</div>
 		{% endif %}

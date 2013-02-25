@@ -47,10 +47,10 @@ def add_work():
 # page - edit work
 #--------------------------------------------------
 
-@app.route('/work/edit/<int:workID>', methods=['GET', 'POST'])
-def edit_work(workID):
+@app.route('/work/edit/<int:work_id>', methods=['GET', 'POST'])
+def edit_work(work_id):
 	if request.method == 'GET':
-		work = Work.get_work(workID)
+		work = Work.get_work(work_id)
 		return render_template('edit_work.html', work=work)
 	elif request.method == 'POST':
 		title        = request.form['title']
@@ -59,8 +59,8 @@ def edit_work(workID):
 		dynastyID    = Dynasty.get_dynastyID_by_author(authorID)
 		collectionID = int(request.form['collectionID'])
 		type         = request.form['type']
-		Work.edit_work(title, content, authorID, dynastyID, collectionID, type, workID)
-		return redirect(url_for('single_work', workID=workID))
+		Work.edit_work(title, content, authorID, dynastyID, collectionID, type, work_id)
+		return redirect(url_for('single_work', work_id=work_id))
 
 # proc - delete work
 #--------------------------------------------------

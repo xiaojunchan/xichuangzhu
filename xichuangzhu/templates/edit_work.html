@@ -86,7 +86,7 @@ $(document).ready(function(){
 });
 </script>
 
-<form id="form-edit-work" class="form-horizontal" method="post" action="{{ url_for('edit_work', workID=work.WorkID) }}">
+<form id="form-edit-work" class="form-horizontal" method="post" action="{{ url_for('edit_work', work_id=work.WorkID) }}">
 	<fieldset>
 		<legend>编辑作品</legend>
 
@@ -97,7 +97,7 @@ $(document).ready(function(){
 					<option value='shi' {% if work.Type == 'shi' %}selected="selected"{% endif %}>诗</option>
 					<option value='ci' {% if work.Type == 'ci' %}selected="selected"{% endif %}>词</option>
 					<option value='wen' {% if work.Type == 'wen' %}selected="selected"{% endif %}>文</option>
-					<option value='geci' {% if work.Type == 'geci' %}selected="selected"{% endif %}>歌词</option>
+					<option value='geci' {% if work.Type == 'geci' %}selected="selected"{% endif %}>歌</option>
 				</select>
 			</div>
 		</div>

@@ -13,7 +13,7 @@ from xichuangzhu.models.review_model import Review
 # page home
 @app.route('/')
 def index():
-	works = Work.get_works_by_random(5)
+	works = Work.get_works_by_random(4)
 	reviews = Review.get_reviews_by_random(5)
 	authors = Author.get_authors_by_random(5)
 	dynasties = Dynasty.get_dynasties()

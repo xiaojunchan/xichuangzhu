@@ -24,10 +24,10 @@ def single_work(work_id):
 	work = Work.get_work(work_id)
 	# add comment
 	work['Content'] = re.sub(r'<([^<^b]+)>', r"<sup title='\1'></sup>", work['Content'])
-	# add bank row
-	work['Content'] = work['Content'].replace('/', "<div class='bank'></div>")
 	# gene paragraph
 	work['Content'] = markdown2.markdown(work['Content'])
+	# add bank row
+	work['Content'] = work['Content'].replace('<p>/</p>', "<div class='bank'></div>")
 	reviews = Review.get_reviews_by_work(work['WorkID'])
 	is_loved = Love.check_love(session['user_id'], work_id)
 	return render_template('single_work.html', work=work, reviews=reviews, is_loved=is_loved)
@@ -67,12 +67,13 @@ def add_work():
 	elif request.method == 'POST':
 		title        = request.form['title']
 		content      = request.form['content']
+		foreword     = request.form['foreword']
 		intro        = request.form['introduction']
 		authorID     = int(request.form['authorID'])
 		dynastyID    = Dynasty.get_dynastyID_by_author(authorID)
 		collectionID = int(request.form['collectionID'])
 		type = request.form['type']
-		new_work_id = Work.add_work(title, content, intro, authorID, dynastyID, collectionID, type)
+		new_work_id = Work.add_work(title, content, foreword, intro, authorID, dynastyID, collectionID, type)
 		return redirect(url_for('single_work', work_id=new_work_id))
 
 # page - edit work
@@ -86,12 +87,13 @@ def edit_work(work_id):
 	elif request.method == 'POST':
 		title        = request.form['title']
 		content      = request.form['content']
+		foreword     = request.form['foreword']
 		intro        = request.form['introduction']
 		authorID     = int(request.form['authorID'])
 		dynastyID    = Dynasty.get_dynastyID_by_author(authorID)
 		collectionID = int(request.form['collectionID'])
 		type         = request.form['type']
-		Work.edit_work(title, content, intro ,authorID, dynastyID, collectionID, type, work_id)
+		Work.edit_work(title, content, foreword, intro ,authorID, dynastyID, collectionID, type, work_id)
 		return redirect(url_for('single_work', work_id=work_id))
 
 # proc - delete work

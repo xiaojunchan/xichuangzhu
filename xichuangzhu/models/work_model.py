@@ -7,7 +7,7 @@ class Work:
 	# get a single work
 	@staticmethod
 	def get_work(workID):
-		query = '''SELECT work.WorkID, work.Title, work.Content, work.Introduction AS WorkIntroduction, work.Type, work.AuthorID, work.DynastyID, work.CollectionID, author.Author, dynasty.Dynasty, collection.Collection, collection.Introduction\n
+		query = '''SELECT work.WorkID, work.Title, work.Content, work.Foreword, work.Introduction AS WorkIntroduction, work.Type, work.AuthorID, work.DynastyID, work.CollectionID, author.Author, dynasty.Dynasty, collection.Collection, collection.Introduction\n
 			FROM work, author, dynasty, collection\n
 			WHERE work.workID = %d\n
 			AND work.AuthorID = author.AuthorID\n
@@ -69,9 +69,9 @@ class Work:
 
 	# add a work
 	@staticmethod
-	def add_work(title, content, introduction, authorID, dynastyID, collectionID, type):
-		query = '''INSERT INTO work (Title, Content, Introduction, AuthorID, DynastyID, CollectionID, Type)\n
-			VALUES ('%s', '%s', '%s', %d, %d, %d, '%s')''' % (title, content, introduction, authorID, dynastyID, collectionID, type)
+	def add_work(title, content, foreword, introduction, authorID, dynastyID, collectionID, type):
+		query = '''INSERT INTO work (Title, Content, Foreword, Introduction, AuthorID, DynastyID, CollectionID, Type)\n
+			VALUES ('%s', '%s', '%s','%s', %d, %d, %d, '%s')''' % (title, content, foreword, introduction, authorID, dynastyID, collectionID, type)
 		cursor.execute(query)
 		conn.commit()
 		return cursor.lastrowid
@@ -80,8 +80,8 @@ class Work:
 
 	# edit a Work
 	@staticmethod
-	def edit_work(title, content, introduction, authorID, dynastyID, collectionID, type, workID):
-		query = '''UPDATE work SET Title = '%s', Content = '%s', Introduction = '%s', AuthorID = %d, DynastyID = %d, CollectionID = %d, Type = '%s' WHERE WorkID=%d''' % (title, content, introduction, authorID, dynastyID, collectionID, type, workID)
+	def edit_work(title, content, foreword, introduction, authorID, dynastyID, collectionID, type, workID):
+		query = '''UPDATE work SET Title = '%s', Content = '%s', Foreword = '%s', Introduction = '%s', AuthorID = %d, DynastyID = %d, CollectionID = %d, Type = '%s' WHERE WorkID=%d''' % (title, content, foreword, introduction, authorID, dynastyID, collectionID, type, workID)
 		cursor.execute(query)
 		return conn.commit()
 

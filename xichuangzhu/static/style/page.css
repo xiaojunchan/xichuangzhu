@@ -22,7 +22,8 @@ body #main-wap .tooltip-inner{padding-top:5px;padding-bottom:5px;}
 #page-works .work-item .work-author{font-size:12px;font-weight:normal;}#page-works .work-item .work-author a{color:#333;}
 #page-works .work-item .work-content{font-size:14px;line-height:22px;}
 #page-single-work .work-title{font-size:25px;line-height:35px;margin-top:30px;margin-bottom:12px;font-weight:bold;text-align:center;clear:both;}
-#page-single-work .work-author{text-align:center;margin-bottom:20px;padding-right:6px;font-size:16px;}
+#page-single-work .work-foreword{font-size:18px;font-family:'kaiti';margin-bottom:10px;}
+#page-single-work .work-author{text-align:center;margin-bottom:15px;padding-right:10px;font-size:16px;}
 #page-single-work .work-content{font-family:'仿宋_GB2312';font-weight:bold;margin-bottom:30px;font-size:14pt;}#page-single-work .work-content sup{font-family:'yahei';font-size:12px;font-weight:normal;padding:5px 0px;cursor:pointer;color:#666;}
 #page-single-work .work-type-shi{text-align:center;}
 #page-single-work .work-type-ci{text-indent:2em;line-height:30px;}

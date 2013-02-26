@@ -8,7 +8,9 @@
 <script type="text/javascript">
 
 $(document).ready(function(){
-	$('.work-content sup').tooltip();
+	$('.work-content sup').tooltip({
+		'placement': 'right'
+	});
 
 	$('.work-content sup').each(function(index){
 		$(this).text('〔' + (index + 1) + '〕');
@@ -20,10 +22,24 @@ $(document).ready(function(){
 <div class="row">
 	<div class="span8">
 		<div class="work-title">{{ work.Title }}</div>
-		<div class="work-author">
-			〔<a href="{{ url_for('single_dynasty', dynastyID = work.DynastyID) }}">{{ work.Dynasty }}</a>〕<a href="{{ url_for('single_author', authorID=work.AuthorID) }}">{{ work.Author }}</a></div>
-		<div class="work-content work-type-{{ work.Type }}">{{ work.Content|safe }}</div>
 
+		<div class="work-author">
+			〔<a href="{{ url_for('single_dynasty', dynastyID = work.DynastyID) }}">{{ work.Dynasty }}</a>〕<a href="{{ url_for('single_author', authorID=work.AuthorID) }}">{{ work.Author }}</a>
+		</div>
+		
+		{% if work.Type == 'ci' %}
+
+		<!-- 32 is a experienced value -->
+		{% if work.Foreword|length > 32 %}
+		<div class="work-foreword" style="text-indent:2em; padding:0 2em;">{{ work.Foreword }}</div>
+		{% else %}
+		<div class="work-foreword" style="text-align:center;">{{ work.Foreword }}</div>
+		{% endif %}
+
+		{% endif %}
+
+		<div class="work-content work-type-{{ work.Type }}">{{ work.Content|safe }}</div>
+		
 		{% if session.user_id %}
 		<div class="btn-group pull-right">
 			{% if is_loved %}

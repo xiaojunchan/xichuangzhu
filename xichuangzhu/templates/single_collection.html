@@ -25,7 +25,7 @@
 		<h2>作品</h2>
 		{% for work in works %}
 		<div class="work-item">
-			<div class='work-title'><a href="{{url_for('single_work', workID=work.WorkID)}}">{{ work.Title }}</a></div>
+			<div class='work-title'><a href="{{url_for('single_work', work_id=work.WorkID)}}">{{ work.Title }}</a></div>
 			<div class='work-content'>{{ work.Content|truncate(20, True) }}</div>
 		</div>
 		{% endfor %}

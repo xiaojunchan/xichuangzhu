@@ -8,29 +8,32 @@
 <script type="text/javascript">
 
 $(document).ready(function(){
-	var width = 290, h_gap = 20, v_gap = 20;
+	var width = 290, h_gap = 20, v_gap = 22;
 
-	var lefts = [0, width+v_gap, 2*(width+v_gap)],
+	var lefts = [0, width+h_gap, 2*(width+h_gap)],
 		tops = [0, 0, 0];
 
 	$('.product-image').each(function(index){
 		$(this).css({
 			'width': '290px',
 			'position': 'absolute',
-			'left': lefts[index%3] + 'px'
+			'left': lefts[index%3] + 'px',
+			'display': 'none'
 		})
 
+		// only when a img loaded, it's height becomes known.
 		$(this).load(function(){
 
 			$(this).css({
+				'display': 'block',
 				'top': tops[index%3] + 'px'
 			});
 
-			// 
+			// overadd height
 			tops[index%3] += $(this).height() + v_gap;
 
-			$('.products-wap').css('height', tops[index%3] + 'px');
-
+			// set mother wap's height
+			$('.products-wap').css('height', (tops[index%3] + 20) + 'px');
 		});
 	});
 
@@ -41,13 +44,9 @@ $(document).ready(function(){
 <div class="products-wap clearfix">
 	{% for product in products %}
 	<div class="product-item">
-		<div>
-			<a href="{{ url_for('single_product', product_id=product.ProductID)}}">
-				<img class="product-image" title="{{ product.Product }}" src="{{ product.ImageUrl }}">
-			</a>
-		</div>
-
-		<div></div>
+		<a href="{{ url_for('single_product', product_id=product.ProductID)}}">
+			<img class="product-image" title="{{ product.Product }}" src="{{ product.ImageUrl }}">
+		</a>
 	</div>
 	{% endfor %}
 </div>

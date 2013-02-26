@@ -29,7 +29,12 @@ def single_work(work_id):
 	# add bank row
 	work['Content'] = work['Content'].replace('<p>/</p>', "<div class='bank'></div>")
 	reviews = Review.get_reviews_by_work(work['WorkID'])
-	is_loved = Love.check_love(session['user_id'], work_id)
+
+	# check is loved
+	if 'user_id' in session:
+		is_loved = Love.check_love(session['user_id'], work_id)
+	else:
+		is_loved = False
 	return render_template('single_work.html', work=work, reviews=reviews, is_loved=is_loved)
 
 # proc - love work

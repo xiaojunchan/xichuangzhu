@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block page_title %}店铺{% endblock %}
+{% block page_id%}page-shop{% endblock %}
+
+{% block body %}
+
+<div class="products-wap">
+	{% for product in products %}
+	<div class="product-item">
+		<div class="product-image">
+			<a href="{{ url_for('single_product', product_id=product.ProductID)}}">
+				<img title="{{ product.Product }}" src="{{ product.ImageUrl }}">
+			</a>
+		</div>
+
+		<div></div>
+	</div>
+	{% endfor %}
+</div>
+
+{% endblock %}

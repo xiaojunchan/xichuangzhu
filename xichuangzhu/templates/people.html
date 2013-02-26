@@ -8,7 +8,40 @@
 <div class="row">
 	<div class="span8">
 
-		<h1>{{ people.Name }}</h1>
+		<a class="user-avatar" href="{{ url_for('people', user_id=people.UserID) }}">
+			<img src="{{ people.Avatar }}" />
+		</a>
+		
+		<div class="user-info">
+			<div class="user-name">{{ people.Name }}</div>
+			<div class="user-signature">{{ people.Signature }}</div>
+		</div>
+		
+		<h2>收藏</h2>
+
+		{% for work in works %}
+		<div class="work-item">
+			<div class="work-title">
+				<a href="{{ url_for('single_work', work_id = work.WorkID) }}">{{ work.Title }}</a><sup class="work-author">〔<a href="{{ url_for('single_author', authorID=work.AuthorID) }}">{{ work.Author }}</a>〕</sup>
+			</div>
+			
+			<div class="work-content">{{ work.Content|truncate(38, True) }}</div>
+		</div>
+		{% endfor %}
+
+		<h2>TA 的点评</h2>
+
+		{% for review in reviews %}
+		<div class="review-item">
+			<a class="review-title" href="{{ url_for('single_review', review_id=review.ReviewID) }}">{{ review.Title }}</a>
+
+			<div class="review-extra-info">
+				{{ review.Time }}
+			</div>
+
+			<div class="review-content">{{ review.Content }}</div>
+		</div>
+		{% endfor %}
 
 	</div>
 

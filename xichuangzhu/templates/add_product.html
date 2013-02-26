@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block page_title %}添加商品{% endblock %}
+
+{% block page_id%}page-add-product{% endblock %}
+
+{% block body %}
+
+<form id="form-add-product" class="form-horizontal" method="post" action="{{ url_for('add_product') }}">
+	<fieldset>
+		<legend>添加商品</legend>
+
+		<div class="control-group">
+			<label class="control-label">商品</label>
+			<div class="controls">
+				<input type="text" name="product" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label">主页</label>
+			<div class="controls">
+				<input type="text" class="input-xxlarge" name="url" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label">图片</label>
+			<div class="controls">
+				<input type="text" class="input-xxlarge" name="image-url" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label">简介</label>
+			<div class="controls">
+				<textarea class="input-xxlarge" rows="10" name="introduction"></textarea>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<div class="controls">
+				<input type="submit" value="提交" class="btn btn-primary" />
+			</div>
+		</div>
+
+	</fieldset>
+</form>
+
+{% endblock %}

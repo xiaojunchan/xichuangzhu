@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block page_title %}{{ product.Product }}{% endblock %}
+{% block page_id%}page-single-product{% endblock %}
+
+{% block body %}
+
+<div class="row">
+	<div class="span6">
+		<img class="product-image" title="{{ product.Product }}" src="{{ product.ImageUrl }}" >
+	</div>
+
+	<div class="span6">
+		<h1 class="product-name">{{ product.Product }}</h1>
+
+		<div class="product-introduction">{{ product.Introduction }}</div>
+		
+		<div class="btn-group">
+			<a class="btn btn-small" href="{{ product.Url }}" target="_blank">
+				去逛逛 <span class="icon-shopping-cart"></span>
+			</a>
+
+			{% if session.user_id == 45197381 %}
+			<a class="btn btn-small" href="{{ url_for('edit_product', product_id=product.ProductID) }}">
+				编辑 <span class="icon-edit"></span>
+			</a>
+			{% endif %}
+		</div>
+	</div>
+</div>
+
+{% endblock %}

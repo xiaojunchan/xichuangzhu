@@ -52,6 +52,18 @@ class Review:
 		cursor.execute(query)
 		return cursor.fetchall()
 
+	# get reviews from a user
+	@staticmethod
+	def get_reviews_by_user(user_id):
+		query = '''SELECT review.ReviewID, review.Title, review.Content, review.Time, user.UserID, user.Name, user.Avatar, work.WorkID, work.Title AS WorkTitle, work.Content AS WorkContent, author.Author\n
+			FROM review, user, work, author\n
+			WHERE review.UserID = %d\n
+			AND review.UserID = user.UserID\n
+			AND review.WorkID = work.WorkID\n
+			AND work.AuthorID = author.AuthorID''' % user_id
+		cursor.execute(query)
+		return cursor.fetchall()
+
 # NEW
 
 	# add a review to a work

@@ -5,6 +5,8 @@ from flask import render_template, request, redirect, url_for, json, session
 from xichuangzhu import app
 
 from xichuangzhu.models.user_model import User
+from xichuangzhu.models.love_model import Love
+from xichuangzhu.models.review_model import Review
 
 import urllib, urllib2
 
@@ -12,6 +14,8 @@ import smtplib
 from email.mime.text import MIMEText
 
 import hashlib
+
+import re
 
 # proc - login by douban's oauth2.0
 @app.route('/login/douban')
@@ -135,4 +139,8 @@ def logout():
 @app.route('/people/<int:user_id>')
 def people(user_id):
 	people = User.get_people(user_id)
-	return render_template('people.html', people=people)
+	works = Love.get_works_by_user_love(user_id)
+	for work in works:
+		work['Content'] = re.sub(r'<([^<]+)>', '', work['Content'])
+	reviews = Review.get_reviews_by_user(user_id)
+	return render_template('people.html', people=people, works=works, reviews=reviews)

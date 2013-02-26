@@ -21,7 +21,7 @@
 						<li><a href="{{ url_for('index') }}">首页</a></li>
 						<li><a href="{{ url_for('my_love') }}">收藏</a></li>
 						<!-- <li><a href="#">论坛</a></li> -->
-						<li><a href="#">店铺</a></li>
+						<li><a href="{{ url_for('shop') }}">店铺</a></li>
 					</ul>
 
 					<!-- search -->
@@ -38,7 +38,7 @@
 								{{ session.user_name }} <b class="caret"></b>
 							</a>
 							<ul class="dropdown-menu">
-								<li><a href="#">主页</a></li>
+								<li><a href="{{ url_for('people', user_id=session.user_id) }}">主页</a></li>
 								<li><a href="{{ url_for('logout') }}">退出</a></li>
 							</ul>
 						</li>
@@ -57,6 +57,7 @@
 								<li><a href="{{ url_for('add_collection') }}">作品集</a></li>
 								<li><a href="{{ url_for('add_author') }}">文学家</a></li>
 								<li><a href="{{ url_for('add_dynasty') }}">朝代</a></li>
+								<li><a href="{{ url_for('add_product') }}">商品</a></li>
 							</ul>
 						</li>
 					</ul>

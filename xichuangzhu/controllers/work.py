@@ -22,7 +22,11 @@ import re
 @app.route('/work/<int:work_id>')
 def single_work(work_id):
 	work = Work.get_work(work_id)
-	work['Content'] = re.sub(r'<([^<]+)>', r"<sup title='\1'></sup>", work['Content'])
+	# add comment
+	work['Content'] = re.sub(r'<([^<^b]+)>', r"<sup title='\1'></sup>", work['Content'])
+	# add bank row
+	work['Content'] = work['Content'].replace('/', "<div class='bank'></div>")
+	# gene paragraph
 	work['Content'] = markdown2.markdown(work['Content'])
 	reviews = Review.get_reviews_by_work(work['WorkID'])
 	is_loved = Love.check_love(session['user_id'], work_id)

@@ -73,6 +73,6 @@ body #main-wap .tooltip-inner{padding-top:5px;padding-bottom:5px;}
 #page-people .review-item{margin-bottom:15px;}#page-people .review-item .review-title{font-size:16px;font-weight:bold;}
 #page-people .review-item .review-extra-info{font-size:12px;line-height:22px;}
 #page-people .review-item .review-content{font-size:12px;line-height:22px;}
-#page-shop .products-wap{margin-top:15px;}#page-shop .products-wap .product-item{float:left;margin:0 20px 15px 0;}#page-shop .products-wap .product-item .product-image{width:290px;}
+#page-shop .products-wap{margin-top:15px;position:relative;}
 #page-single-product .product-image{margin-top:15px;}
 #page-single-product .product-introduction{margin-bottom:10px;}

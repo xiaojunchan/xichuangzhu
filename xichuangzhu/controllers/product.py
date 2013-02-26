@@ -10,7 +10,7 @@ from xichuangzhu.models.product_model import Product
 #--------------------------------------------------
 
 # view
-@app.route('/shop')
+@app.route('/things')
 def shop():
 	products = Product.get_products(12)
 	return render_template('shop.html', products=products)
@@ -19,7 +19,7 @@ def shop():
 #--------------------------------------------------
 
 # view
-@app.route('/product/<int:product_id>')
+@app.route('/thing/<int:product_id>')
 def single_product(product_id):
 	product = Product.get_product(product_id)
 	return render_template('single_product.html', product=product)
@@ -28,7 +28,7 @@ def single_product(product_id):
 #--------------------------------------------------
 
 # view
-@app.route('/product/add', methods=['GET', 'POST'])
+@app.route('/thing/add', methods=['GET', 'POST'])
 def add_product():
 	if request.method == 'GET':
 		return render_template('add_product.html')
@@ -45,7 +45,7 @@ def add_product():
 #--------------------------------------------------
 
 # view
-@app.route('/product/edit/<int:product_id>', methods=['GET', 'POST'])
+@app.route('/thing/edit/<int:product_id>', methods=['GET', 'POST'])
 def edit_product(product_id):
 	if request.method == 'GET':
 		product = Product.get_product(product_id)

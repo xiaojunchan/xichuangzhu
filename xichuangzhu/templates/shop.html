@@ -5,12 +5,45 @@
 
 {% block body %}
 
-<div class="products-wap">
+<script type="text/javascript">
+
+$(document).ready(function(){
+	var width = 290, h_gap = 20, v_gap = 20;
+
+	var lefts = [0, width+v_gap, 2*(width+v_gap)],
+		tops = [0, 0, 0];
+
+	$('.product-image').each(function(index){
+		$(this).css({
+			'width': '290px',
+			'position': 'absolute',
+			'left': lefts[index%3] + 'px'
+		})
+
+		$(this).load(function(){
+
+			$(this).css({
+				'top': tops[index%3] + 'px'
+			});
+
+			// 
+			tops[index%3] += $(this).height() + v_gap;
+
+			$('.products-wap').css('height', tops[index%3] + 'px');
+
+		});
+	});
+
+})
+
+</script>
+
+<div class="products-wap clearfix">
 	{% for product in products %}
 	<div class="product-item">
-		<div class="product-image">
+		<div>
 			<a href="{{ url_for('single_product', product_id=product.ProductID)}}">
-				<img title="{{ product.Product }}" src="{{ product.ImageUrl }}">
+				<img class="product-image" title="{{ product.Product }}" src="{{ product.ImageUrl }}">
 			</a>
 		</div>
 

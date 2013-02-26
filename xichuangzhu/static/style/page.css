@@ -49,8 +49,11 @@ body #main-wap .tooltip{font-family:'arial','宋体';text-indent:0;font-weight:n
 #page-single-dynasty .dynasty-introduction{font-size:14px;}
 #page-single-dynasty .author-item{margin-bottom:10px;}#page-single-dynasty .author-item .author{font-size:16px;font-weight:bold;}
 #page-single-dynasty .author-item .author-introduction{font-size:14px;}
-#page-single-review .user-avatar{float:left;margin-top:5px;}
-#page-single-review .review-wap{margin-left:65px;}#page-single-review .review-wap .review-extra-info{margin-bottom:10px;}
+#page-single-review .review-extra-info{margin-bottom:10px;}
+#page-single-review .user-avatar{float:left;margin-top:15px;}
+#page-single-review .review-wap{margin-left:65px;}#page-single-review .review-wap .review-content{margin-bottom:20px;}
+#page-single-review .review-wap .comment-item{margin-bottom:15px;clear:both;}#page-single-review .review-wap .comment-item .comment-user-avatar{float:left;margin-top:5px;}
+#page-single-review .review-wap .comment-item .comment-wap{margin-left:60px;font-size:12px;}#page-single-review .review-wap .comment-item .comment-wap .comment-extra-info{line-height:22px;}
 #page-reviews .review-item{margin-bottom:15px;}#page-reviews .review-item .user-avatar{float:left;margin-top:5px;}
 #page-reviews .review-item .review-wap{margin-left:60px;}#page-reviews .review-item .review-wap .review-title{font-size:16px;font-weight:bold;}
 #page-reviews .review-item .review-wap .review-content{font-size:12px;line-height:22px;}

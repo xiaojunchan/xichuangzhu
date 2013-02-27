@@ -66,6 +66,8 @@ $(document).ready(function(){
 		<div class="work-introduction">{{ work.WorkIntroduction }}</div>
 
 		<!-- <h2>注释</h2> -->
+		<h2>作者简介</h2>
+		<div>{{ work.AuthorIntroduction|truncate(100, True) }}</div>
 		
 		<h2>点评</h2>
 		{% for review in reviews %}
@@ -88,7 +90,6 @@ $(document).ready(function(){
 	</div>
 
 	<div class="span4">
-
 
 	</div>
 </div>

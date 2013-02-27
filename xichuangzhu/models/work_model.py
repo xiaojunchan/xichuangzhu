@@ -7,7 +7,7 @@ class Work:
 	# get a single work
 	@staticmethod
 	def get_work(workID):
-		query = '''SELECT work.WorkID, work.Title, work.Content, work.Foreword, work.Introduction AS WorkIntroduction, work.Type, work.AuthorID, work.DynastyID, work.CollectionID, author.Author, dynasty.Dynasty, collection.Collection, collection.Introduction\n
+		query = '''SELECT work.WorkID, work.Title, work.Content, work.Foreword, work.Introduction AS WorkIntroduction, work.Type, work.AuthorID, work.DynastyID, work.CollectionID, author.Author, author.Introduction AS AuthorIntroduction, dynasty.Dynasty, collection.Collection, collection.Introduction\n
 			FROM work, author, dynasty, collection\n
 			WHERE work.workID = %d\n
 			AND work.AuthorID = author.AuthorID\n

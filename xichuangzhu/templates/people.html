@@ -35,11 +35,13 @@
 		<div class="review-item">
 			<a class="review-title" href="{{ url_for('single_review', review_id=review.ReviewID) }}">{{ review.Title }}</a>
 
+			<div class="review-content">{{ review.Content }}</div>
+
 			<div class="review-extra-info">
+				评
+				<a href="{{ url_for('single_work', work_id=review.WorkID) }}">{{ review.WorkTitle }}〔{{ review.Author }}〕</a>
 				{{ review.Time }}
 			</div>
-
-			<div class="review-content">{{ review.Content }}</div>
 		</div>
 		{% endfor %}
 

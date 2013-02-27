@@ -7,7 +7,7 @@ app.secret_key = 'A0ZfwefdefHH!jmN]LWXewfw,RT'
 import MySQLdb
 import MySQLdb.cursors
 
-conn = MySQLdb.connect(host='localhost', user='root', passwd='xiaowangzi', db='classic', use_unicode=True, charset='utf8', cursorclass=MySQLdb.cursors.DictCursor)
+conn = MySQLdb.connect(host='localhost', user='root', passwd='xiaowangzi', db='xichuangzhu', use_unicode=True, charset='utf8', cursorclass=MySQLdb.cursors.DictCursor)
 cursor = conn.cursor()
 
 # convert python's encoding to utf8

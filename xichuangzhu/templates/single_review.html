@@ -46,12 +46,12 @@
 			</div>
 			{% endfor %}
 
+			{% if session.user_id %}
 			<form id="add-review-comment" method="post" action="{{ url_for('add_comment', review_id=review.ReviewID, user_id=session.user_id) }}">
-
 				<textarea name="comment" class="input-xxlarge" rows="4"></textarea>
-
 				<input type="submit" class="btn btn-small" value="提交" />
 			</form>
+			{% endif %}
 		</div>
 		
 	</div>

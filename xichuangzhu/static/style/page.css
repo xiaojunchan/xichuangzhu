@@ -1,10 +1,9 @@
-body{margin:55px 0 0 0;font-family:'arial','宋体';}body #main-wap{font-size:14px;line-height:26px;min-height:700px;}body #main-wap h1{font-size:25px;line-height:25px;font-weight:bold;margin:15px 0 12px 0;}
-body #main-wap h2{font-size:18px;line-height:18px;font-family:'微软雅黑';font-weight:normal;margin:20px 0 15px 0;color:darkred;clear:both;}
+body{margin:55px 0 0 0;font-family:'arial','宋体';}body #main-wap{font-size:14px;line-height:26px;min-height:700px;}body #main-wap h1{font-size:25px;line-height:25px;margin:15px 0 12px 0;}
+body #main-wap h2{font-size:16px;line-height:16px;font-family:'微软雅黑';font-weight:normal;margin:20px 0 15px 0;color:darkred;clear:both;}body #main-wap h2 .link-more a{margin-left:5px;font-size:12px;font-family:'微软雅黑';font-weight:normal;}
 body #main-wap .tooltip{font-family:'arial','宋体';text-indent:0;font-weight:normal;font-size:12px;line-height:22px;}
 body #main-wap .tooltip-inner{padding-top:5px;padding-bottom:5px;}
 #douban-icon{float:right;margin-top:8px;cursor:pointer;}
 #footer{text-align:center;font-size:12px;font-family:'微软雅黑';margin:20px 0 10px 0;}
-.link-more a{margin-left:5px;font-size:12px;font-family:'微软雅黑';}
 .navbar-search .search-query{line-height:1.2;}
 .form-horizontal .input-append{display:block;}
 #page-index .work-item{margin-bottom:15px;}#page-index .work-item .work-title{font-size:16px;line-height:30px;font-weight:bold;}
@@ -24,7 +23,7 @@ body #main-wap .tooltip-inner{padding-top:5px;padding-bottom:5px;}
 #page-single-work .work-title{font-size:25px;line-height:35px;margin-top:30px;margin-bottom:12px;font-weight:bold;text-align:center;clear:both;}
 #page-single-work .work-author{text-align:center;margin-bottom:16px;padding-right:10px;font-size:16px;}
 #page-single-work .work-foreword{font-size:18px;font-family:'kaiti';margin-bottom:10px;}
-#page-single-work .work-content{font-family:'仿宋_GB2312';font-weight:bold;margin-bottom:30px;font-size:14pt;}#page-single-work .work-content sup{font-family:'yahei';font-size:12px;font-weight:normal;padding:5px 0px;cursor:pointer;color:#666;}
+#page-single-work .work-content{font-family:'fangsong','仿宋_GB2312';font-weight:bold;margin-bottom:30px;font-size:14pt;text-shadow:0 0 1px #DDD;}#page-single-work .work-content sup{font-family:'yahei';font-size:12px;font-weight:normal;padding:5px 0px;cursor:pointer;color:#666;}
 #page-single-work .work-type-shi{text-align:center;}
 #page-single-work .work-type-ci{text-indent:2em;line-height:30px;}
 #page-single-work .work-type-geci p{text-indent:11em;margin-bottom:7px;}

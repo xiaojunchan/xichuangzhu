@@ -35,15 +35,13 @@ def auth():
 	req = urllib2.Request(url, data)
 	response = urllib2.urlopen(req)
 	info = eval(response.read())
-
 	user_id = int(info['douban_user_id'])
-	access_token = info['access_token']
 
 	# if user exist
 	if User.check_user_exist(user_id):
 		# if user unactive
 		if not User.check_user_active(user_id):
-			return redirect(url_for('verify_email_callback', state='unactive'))
+			return redirect(url_for('verify_email_callback', state='unactive', user_id=user_id))
 		else:
 			# set session
 			session['user_id'] = user_id
@@ -52,9 +50,8 @@ def auth():
 	# if not exist
 	else:
 		# get user info
-		url = "https://api.douban.com/v2/user/~me"
+		url = "https://api.douban.com/v2/user/" + str(user_id)
 		req = urllib2.Request(url)
-		req.add_header('Authorization', 'Bearer ' + access_token)
 		response = urllib2.urlopen(req)
 		user_info = eval(response.read().replace('\\', ''))	# remove '\' and convert str to dict
 
@@ -126,7 +123,8 @@ def verify_email(user_id, verify_code):
 @app.route('/verify_email_callback/douban/')
 def verify_email_callback():
 	state = request.args['state']
-	return render_template('verify_email_callback.html', state=state)
+	user_id = int(request.args['user_id']) if 'user_id' in request.args else 0
+	return render_template('verify_email_callback.html', state=state, user_id=user_id)
 
 # proc - logout
 @app.route('/logout')

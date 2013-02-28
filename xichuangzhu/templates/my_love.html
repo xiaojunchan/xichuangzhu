@@ -7,6 +7,14 @@
 
 <div class="row">
 	<div class="span8">
+
+		{% if is_login == False %}
+
+		<h2>提示</h2>
+		<div>只有登陆用户才能收藏哦，请点击豆瓣图标登陆吧！</div>
+
+		{% else %}
+
 		<h2>我的收藏</h2>
 
 		{% for work in works %}
@@ -18,6 +26,8 @@
 			<div class="work-content">{{ work.Content|truncate(38, True) }}</div>
 		</div>
 		{% endfor %}
+
+		{% endif %}
 
 	</div>
 

@@ -5,6 +5,8 @@
 
 {% block body %}
 
+<h2>提示</h2>
+
 {% if state == 'send_succ' %}
 <div>邮件已发送，请进入邮箱完成绑定。</div>
 
@@ -12,7 +14,7 @@
 <div>邮件发送失败。</div>
 
 {% elif state == 'unactive' %}
-<div>您尚未绑定邮箱，请进入邮箱完成绑定。</div>
+<div>您尚未绑定邮箱，请进入邮箱完成绑定（或 <a href="{{ url_for('send_verify_email', user_id=user_id) }}">再发一次</a>）。</div>
 
 {% elif state == 'active_succ' %}
 <div>邮箱绑定成功！<span id="second-count"></span>秒后进入首页。</div>

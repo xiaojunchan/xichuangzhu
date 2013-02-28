@@ -13,10 +13,13 @@ import re
 
 @app.route('/mylove')
 def my_love():
-	works = Love.get_works_by_user_love(session['user_id'])	
-	for work in works:
-		work['Content'] = re.sub(r'<([^<]+)>', '', work['Content'])
-	return render_template('my_love.html', works=works)
+	if not 'user_id' in session:
+		return render_template('my_love.html', is_login=False)
+	else:
+		works = Love.get_works_by_user_love(session['user_id'])	
+		for work in works:
+			work['Content'] = re.sub(r'<([^<]+)>', '', work['Content'])
+		return render_template('my_love.html', works=works)
 
 # # proc - add love work
 # #--------------------------------------------------

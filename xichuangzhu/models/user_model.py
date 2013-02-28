@@ -50,6 +50,7 @@ class User:
 	@staticmethod
 	def check_user_exist(user_id):
 		query = "SELECT * FROM user WHERE UserID = %d" % user_id
+		#return query
 		cursor.execute(query)
 		return cursor.rowcount > 0
 

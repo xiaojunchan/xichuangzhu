@@ -69,14 +69,14 @@ def auth():
 		User.add_user(user_id, user_name, avatar, signature, desc, location_id, location)
 
 		# go to the verify email page
-		return redirect(url_for('send_verify_email', user_id=user_id, user_name=user_name))
+		return redirect(url_for('send_verify_email', user_id=user_id))
 
 # page - send verify email
 @app.route('/send_verify_email/douban', methods=['GET', 'POST'])
 def send_verify_email():
 	if request.method == 'GET':
-		user_id = request.args['user_id']
-		user_name = request.args['user_name']
+		user_id = int(request.args['user_id'])
+		user_name = User.get_name(user_id)
 		return render_template('send_verify_email.html', user_id=user_id, user_name=user_name)
 	elif request.method == 'POST':
 		# email
@@ -106,7 +106,7 @@ def send_verify_email():
 		# send email
 		s = smtplib.SMTP('smtp.qq.com', 25)
 		s.login('hustlzp@qq.com', 'xiaowang2013qqzi')
-		s.sendmail('hustlzp@qq.com', '724475543@qq.com', msg.as_string())
+		s.sendmail('hustlzp@qq.com', t_addr, msg.as_string())
 
 		return redirect(url_for('verify_email_callback', state='send_succ'))
 

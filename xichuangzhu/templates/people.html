@@ -8,13 +8,15 @@
 <div class="row">
 	<div class="span8">
 
-		<a class="user-avatar" href="{{ url_for('people', user_id=people.UserID) }}">
-			<img src="{{ people.Avatar }}" />
-		</a>
-		
-		<div class="user-info">
-			<div class="user-name">{{ people.Name }}</div>
-			<div class="user-signature">{{ people.Signature }}</div>
+		<div class="clearfix">
+			<a class="user-avatar" href="{{ url_for('people', user_id=people.UserID) }}">
+				<img src="{{ people.Avatar }}" />
+			</a>
+			
+			<div class="user-info">
+				<div class="user-name">{{ people.Name }}</div>
+				<div class="user-signature">{{ people.Signature }}</div>
+			</div>
 		</div>
 		
 		<h2>TA的收藏</h2>

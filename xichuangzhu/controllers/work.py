@@ -24,6 +24,7 @@ def single_work(work_id):
 	work = Work.get_work(work_id)
 	# add comment
 	work['Content'] = re.sub(r'<([^<^b]+)>', r"<sup title='\1'></sup>", work['Content'])
+	work['Content'] = work['Content'].replace('%', "&nbsp;&nbsp;")
 	# gene paragraph
 	work['Content'] = markdown2.markdown(work['Content'])
 	# add bank row

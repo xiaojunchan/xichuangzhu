@@ -18,7 +18,7 @@
 		{% for work in works %}
 		<div class="work-item">
 			<div class="work-title">
-				<a href="{{ url_for('single_work', work_id = work.WorkID) }}">{{ work.Title }}</a><sup class="work-author">〔<!-- <a href="{{ url_for('single_dynasty', dynastyID = work.DynastyID) }}">{{ work.Dynasty }}</a>| --><a href="{{ url_for('single_author', authorID=work.AuthorID) }}">{{ work.Author }}</a>〕</sup>
+				<a href="{{ url_for('single_work', work_id = work.WorkID) }}">{{ work.Title }}</a><sup class="work-author">〔<!-- <a href="{{ url_for('dynasty', dynasty_id = work.DynastyID) }}">{{ work.Dynasty }}</a>| --><a href="{{ url_for('single_author', authorID=work.AuthorID) }}">{{ work.Author }}</a>〕</sup>
 			</div>
 			
 			<div class="work-content">{{ work.Content|truncate(38, True) }}</div>
@@ -71,23 +71,18 @@
 		{% for author in authors %}
 		<div class='author-item'>
 			<div class='author'>
-				<a href="{{ url_for('single_author', authorID=author.AuthorID) }}">{{ author.Author }}</a><sup class='author-dynasty'>〔<a href="{{ url_for('single_dynasty', dynastyID=author.DynastyID) }}">{{ author.Dynasty }}</a>〕</sup>
+				<a href="{{ url_for('single_author', authorID=author.AuthorID) }}">{{ author.Author }}</a><sup class='author-dynasty'>〔<a href="{{ url_for('dynasty', dynasty_id=author.DynastyID) }}">{{ author.Dynasty }}</a>〕</sup>
 			</div>
 			<div class='author-introduction'>{{ author.Quote }}</div>
 		</div>
 		{% endfor %}
 
-		<h2>
-			五千年
-			<span class='link-more'>
-				<a href="{{ url_for('dynasty') }}">全部</a>
-			</span>
-		</h2>
+		<h2>五千年</h2>
 
 		<ul id="dynasties-wap">
 			{% for dynasty in dynasties %}
 			<li class='dynasty-item'>
-				<a href="{{ url_for('single_dynasty', dynastyID=dynasty.DynastyID) }}">{{ dynasty.Dynasty }}</a>
+				<a href="{{ url_for('dynasty', dynasty_id=dynasty.DynastyID) }}">{{ dynasty.Dynasty }}</a>
 				<span>/</span>
 			</li>
 			{% endfor %}

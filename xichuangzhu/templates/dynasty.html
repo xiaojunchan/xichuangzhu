@@ -10,45 +10,62 @@
 $(document).ready(function(){
 
 	$('#dyn-selector a').each(function(){
+		$(this).tooltip({
+			'placement': 'bottom'
+		});
+
+		$(this).click(function(){
+			$('#dyn-selector a').css({
+				'margin-top': '0px'
+			});
+
+			$(this).css({
+				'margin-top': '11px'
+			});
+
+			$.ajax({
+				url: "{{ url_for('get_dynasty_by_json') }}",
+				type: 'POST',
+				data: {
+					dynasty_id: $(this).attr('data-dynasty-id')
+				},
+				success: function(data){
+					$('#dynasty-wap').html(data);
+				}
+
+			})
+		})
+
+		var color = 'rgb(' + Math.floor(Math.random()*255+1) + ',' + Math.floor(Math.random()*255+1) + ',' + Math.floor(Math.random()*255+1) + ')';
+
 		$(this).css({
-			'width': $(this).attr('data-width') / 5012.0 * $(window).width() + "px"
-			//'width': Math.floor($(this).attr('data-width') / 5012.0 * $(window).width()) + "px"
-			//'width': Math.ceil($(this).attr('data-width') / 5012.0 * $(window).width()) + "px"
-			//'width': $(this).attr('data-width') / 5012.0 * $(window).width() + "px"
+			'height': '22px',
+			//'width': $(this).attr('data-width') / 5012.0 * $(window).width() + "px",
+			'width': $(window).width() / 17 + 'px',
+			'background-color': color
 		});
 	});
 
-	//alert($('#dyn-12').width());
-	//alert($('#dyn-selector').width());
-	//alert($(window).width());
-
-	$('#dyn-12').css({
-		'width': $('#dyn-12').width() + $(window).width() - $('#dyn-selector').width() - 1 + "px"
-	});
-
-	//alert($('#dyn-12').width());
+	// $('#dyn-12').css({
+	// 	'width': $('#dyn-12').width() + $(window).width() - $('#dyn-selector').width() - 1 + "px"
+	// });
 });
 
 </script>
 
+<ul id="dyn-selector" class="clearfix">
+	{% for dynasty in dynasties %}
+	<li>
+		<a href="#" id="dyn-{{ dynasty.DynastyID }}" title="{{ dynasty.StartYear|replace('-', '前') }}-{{ dynasty.EndYear|replace('-', '前') }}" data-width="{{ (dynasty.EndYear - dynasty.StartYear) }}" data-dynasty-id="{{ dynasty.DynastyID }}" style="{% if dynasty.DynastyID == dynasty_id %}margin-top: 11px{% endif %}">{{ dynasty.Dynasty }}</a>
+	</li>
+	{% endfor %}
+</ul>
+
 <div class="row">
 	<div class="span8">
-		<ul id="dyn-selector" class="clearfix">
-			{% for dynasty in dynasties %}
-			<li><a href="#" id="dyn-{{ dynasty.DynastyID }}" title="{{ dynasty.Dynasty }}" data-width="{{ (dynasty.EndYear - dynasty.StartYear) }}" style=""></a></li>
-			{% endfor %}
-		</ul>
-
-		<h2>华夏五千年</h2>
-
-		{% for dynasty in dynasties %}
-		<div class='dynasty-item'>
-			<div class='dynasty'>
-				<a href="{{ url_for('single_dynasty', dynastyID=dynasty.DynastyID) }}">{{ dynasty.Dynasty }}</a><!-- <sup class="dynasty-period">〔{{ dynasty.StartYear|replace('-', '前') }}年~{{ dynasty.EndYear|replace('-', '前') }}年〕</sup> -->
-			</div>
-			<div class='dynasty-introduction'>{{ dynasty.Introduction|truncate(100, True) }}</div>
+		<div id="dynasty-wap">
+			{{ dynasty_html|safe }}
 		</div>
-		{% endfor %}
 	</div>
 
 	<div class="span4"></div>

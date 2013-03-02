@@ -35,7 +35,8 @@ body #main-wap .tooltip-inner{padding-top:5px;padding-bottom:5px;}
 #page-single-work .review-item .review-wap{margin-left:60px;}#page-single-work .review-item .review-wap .review-title{font-size:16px;font-weight:bold;}
 #page-single-work .review-item .review-wap .review-extra-info{font-size:12px;line-height:22px;}
 #page-single-work .review-item .review-wap .review-content{font-size:12px;line-height:22px;}
-#page-single-collection .work-item{margin-bottom:10px;}#page-single-collection .work-item .work-title{font-weight:bold;margin-bottom:5px;}
+#page-single-collection .collection-author{font-size:16px;}
+#page-single-collection .work-item{margin-bottom:10px;}#page-single-collection .work-item .work-title{font-size:16px;font-weight:bold;line-height:30px;}
 #page-author .author-wap{border-top:1px dashed lightgray;padding-top:15px;}#page-author .author-wap .author-dynasty{font-size:16px;line-height:16px;color:darkblue;font-family:'微软雅黑';width:100px;float:left;display:inline-block;}
 #page-author .author-wap .author-group{list-style:none;margin:0 0 0 100px;}#page-author .author-wap .author-group li{float:left;margin-bottom:15px;}#page-author .author-wap .author-group li.author{font-size:16px;line-height:20px;width:100px;}
 #page-single-author .author .author-quote{font-size:12px;font-weight:normal;color:gray;margin-left:15px;}

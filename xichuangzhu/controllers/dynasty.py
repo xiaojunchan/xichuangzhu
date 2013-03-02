@@ -9,7 +9,7 @@ from xichuangzhu.models.author_model import Author
 #--------------------------------------------------
 
 @app.route('/dynasty/<int:dynasty_id>')
-def dynasty(dynasty_id):
+def single_dynasty(dynasty_id):
 	# gene html code
 	dynasty = Dynasty.get_dynasty(dynasty_id)
 	authors = Author.get_authors_by_dynasty(dynasty_id)
@@ -30,23 +30,23 @@ def add_dynasty():
 		introduction = request.form['introduction']
 		startYear    = int(request.form['startYear'])
 		endYear      = int(request.form['endYear'])
-		newDynastyID = Dynasty.add_dynasty(dynasty, introduction, startYear, endYear)
-		return redirect(url_for('single_dynasty', dynastyID=newDynastyID))
+		new_dynasty_id = Dynasty.add_dynasty(dynasty, introduction, startYear, endYear)
+		return redirect(url_for('dynasty', dynasty_id=new_dynasty_id))
 
 # page edit dynasty
 #--------------------------------------------------
-@app.route('/dynasty/edit/<int:dynastyID>', methods=['GET', 'POST'])
-def edit_dynasty(dynastyID):
+@app.route('/dynasty/edit/<int:dynasty_id>', methods=['GET', 'POST'])
+def edit_dynasty(dynasty_id):
 	if request.method == 'GET':
-		dynasty = Dynasty.get_dynasty(dynastyID)
+		dynasty = Dynasty.get_dynasty(dynasty_id)
 		return render_template('edit_dynasty.html', dynasty=dynasty)
 	elif request.method == 'POST':
 		dynasty      = request.form['dynasty']
 		introduction = request.form['introduction']
 		startYear    = int(request.form['startYear'])
 		endYear      = int(request.form['endYear'])
-		Dynasty.edit_dynasty(dynasty, introduction, startYear, endYear, dynastyID)
-		return redirect(url_for('single_dynasty', dynastyID=dynastyID))
+		Dynasty.edit_dynasty(dynasty, introduction, startYear, endYear, dynasty_id)
+		return redirect(url_for('dynasty', dynasty_id=dynasty_id))
 
 # json - get single dynasty info
 #--------------------------------------------------

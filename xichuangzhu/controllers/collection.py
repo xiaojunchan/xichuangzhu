@@ -6,6 +6,8 @@ from xichuangzhu.models.collection_model import Collection
 from xichuangzhu.models.work_model import Work
 from xichuangzhu.models.author_model import Author
 
+import re
+
 # page - single collection
 #--------------------------------------------------
 

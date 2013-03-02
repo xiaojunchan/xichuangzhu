@@ -1,5 +1,5 @@
 {% if session.user_id == 45197381 %}
-<a class="btn btn-small pull-right" href="{{ url_for('edit_dynasty', dynastyID=dynasty.DynastyID) }}">编辑  <span class="icon-edit"></span></a>
+<a class="btn btn-small pull-right" href="{{ url_for('edit_dynasty', dynasty_id=dynasty.DynastyID) }}">编辑  <span class="icon-edit"></span></a>
 {% endif %}
 
 <h1 class='dynasty'>{{ dynasty.Dynasty }}</h1>

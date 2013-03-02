@@ -16,7 +16,7 @@
 		<h1 class="collection">{{ collection.Collection }}</h1>
 
 		<div class="collection-author">
-			〔<a href="{{ url_for('single_dynasty', dynastyID = collection.DynastyID) }}">{{ collection.Dynasty }}</a>〕<a href="{{ url_for('single_author', authorID=collection.AuthorID) }}">{{ collection.Author }}</a>
+			〔<a href="{{ url_for('single_dynasty', dynasty_id = collection.DynastyID) }}">{{ collection.Dynasty }}</a>〕<a href="{{ url_for('single_author', authorID=collection.AuthorID) }}">{{ collection.Author }}</a>
 		</div>
 
 		<h2>简介</h2>

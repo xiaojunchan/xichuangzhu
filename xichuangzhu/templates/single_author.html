@@ -15,9 +15,9 @@
 		</div>
 	
 		{% if author.DeathYear == 0 %}
-		<div class="author-period">〔<a href="{{ url_for('single_dynasty', dynastyID=author.DynastyID) }}">{{ author.Dynasty }}</a>〕{{ author.BirthYear }}年</div>
+		<div class="author-period">〔<a href="{{ url_for('single_dynasty', dynasty_id=author.DynastyID) }}">{{ author.Dynasty }}</a>〕{{ author.BirthYear }}年</div>
 		{% else %}
-		<div class='author-period'>〔<a href="{{ url_for('single_dynasty', dynastyID=author.DynastyID) }}">{{ author.Dynasty }}</a>〕{{ author.BirthYear|replace('-', '前') }}年 ~ {{ author.DeathYear|replace('-', '前') }}年</div>
+		<div class='author-period'>〔<a href="{{ url_for('single_dynasty', dynasty_id=author.DynastyID) }}">{{ author.Dynasty }}</a>〕{{ author.BirthYear|replace('-', '前') }}年 ~ {{ author.DeathYear|replace('-', '前') }}年</div>
 		{% endif %}
 
 		<h2>简介</h2>

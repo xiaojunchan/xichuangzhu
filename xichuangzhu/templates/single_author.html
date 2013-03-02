@@ -14,7 +14,11 @@
 			<h1>{{ author.Author }}</h1><!-- <span class="author-quote">{{ author.Quote }}</span> -->
 		</div>
 	
-		<div class='author-period'>〔<a href="{{ url_for('single_dynasty', dynastyID=author.DynastyID) }}">{{ author.Dynasty }}</a>〕{{ author.BirthYear|replace('-', '前') }}年~{{ author.DeathYear|replace('-', '前') }}年</div>
+		{% if author.DeathYear == 0 %}
+		<div class="author-period">〔<a href="{{ url_for('single_dynasty', dynastyID=author.DynastyID) }}">{{ author.Dynasty }}</a>〕{{ author.BirthYear }}年</div>
+		{% else %}
+		<div class='author-period'>〔<a href="{{ url_for('single_dynasty', dynastyID=author.DynastyID) }}">{{ author.Dynasty }}</a>〕{{ author.BirthYear|replace('-', '前') }}年 ~ {{ author.DeathYear|replace('-', '前') }}年</div>
+		{% endif %}
 
 		<h2>简介</h2>
 		<div class='author-introduction'>{{ author.Introduction }}</div>

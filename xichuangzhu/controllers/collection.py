@@ -13,6 +13,9 @@ from xichuangzhu.models.author_model import Author
 def single_collection(collectionID):
 	collection = Collection.get_collection(collectionID)
 	works      = Work.get_works_by_collection(collectionID)
+	for work in works:
+		work['Content'] = re.sub(r'<([^<]+)>', '', work['Content'])
+		work['Content'] = work['Content'].replace('%', '').replace('/', '')
 	return render_template('single_collection.html', collection=collection, works=works)
 
 # page - add collection

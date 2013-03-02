@@ -18,6 +18,7 @@ def index():
 	works = Work.get_works_by_random(4)
 	for work in works:
 		work['Content'] = re.sub(r'<([^<]+)>', '', work['Content'])
+		work['Content'] = work['Content'].replace('%', '')
 	reviews = Review.get_reviews_by_random(5)
 	authors = Author.get_authors_by_random(5)
 	dynasties = Dynasty.get_dynasties()

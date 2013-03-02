@@ -61,6 +61,7 @@ def works():
 	works = Work.get_works()
 	for work in works:
 		work['Content'] = re.sub(r'<([^<]+)>', '', work['Content'])
+		work['Content'] = work['Content'].replace('%', '').replace('/', '')
 	return render_template('works.html', works=works)
 
 # page - add work

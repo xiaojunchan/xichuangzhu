@@ -5,8 +5,40 @@
 
 {% block body %}
 
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	$('#dyn-selector a').each(function(){
+		$(this).css({
+			'width': $(this).attr('data-width') / 5012.0 * $(window).width() + "px"
+			//'width': Math.floor($(this).attr('data-width') / 5012.0 * $(window).width()) + "px"
+			//'width': Math.ceil($(this).attr('data-width') / 5012.0 * $(window).width()) + "px"
+			//'width': $(this).attr('data-width') / 5012.0 * $(window).width() + "px"
+		});
+	});
+
+	//alert($('#dyn-12').width());
+	//alert($('#dyn-selector').width());
+	//alert($(window).width());
+
+	$('#dyn-12').css({
+		'width': $('#dyn-12').width() + $(window).width() - $('#dyn-selector').width() - 1 + "px"
+	});
+
+	//alert($('#dyn-12').width());
+});
+
+</script>
+
 <div class="row">
 	<div class="span8">
+		<ul id="dyn-selector" class="clearfix">
+			{% for dynasty in dynasties %}
+			<li><a href="#" id="dyn-{{ dynasty.DynastyID }}" title="{{ dynasty.Dynasty }}" data-width="{{ (dynasty.EndYear - dynasty.StartYear) }}" style=""></a></li>
+			{% endfor %}
+		</ul>
+
 		<h2>华夏五千年</h2>
 
 		{% for dynasty in dynasties %}

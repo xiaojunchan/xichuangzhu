@@ -29,6 +29,7 @@ def single_author(authorID):
 	works = Work.get_works_by_author(authorID)
 	for work in works:
 		work['Content'] = re.sub(r'<([^<]+)>', '', work['Content'])
+		work['Content'] = work['Content'].replace('%', '').replace('/', '')
 	worksNum = Work.get_works_num(works)
 	return render_template('single_author.html', author=author, collections=collections, works=works, worksNum=worksNum)
 

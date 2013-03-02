@@ -12,7 +12,12 @@
 		{% endif %}
 
 		<h1 class='dynasty'>{{ dynasty.Dynasty }}</h1>
-		<div class="dynasty-period">{{ dynasty.StartYear|replace('-', '前') }}年~{{ dynasty.EndYear|replace('-', '前') }}年</div>
+
+		{% if dynasty.EndYear == 2012 %}
+		<div class="dynasty-period">{{ dynasty.StartYear }}年 ~ 至今</div>
+		{% else %}
+		<div class="dynasty-period">{{ dynasty.StartYear|replace('-', '前') }}年 ~ {{ dynasty.EndYear|replace('-', '前') }}年</div>
+		{% endif %}
 
 		<h2>简介</h2>
 		<div class='dynasty-introduction'>{{ dynasty.Introduction }}</div>

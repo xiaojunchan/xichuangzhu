@@ -23,6 +23,13 @@ $(document).ready(function(){
 				'margin-top': '11px'
 			});
 
+			// change tooltip top
+			var tooltip_top = parseInt($('.tooltip').first().css('top').replace('px', ''));
+
+			$('.tooltip').first().css({
+				'top': tooltip_top + 11 + 'px'
+			});
+
 			$.ajax({
 				url: "{{ url_for('get_dynasty_by_json') }}",
 				type: 'POST',
@@ -32,17 +39,30 @@ $(document).ready(function(){
 				success: function(data){
 					$('#dynasty-wap').html(data);
 				}
+			});
+		});
 
-			})
-		})
-
+		// set random color
 		var color = 'rgb(' + Math.floor(Math.random()*255+1) + ',' + Math.floor(Math.random()*255+1) + ',' + Math.floor(Math.random()*255+1) + ')';
+
+		var bar_width = $(window).width() / 17;
 
 		$(this).css({
 			'height': '22px',
 			//'width': $(this).attr('data-width') / 5012.0 * $(window).width() + "px",
-			'width': $(window).width() / 17 + 'px',
+			'width': bar_width + 'px',
 			'background-color': color
+		});
+	});
+
+	// when change window size
+	$(window).resize(function(){
+		var bar_width = $(window).width() / 17;
+
+		$('#dyn-selector a').each(function(){
+			$(this).css({
+				'width': bar_width + 'px'
+			});
 		});
 	});
 

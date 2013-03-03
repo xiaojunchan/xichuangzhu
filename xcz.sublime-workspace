@@ -566,6 +566,14 @@
 				"buffer_size": 1521,
 				"line_ending": "Unix"
 			}
+		},
+		{
+			"file": "xichuangzhu/templates/shop.html",
+			"settings":
+			{
+				"buffer_size": 1130,
+				"line_ending": "Unix"
+			}
 		}
 	],
 	"build_system": "",
@@ -821,7 +829,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -836,8 +844,8 @@
 						"selection":
 						[
 							[
-								3244,
-								3244
+								910,
+								910
 							]
 						],
 						"settings":
@@ -846,7 +854,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3207.0,
+						"translation.y": 510.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -863,8 +871,8 @@
 						"selection":
 						[
 							[
-								985,
-								985
+								817,
+								817
 							]
 						],
 						"settings":
@@ -985,6 +993,33 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "xichuangzhu/templates/shop.html",
+					"settings":
+					{
+						"buffer_size": 1130,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								770,
+								770
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 153.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
 				}
 			]
 		}
@@ -1030,6 +1065,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"sho",
+				"xichuangzhu/templates/shop.html"
+			],
 			[
 				"wor",
 				"xichuangzhu/templates/works.html"

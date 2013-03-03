@@ -8,9 +8,7 @@
 <script type="text/javascript">
 
 $(document).ready(function(){
-	$('.work-content sup').tooltip({
-		//'placement': 'right'
-	});
+	$('.work-content sup').tooltip();
 
 	$('.work-content sup').each(function(index){
 		$(this).text('〔' + (index + 1) + '〕');
@@ -52,6 +50,7 @@ $(document).ready(function(){
 
 			{% if session.user_id == 45197381 %}
 			<a class="btn btn-small" href="{{ url_for('edit_work', work_id=work.WorkID) }}">编辑 <span class="icon-edit"></span></a>
+			<a class="btn btn-small" href="{{ url_for('admin_widgets', target_type='work', target_id=work.WorkID) }}">挂件 <span class="icon-th"></span></a>
 			{% endif %}
 		</div>
 		{% endif %}
@@ -90,7 +89,15 @@ $(document).ready(function(){
 	</div>
 
 	<div class="span4">
+		{% for w in widgets %}
 
+		{% if w.Title and w.Title != '' %}
+		<h2>{{ w.Title }}</h2>
+		{% endif %}
+		
+		<div>{{ w.Content|safe }}</div>
+		
+		{% endfor %}
 	</div>
 </div>
 

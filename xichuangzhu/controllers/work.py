@@ -10,6 +10,7 @@ from xichuangzhu.models.author_model import Author
 from xichuangzhu.models.collection_model import Collection
 from xichuangzhu.models.review_model import Review
 from xichuangzhu.models.love_model import Love
+from xichuangzhu.models.widget_model import Widget
 
 import markdown2
 
@@ -29,14 +30,17 @@ def single_work(work_id):
 	work['Content'] = markdown2.markdown(work['Content'])
 	# add bank row
 	work['Content'] = work['Content'].replace('<p>/</p>', "<div class='bank'></div>")
-	reviews = Review.get_reviews_by_work(work['WorkID'])
+
+	reviews = Review.get_reviews_by_work(work_id)
+	
+	widgets = Widget.get_widgets('work', work_id)
 
 	# check is loved
 	if 'user_id' in session:
 		is_loved = Love.check_love(session['user_id'], work_id)
 	else:
 		is_loved = False
-	return render_template('single_work.html', work=work, reviews=reviews, is_loved=is_loved)
+	return render_template('single_work.html', work=work, reviews=reviews, widgets=widgets, is_loved=is_loved)
 
 # proc - love work
 #--------------------------------------------------

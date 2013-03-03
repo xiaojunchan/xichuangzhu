@@ -574,6 +574,14 @@
 				"buffer_size": 1130,
 				"line_ending": "Unix"
 			}
+		},
+		{
+			"file": "xichuangzhu/templates/single_author.html",
+			"settings":
+			{
+				"buffer_size": 1874,
+				"line_ending": "Unix"
+			}
 		}
 	],
 	"build_system": "",
@@ -612,6 +620,7 @@
 	},
 	"file_history":
 	[
+		"/var/www/xichuangzhu/xichuangzhu/controllers/author.py",
 		"/var/www/xichuangzhu/xichuangzhu/templates/single_dynasty.widget",
 		"/var/www/xichuangzhu/xichuangzhu/templates/works.html",
 		"/var/www/xichuangzhu/xichuangzhu/templates/single_collection.html",
@@ -626,7 +635,6 @@
 		"/var/www/xichuangzhu/xichuangzhu/controllers/user.py",
 		"/var/www/xichuangzhu/xichuangzhu/controllers/home.py",
 		"/var/www/xichuangzhu/xichuangzhu/controllers/love.py",
-		"/var/www/xichuangzhu/xichuangzhu/controllers/author.py",
 		"/var/www/xichuangzhu/xichuangzhu/templates/verify_email_callback.html",
 		"/var/www/xichuangzhu/xichuangzhu/templates/my_love.html",
 		"/var/www/xichuangzhu/xichuangzhu/models/user_model.py",
@@ -829,7 +837,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 7,
 			"sheets":
 			[
 				{
@@ -844,8 +852,8 @@
 						"selection":
 						[
 							[
-								910,
-								910
+								618,
+								618
 							]
 						],
 						"settings":
@@ -1020,6 +1028,33 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "xichuangzhu/templates/single_author.html",
+					"settings":
+					{
+						"buffer_size": 1874,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								512,
+								512
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 102.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
 				}
 			]
 		}
@@ -1066,16 +1101,20 @@
 		"selected_items":
 		[
 			[
+				"sin",
+				"xichuangzhu/templates/single_author.html"
+			],
+			[
+				"au",
+				"xichuangzhu/controllers/author.py"
+			],
+			[
 				"sho",
 				"xichuangzhu/templates/shop.html"
 			],
 			[
 				"wor",
 				"xichuangzhu/templates/works.html"
-			],
-			[
-				"sin",
-				"xichuangzhu/templates/single_collection.html"
 			],
 			[
 				"coll",
@@ -1100,10 +1139,6 @@
 			[
 				"si",
 				"xichuangzhu/templates/single_dynasty.html"
-			],
-			[
-				"au",
-				"xichuangzhu/controllers/author.py"
 			],
 			[
 				"lo",

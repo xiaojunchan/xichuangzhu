@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block page_title %}编辑挂件{% endblock %}
+{% block page_id%}page-edit-widget{% endblock %}
+
+{% block body %}
+
+<form id="form-edit-widget" class="form-horizontal" method="post" action="{{ url_for('edit_widget', widget_id=widget.WidgetID) }}">
+	<fieldset>
+		<legend>编辑挂件</legend>
+
+		<div class="control-group">
+			<label class="control-label">Target Type</label>
+			<div class="controls">
+				<input type="text" name="target_type" value="{{ widget.Type }}" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label">Target ID</label>
+			<div class="controls">
+				<input type="text" name="target_id" value="{{ widget.TargetID }}" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label">标题</label>
+			<div class="controls">
+				<input type="text" name="title" value="{{ widget.Title }}" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label">位置</label>
+			<div class="controls">
+				<input type="text" name="index" value="{{ widget.PositionIndex }}" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label">内容</label>
+			<div class="controls">
+				
+				<textarea class="input-xxlarge" rows="5" name="content">{{ widget.Content }}</textarea>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<div class="controls">
+				<input type="submit" value="提交" class="btn btn-primary" />
+			</div>
+		</div>
+
+	</fieldset>
+</form>
+
+{% endblock %}

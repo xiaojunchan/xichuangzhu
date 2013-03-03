@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block page_title %}管理挂件{% endblock %}
+{% block page_id%}page-admin-widgets{% endblock %}
+
+{% block body %}
+
+<h2>所有挂件</h2>
+
+<table class="table table-bordered table-striped">
+	<thead>
+		<th>标题</th>
+		<th>内容</th>
+		<th>操作</th>
+	</thead>
+
+	<tbody>
+		{% for w in widgets %}
+		<tr>
+			<td>{{ w.Title }}</td>
+			<td>{{ w.Content|safe }}</td>
+			<td>
+				<a class="btn btn-small" href="{{ url_for('edit_widget', widget_id=w.WidgetID) }}">编辑 <span class="icon-edit"></span></a>
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+<form id="form-add-widget" class="form-horizontal" method="post" action="{{ url_for('add_widget') }}">
+	<fieldset>
+		<legend>添加挂件</legend>
+
+		<div class="control-group">
+			<label class="control-label">Target Type</label>
+			<div class="controls">
+				<input type="text" name="target_type" value="{{ target_type }}" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label">Target ID</label>
+			<div class="controls">
+				<input type="text" name="target_id" value="{{ target_id }}" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label">标题</label>
+			<div class="controls">
+				<input type="text" name="title" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label">位置</label>
+			<div class="controls">
+				<input type="text" name="index" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label">内容</label>
+			<div class="controls">
+				
+				<textarea class="input-xxlarge" rows="5" name="content"></textarea>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<div class="controls">
+				<input type="submit" value="提交" class="btn btn-primary" />
+			</div>
+		</div>
+
+	</fieldset>
+</form>
+
+{% endblock %}

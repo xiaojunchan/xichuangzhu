@@ -1,5 +1,7 @@
 #-*- coding: UTF-8 -*-
 
+from __future__ import division
+
 from flask import render_template, request, redirect, url_for, json, session
 
 from xichuangzhu import app
@@ -16,6 +18,8 @@ import markdown2
 
 import re
 
+import math
+
 # page - single work
 #--------------------------------------------------
 
@@ -26,8 +30,23 @@ def single_work(work_id):
 	# add comment
 	work['Content'] = re.sub(r'<([^<^b]+)>', r"<sup title='\1'></sup>", work['Content'])
 	work['Content'] = work['Content'].replace('%', "&nbsp;&nbsp;")
+
+	# count the geci's padding left
+	if work['Type'] == "geci":
+		paras = work['Content'].split('/')[0].split('\r\n\r\n')
+		total_word_len = 0
+		total_row_num = 0
+		for para in paras:
+			if len(para) != 0:
+				total_word_len += len(para)
+				total_row_num += 1
+		geci_padding_left = (36 - total_word_len / total_row_num) / 2 + 1
+	else:
+		geci_padding_left = '0'
+
 	# gene paragraph
 	work['Content'] = markdown2.markdown(work['Content'])
+
 	# add bank row
 	work['Content'] = work['Content'].replace('<p>/</p>', "<div class='bank'></div>")
 
@@ -40,7 +59,7 @@ def single_work(work_id):
 		is_loved = Love.check_love(session['user_id'], work_id)
 	else:
 		is_loved = False
-	return render_template('single_work.html', work=work, reviews=reviews, widgets=widgets, is_loved=is_loved)
+	return render_template('single_work.html', work=work, reviews=reviews, widgets=widgets, is_loved=is_loved, geci_padding_left=geci_padding_left)
 
 # proc - love work
 #--------------------------------------------------

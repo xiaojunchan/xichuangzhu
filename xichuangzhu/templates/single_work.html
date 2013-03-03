@@ -36,7 +36,7 @@ $(document).ready(function(){
 
 		{% endif %}
 
-		<div class="work-content work-type-{{ work.Type }}">{{ work.Content|safe }}</div>
+		<div class="work-content work-type-{{ work.Type }}" {% if work.Type == 'geci' %}style="padding-left: {{ geci_padding_left }}em"{% endif %}>{{ work.Content|safe }}</div>
 		
 		{% if session.user_id %}
 		<div class="btn-group pull-right">
@@ -65,6 +65,7 @@ $(document).ready(function(){
 		<div class="work-introduction">{{ work.WorkIntroduction }}</div>
 
 		<!-- <h2>注释</h2> -->
+
 		<h2>作者简介</h2>
 		<div>{{ work.AuthorIntroduction|truncate(100, True) }}</div>
 		

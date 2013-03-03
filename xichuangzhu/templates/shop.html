@@ -33,7 +33,7 @@ $(document).ready(function(){
 			tops[index%3] += $(this).height() + v_gap;
 
 			// set mother wap's height
-			$('.products-wap').css('height', (tops[index%3] + 20) + 'px');
+			$('.products-wap').css('height', tops[index%3] + 'px');
 		});
 	});
 });

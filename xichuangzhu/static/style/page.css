@@ -3,7 +3,7 @@ body #main-wap h2{font-size:16px;line-height:16px;font-family:'微软雅黑';fon
 body #main-wap .tooltip{font-family:'arial','宋体';text-indent:0;font-weight:normal;font-size:12px;line-height:22px;}
 body #main-wap .tooltip-inner{padding-top:5px;padding-bottom:5px;}
 #douban-icon{float:right;margin-top:8px;cursor:pointer;}
-#footer{text-align:center;font-size:12px;font-family:'微软雅黑';margin:20px 0 10px 0;}
+#footer{text-align:center;font-size:12px;font-family:'微软雅黑';margin:60px 0 10px 0;}
 .navbar-search .search-query{line-height:1.2;}
 .form-horizontal .input-append{display:block;}
 #page-index .work-item{margin-bottom:15px;}#page-index .work-item .work-title{font-size:16px;line-height:30px;font-weight:bold;}
